@@ -7,12 +7,19 @@
 //
 
 #import "XBAppDelegate.h"
+#import "XBTestTableViewController.h"
 
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+
+    XBTestTableViewController *tableView = [[XBTestTableViewController alloc] initWithNibName:@"XBTestTableViewController" bundle:nil];
+    [self.window setRootViewController:tableView];
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

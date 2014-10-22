@@ -3,9 +3,3 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'XBMobile', :exclusive => true do
   pod "XBMobile", :path => "../"
 end
-
-target 'Tests', :exclusive => true do
-  pod "XBMobile", :path => "../"
-
-  pod 'FBSnapshotTestCase'
-end

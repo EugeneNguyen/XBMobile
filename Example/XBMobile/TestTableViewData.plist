@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>isUsingRefreshControl</key>
+	<true/>
+	<key>isRemoteData</key>
+	<true/>
+	<key>remoteLink</key>
+	<string>http://night.sflashcard.com/index.php/services/stores/getReviews</string>
+	<key>predefinedHostInUserdefault</key>
+	<string></string>
+	<key>pathToContent</key>
+	<string>reviews</string>
+	<key>isMutipleType</key>
+	<false/>
+	<key>size</key>
+	<dict>
+		<key>height</key>
+		<integer>100</integer>
+		<key>width</key>
+		<integer>100</integer>
+	</dict>
+	<key>loadMore</key>
+	<dict>
+		<key>enable</key>
+		<true/>
+		<key>identify</key>
+		<string>LoadMore</string>
+		<key>xib</key>
+		<string>LoadMoreCell</string>
+	</dict>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>useAutolayout</key>
+			<true/>
+			<key>cellIdentify</key>
+			<string>testcell</string>
+			<key>xibname</key>
+			<string>TestCell</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>username</string>
+					<key>format</key>
+					<string>{username} have {numOfReview} reviews</string>
+					<key>cases</key>
+					<array>
+						<dict>
+							<key>case</key>
+							<string></string>
+							<key>result</key>
+							<string></string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+					<key>path</key>
+					<string>small_image</string>
+					<key>disableCache</key>
+					<true/>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

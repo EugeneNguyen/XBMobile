@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>isUsingRefreshControl</key>
+	<true/>
+	<key>isRemoteData</key>
+	<true/>
+	<key>remoteLink</key>
+	<string>http://night.sflashcard.com/services/categories/getAll</string>
+	<key>predefinedHostInUserdefault</key>
+	<string>webhost</string>
+	<key>pathToContent</key>
+	<string>categories</string>
+	<key>isMutipleType</key>
+	<false/>
+	<key>loadMore</key>
+	<dict>
+		<key>enable</key>
+		<true/>
+		<key>identify</key>
+		<string>LoadMore</string>
+		<key>xib</key>
+		<string>LoadMoreCell</string>
+	</dict>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>useAutolayout</key>
+			<true/>
+			<key>cellIdentify</key>
+			<string>testcell</string>
+			<key>xibname</key>
+			<string>TestCell1</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>name</string>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+					<key>path</key>
+					<string>small_image</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

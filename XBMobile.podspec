@@ -10,21 +10,18 @@
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
   s.version          = "0.1.0"
-  s.summary          = "A short description of XBMobile."
+  s.summary          = "Most powerful Mobile framework"
   s.description      = <<-DESC
-                       An optional longer description of XBMobile
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/XBMobile"
+  s.homepage         = "https://github.com/EugeneNguyen/XBMobile"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Eugene Nguyen" => "xuanbinh91@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/XBMobile.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/EugeneNguyen/XBMobile.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/LIBRETeamStudio'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
@@ -32,7 +29,10 @@ Pod::Spec.new do |s|
     'XBMobile' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'ASIHTTPRequest'
+  s.dependency 'JSONKit-NoWarning'
+  s.dependency 'MBProgressHUD'
+  s.dependency 'SDWebImage-ProgressView'
 end
