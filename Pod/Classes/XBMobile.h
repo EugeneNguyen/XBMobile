@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "XBTableView.h"
 #import "XBCollectionView.h"
+#import "XBExtension.h"
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface XBMobile : UIWindow
 {

@@ -95,7 +95,6 @@
     if ([_informations[@"isFullTable"] boolValue])
     {
         CGSize s = self.contentSize;
-        NSLog(@"%@", NSStringFromCGSize(s));
         CGRect f = self.frame;
         f.size.height = s.height;
         self.frame = f;
@@ -107,7 +106,6 @@
 
 - (void)requestDidFinish:(XBDataFetching *)_dataFetching
 {
-    NSLog(@"%@", [[_dataFetching.request responseString] objectFromJSONString]);
     [self configHeightAfterFillData];
     if ([_informations[@"isUsingRefreshControl"] boolValue])
     {

@@ -5,6 +5,14 @@
 [![License](https://img.shields.io/cocoapods/l/XBMobile.svg?style=flat)](http://cocoadocs.org/docsets/XBMobile)
 [![Platform](https://img.shields.io/cocoapods/p/XBMobile.svg?style=flat)](http://cocoadocs.org/docsets/XBMobile)
 
+## About XBMobile
+
+XBMobile is open-source library support user to build iOS application extremely quick without thousands lines of code. We provide set of general control with configurable with plist file.
+
+XBMobile also will be used with CodeIgnore & PlusIgniter as IDE & backend system.
+
+XBMobile is a product of [LIBRETeamStudio](http://libre.com.vn)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

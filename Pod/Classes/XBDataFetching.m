@@ -7,6 +7,7 @@
 //
 
 #import "XBDataFetching.h"
+#import "XBMobile.h"
 #import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "JSONKit.h"
@@ -70,7 +71,7 @@
 {
     [self hideHUD];
     NSDictionary *item = [_request.responseString mutableObjectFromJSONString];
-    NSLog(@"%@", item);
+    DDLogVerbose(@"%@", item);
     if (item)
     {
         if ([_datalist isKindOfClass:[NSMutableArray class]])

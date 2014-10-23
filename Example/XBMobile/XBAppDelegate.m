@@ -8,11 +8,13 @@
 
 #import "XBAppDelegate.h"
 #import "XBTestTableViewController.h"
+#import <XBMobile.h>
 
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [XBMobile sharedInstance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 

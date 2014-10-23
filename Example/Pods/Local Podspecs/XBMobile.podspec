@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/EugeneNguyen/XBMobile.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/LIBRETeamStudio'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
@@ -35,4 +35,9 @@ Pod::Spec.new do |s|
   s.dependency 'JSONKit-NoWarning'
   s.dependency 'MBProgressHUD'
   s.dependency 'SDWebImage-ProgressView'
+  s.dependency 'NSLogger-CocoaLumberjack-connector'
+
+  s.subspec 'XBExtension' do |xbe|
+    xbe.source_files = 'Pod/Classes/Extension'
+  end
 end
