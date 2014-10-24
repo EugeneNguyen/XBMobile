@@ -32,14 +32,7 @@ PODS:
   - SDWebImage-ProgressView (0.4.0):
     - SDWebImage (~> 3.7.0)
   - SDWebImage/Core (3.7.1)
-  - XBMobile (0.1.0):
-    - ASIHTTPRequest
-    - JSONKit-NoWarning
-    - MBProgressHUD
-    - NSLogger-CocoaLumberjack-connector
-    - SDWebImage-ProgressView
-    - XBMobile/XBExtension
-  - XBMobile/XBExtension (0.1.0):
+  - XBMobile (0.1.2):
     - ASIHTTPRequest
     - JSONKit-NoWarning
     - MBProgressHUD
@@ -63,6 +56,6 @@ SPEC CHECKSUMS:
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SDWebImage-ProgressView: 5b094a93013b3f6ae9d622b58055c942c964b678
-  XBMobile: 8a573acdf1af70493f1d0614e78c18fbdf5f0299
+  XBMobile: cfba50bcdb6058019a47f63fd43ba01044a8b4af
 
 COCOAPODS: 0.34.4

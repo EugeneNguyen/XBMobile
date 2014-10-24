@@ -9,8 +9,8 @@
 #import "UIView+extension.h"
 #import "XBExtension.h"
 #import "UIImageView+WebCache.h"
-#import "XBTableView.h"
-#import "XBCollectionView.h"
+#import <XBTableView.h>
+#import <XBCollectionView.h>
 
 @implementation UIView (extension)
 
