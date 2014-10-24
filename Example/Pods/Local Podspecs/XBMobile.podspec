@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "Most powerful Mobile framework"
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**'
+  s.source_files = 'Pod/Classes/', 'Pod/Classes/Extension'
   s.resource_bundles = {
     'XBMobile' => ['Pod/Assets/*.png']
   }
