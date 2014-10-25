@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # XBMobile
 
 [![CI Status](http://img.shields.io/travis/Eugene Nguyen/XBMobile.svg?style=flat)](https://travis-ci.org/Eugene Nguyen/XBMobile)
@@ -34,3 +35,9 @@ Eugene Nguyen, xuanbinh91@gmail.com
 
 XBMobile is available under the MIT license. See the LICENSE file for more info.
 
+=======
+XBMobile
+========
+
+Powerfull library for mobile application
+>>>>>>> d8dbe9e972931de2792d97e1a688232088b66a75
