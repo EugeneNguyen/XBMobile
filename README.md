@@ -44,12 +44,7 @@ XBMobile is available under the MIT license. See the LICENSE file for more info.
 
 This is open-source project. If you want to support us to keep develop this, or just give me a beer, don't be shy :) i will always appreciate that.
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="Y22J3LQZCAN2A">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+[![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y22J3LQZCAN2A "Donate once-off to this project using Paypal")
 
 
 =======
