@@ -17,7 +17,7 @@
 
 - (void)xbTableView:(XBTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath forItem:(id)item;
 - (void)xbTableView:(XBTableView *)tableView didSelectButton:(UIButton *)btn atIndexPath:(NSIndexPath *)indexPath forItem:(id)item;
-- (UITableViewCell *)xbTableView:(XBTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath withPreparedCell:(UITableViewCell *)cell;
+- (UITableViewCell *)xbTableView:(XBTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath withPreparedCell:(UITableViewCell *)cell withItem:(id)item;
 
 @end
 

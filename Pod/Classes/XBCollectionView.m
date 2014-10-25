@@ -160,6 +160,10 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
     [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.row]];
 
+    if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
+    {
+        cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.row]];
+    }
     return cell;
 }
 
