@@ -29,12 +29,15 @@ static XBMobile *__sharedXBMobileInstance = nil;
     if (!__sharedXBMobileInstance)
     {
         __sharedXBMobileInstance = [[XBMobile alloc] init];
-
-        [DDLog addLogger:[DDASLLogger sharedInstance]];
-        [DDLog addLogger:[DDTTYLogger sharedInstance]];
-        [DDLog addLogger:[DDNSLoggerLogger sharedInstance]];
     }
     return __sharedXBMobileInstance;
+}
+
+- (void)activeLog
+{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDNSLoggerLogger sharedInstance]];
 }
 
 - (id)init

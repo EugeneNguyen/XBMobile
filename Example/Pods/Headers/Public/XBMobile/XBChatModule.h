@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/ChatModule/XBChatModule.h

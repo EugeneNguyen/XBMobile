@@ -17,8 +17,7 @@
 {
     NSMutableArray *datalist;
     UITableViewController *tableViewController;
-
-    UICollectionViewLayout *viewlayout;
+    BOOL isMultipleSection;
 }
 
 @end
@@ -40,7 +39,15 @@
 
 - (void)loadData:(NSArray *)data
 {
-    datalist = [data mutableCopy];
+    if (isMultipleSection)
+    {
+        datalist = [data mutableCopy];
+    }
+    else
+    {
+        datalist = [@[@{@"title": @"root", @"items": data}] mutableCopy];
+    }
+    [self reloadData];
 }
 
 - (void)setInformations:(NSDictionary *)info
@@ -138,9 +145,19 @@
 
 #pragma mark - UITableViewDelegateAndDataSource
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return [datalist count];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    long count = [datalist[section][@"items"] count];
+    if ([_informations[@"loadMore"][@"enable"] boolValue] && (section == [datalist count] - 1))
+    {
+        count ++;
+    }
+    return count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -151,15 +168,19 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_informations[@"loadMore"][@"enable"] boolValue] && indexPath.row == [datalist count])
+    if ([_informations[@"loadMore"][@"enable"] boolValue] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
     {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
         return cell;
     }
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.row]];
+    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
 
+    if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
+    {
+        cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.section][@"items"][indexPath.row]];
+    }
     return cell;
 }
 
@@ -167,7 +188,7 @@
 {
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectRowAtIndexPath:forItem:)])
     {
-        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.row]];
+        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 
@@ -177,7 +198,7 @@
     NSIndexPath *indexPath = [self indexPathForItemAtPoint:buttonPosition];
     if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectButton:atIndexPath:forItem:)])
     {
-        [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.row]];
+        [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 
@@ -185,7 +206,7 @@
 {
     if ([_informations[@"isMutipleType"] boolValue])
     {
-        return _informations[@"cells"][[datalist[indexPath.row][@"cell_type"] intValue]];
+        return _informations[@"cells"][[datalist[indexPath.section][@"items"][indexPath.row][@"cell_type"] intValue]];
     }
     else
     {

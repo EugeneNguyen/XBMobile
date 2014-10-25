@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>cellIdentify</key>
+			<string>testcell</string>
+			<key>xibname</key>
+			<string>TestCell</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>nickname</string>
+					<key>format</key>
+					<string>{nickname} have {jidStr} reviews</string>
+					<key>cases</key>
+					<array>
+						<dict>
+							<key>case</key>
+							<string></string>
+							<key>result</key>
+							<string></string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+					<key>path</key>
+					<string>small_image</string>
+					<key>disableCache</key>
+					<true/>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>section</key>
+	<dict>
+		<key>pathToItem</key>
+		<string>items</string>
+		<key>header</key>
+		<dict>
+			<key>xibname</key>
+			<string></string>
+			<key>elements</key>
+			<array/>
+		</dict>
+		<key>footer</key>
+		<dict>
+			<key>xibname</key>
+			<string></string>
+			<key>elements</key>
+			<array/>
+		</dict>
+	</dict>
+</dict>
+</plist>

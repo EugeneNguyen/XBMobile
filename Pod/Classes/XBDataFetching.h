@@ -33,6 +33,8 @@
 
 @property (nonatomic, retain) id <XBDataFetchingDelegate> delegate;
 
+@property (nonatomic, assign) BOOL isMultipleSection;
+
 - (void)startFetchingData;
 
 @end

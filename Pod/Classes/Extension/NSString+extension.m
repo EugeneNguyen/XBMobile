@@ -8,15 +8,27 @@
 
 #import "NSString+extension.h"
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @implementation NSString (extension)
 
 - (NSString *)applyData:(NSDictionary *)data
 {
     NSString *result = [self copy];
-    for (NSString *s in [data allKeys])
+    if ([data isKindOfClass:[NSDictionary class]])
     {
-        result = [result stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", data[s]]];
+        for (NSString *s in [data allKeys])
+        {
+            result = [result stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", data[s]]];
+        }
+    }
+    else if ([data isKindOfClass:[NSManagedObject class]])
+    {
+        NSManagedObject *obj = (NSManagedObject *)data;
+        for (NSString *s in [[obj.entity attributesByName] allKeys])
+        {
+            result = [result stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", [obj valueForKey:s]]];
+        }
     }
     return result;
 }

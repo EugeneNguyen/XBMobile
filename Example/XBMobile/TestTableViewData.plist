@@ -24,7 +24,7 @@
 	<key>loadMore</key>
 	<dict>
 		<key>enable</key>
-		<true/>
+		<false/>
 		<key>identify</key>
 		<string>LoadMore</string>
 		<key>xib</key>
@@ -38,7 +38,7 @@
 			<key>cellIdentify</key>
 			<string>testcell</string>
 			<key>xibname</key>
-			<string>TestCell</string>
+			<string>TestCellCollection</string>
 			<key>elements</key>
 			<array>
 				<dict>
@@ -69,5 +69,24 @@
 			</array>
 		</dict>
 	</array>
+	<key>section</key>
+	<dict>
+		<key>pathToItem</key>
+		<string></string>
+		<key>header</key>
+		<dict>
+			<key>xibname</key>
+			<string></string>
+			<key>elements</key>
+			<array/>
+		</dict>
+		<key>footer</key>
+		<dict>
+			<key>xibname</key>
+			<string></string>
+			<key>elements</key>
+			<array/>
+		</dict>
+	</dict>
 </dict>
 </plist>

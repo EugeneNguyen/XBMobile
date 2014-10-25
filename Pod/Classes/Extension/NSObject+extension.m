@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+extension.h"
 #import "MBProgressHUD.h"
+#import <CoreData/CoreData.h>
 
 @implementation NSObject (extension)
 
@@ -44,6 +45,18 @@
         else if ([obj isKindOfClass:[NSArray class]])
         {
             obj = obj[[s intValue]];
+        }
+        else if ([obj isKindOfClass:[NSManagedObject class]])
+        {
+            NSManagedObject *managedObject = (NSManagedObject *)obj;
+            BOOL foundKey = [[[managedObject.entity attributesByName] allKeys] indexOfObjectPassingTest:^BOOL(id object, NSUInteger idx, BOOL *stop) {
+                return [object isEqualToString:s];
+            }] != NSNotFound;
+            if (foundKey)
+            {
+                obj = [(NSManagedObject *)obj valueForKey:s];
+            }
+            return @"";
         }
         else if ([s length] == 0)
         {

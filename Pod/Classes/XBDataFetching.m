@@ -21,6 +21,7 @@
 @synthesize info;
 @synthesize postParams = _postParams;
 @synthesize request;
+@synthesize isMultipleSection;
 
 - (void)setDatalist:(id)datalist
 {
@@ -77,7 +78,15 @@
         if ([_datalist isKindOfClass:[NSMutableArray class]])
         {
             [(NSMutableArray *)_datalist removeAllObjects];
-            [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+            if (isMultipleSection)
+            {
+                [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+            }
+            else
+            {
+                NSDictionary *section = @{@"title": @"root", @"items": [item objectForPath:info[@"pathToContent"]]};
+                [(NSMutableArray *)_datalist addObject:section];
+            }
         }
         else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
         {

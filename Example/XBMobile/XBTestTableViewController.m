@@ -17,8 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [tableView setPostParams:@{@"store_id": @(28), @"token": @"ea0eea115cccb9c41919f16ee4a92ebb"}];
-    [tableView loadInformationFromPlist:@"TestTableViewData"];
+    [tableView loadInformationFromPlist:@"XBChatViewDemo"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,8 +9,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.1.4.1"
-  s.summary          = "Most powerful Mobile framework"
+  s.version          = "0.1.5"
+  s.summary          = "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically."
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
                        DESC
@@ -24,17 +24,21 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/', 'Pod/Classes/Extension'
+  s.source_files = 'Pod/Classes/', 'Pod/Classes/Extension', 'Pod/Classes/ChatModule'
   s.resource_bundles = {
-    'XBMobile' => ['Pod/Assets/*.png']
+    'XBMobile' => ['Pod/Assets/**/*']
   }
 
+  s.library = 'libxml2'
+
   s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'MapKit', 'CoreData'
+  s.library = 'libxml2'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'JSONKit-NoWarning'
   s.dependency 'MBProgressHUD'
   s.dependency 'SDWebImage-ProgressView'
   s.dependency 'NSLogger-CocoaLumberjack-connector'
+  s.dependency 'XMPPFramework', '~> 3.6'
 
 end

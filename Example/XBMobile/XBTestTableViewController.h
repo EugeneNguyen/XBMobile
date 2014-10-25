@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XBMobile/XBTableView.h>
+#import <XBMobile.h>
 
 @interface XBTestTableViewController : UIViewController
 {
-    IBOutlet XBTableView *tableView;
+    IBOutlet XBChatFriendListView *tableView;
 }
 
 @end

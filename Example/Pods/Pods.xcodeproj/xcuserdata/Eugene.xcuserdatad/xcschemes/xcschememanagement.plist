@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-XBMobile-CocoaAsyncSocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XBMobile-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-XBMobile-XMPPFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XBMobile.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6BCE7734DB6C548CC7556286</key>
+		<key>03DDF3062B003BDA46114B5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93A6D1566B7185E82BCB10B5</key>
+		<key>16A80CD2D16B99E47E4BDBAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9676E9E4F2278A8D0379B987</key>
+		<key>2994770D195998C8CD7B742A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>980C822719188D8B1FB3BC5A</key>
+		<key>36FD26AEFA2BB9D9367214A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3F8E1465121412FFE020BAE</key>
+		<key>4156D75C6792ABFD54456964</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC0A0A07112CB996469377D4</key>
+		<key>5DD026B68520787430A81E7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D238136B2BF7F139BE37B7F0</key>
+		<key>608693775B2842C63C97148E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D317B2690A55EF2E4A650EA0</key>
+		<key>6275A13EDF4AA7AD74727963</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DCBF8B61E04427DEFC3DECC6</key>
+		<key>B8BE4A2066D5A49997738859</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE91B5B56BC9B023389DF1CF</key>
+		<key>BF685708DAAB0CC30AE2D1D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9BA11A1D31E3D70F64F2BB6</key>
+		<key>C0D96E8DC14E99DA3B288DE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE9B3C26E2DB0193280A13FA</key>
+		<key>C7DA36EC8565ADABAADDCFDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CBCEE38BA10254AC4D29AAA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2EEDC6A6D1C04909FE1FF9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

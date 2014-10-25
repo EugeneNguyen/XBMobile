@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XBTestTableViewController">
             <connections>
-                <outlet property="tableView" destination="bkn-ZO-MmT" id="7mv-xW-ezF"/>
+                <outlet property="tableView" destination="fBz-01-fSL" id="l2y-xa-32y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,20 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bkn-ZO-MmT" customClass="XBTableView">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fBz-01-fSL" customClass="XBChatFriendListView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="xbDelegate" destination="-1" id="Kgb-uO-noP"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="bkn-ZO-MmT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FdI-gk-I2s"/>
-                <constraint firstAttribute="bottom" secondItem="bkn-ZO-MmT" secondAttribute="bottom" id="H9k-53-tAV"/>
-                <constraint firstAttribute="trailing" secondItem="bkn-ZO-MmT" secondAttribute="trailing" id="b3D-Ts-Vcq"/>
-                <constraint firstItem="bkn-ZO-MmT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="l89-fe-wEH"/>
+                <constraint firstAttribute="trailing" secondItem="fBz-01-fSL" secondAttribute="trailing" id="2vu-gc-APO"/>
+                <constraint firstItem="fBz-01-fSL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="F1J-B3-eS6"/>
+                <constraint firstItem="fBz-01-fSL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MyL-PT-Frz"/>
+                <constraint firstAttribute="bottom" secondItem="fBz-01-fSL" secondAttribute="bottom" id="TiY-mT-TgU"/>
             </constraints>
             <point key="canvasLocation" x="329" y="-83"/>
         </view>

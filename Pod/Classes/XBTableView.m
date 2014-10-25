@@ -17,6 +17,7 @@
 {
     NSMutableArray *datalist;
     UITableViewController *tableViewController;
+    BOOL isMultipleSection;
 }
 
 @end
@@ -37,7 +38,15 @@
 
 - (void)loadData:(NSArray *)data
 {
-    datalist = [data mutableCopy];
+    if (isMultipleSection)
+    {
+        datalist = [data mutableCopy];
+    }
+    else
+    {
+        datalist = [@[@{@"title": @"root", @"items": data}] mutableCopy];
+    }
+    [self reloadData];
 }
 
 - (void)setInformations:(NSDictionary *)info
@@ -45,6 +54,12 @@
     _informations = info;
     self.dataSource = self;
     self.delegate = self;
+
+    if (info[@"section"])
+    {
+        isMultipleSection = YES;
+    }
+
     [self requestData];
     for (NSDictionary *item in _informations[@"cells"])
     {
@@ -128,12 +143,17 @@
 
 #pragma mark - UITableViewDelegateAndDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [datalist count];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self heightForBasicCellAtIndexPath:indexPath];
 }
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < [datalist count])
+    if ((indexPath.section < [datalist count]) && (indexPath.row < [[datalist lastObject][@"items"] count]))
     {
         NSDictionary *item = [self cellInfoForPath:indexPath];
         if ([item[@"fixedHeight"] floatValue] > 0)
@@ -141,7 +161,7 @@
             return [item[@"fixedHeight"] floatValue];
         }
         UITableViewCell *sizingCell = [self dequeueReusableCellWithIdentifier:item[@"cellIdentify"]];
-        [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.row]];
+        [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
         return [self calculateHeightForConfiguredSizingCell:sizingCell];
     }
     else
@@ -161,8 +181,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    long count = [datalist count];
-    if ([_informations[@"loadMore"][@"enable"] boolValue])
+    long count = [datalist[section][@"items"] count];
+    if ([_informations[@"loadMore"][@"enable"] boolValue] && (section == [datalist count] - 1))
     {
         count ++;
     }
@@ -171,7 +191,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_informations[@"loadMore"][@"enable"] boolValue] && indexPath.row == [datalist count])
+    NSLog(@"%@", indexPath);
+    if ([_informations[@"loadMore"][@"enable"] boolValue] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
         return cell;
@@ -179,11 +200,11 @@
 
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.row]];
-
-    if ([xbDelegate respondsToSelector:@selector(xbTableView:cellForRowAtIndexPath:withPreparedCell:)])
+    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
+    
+    if ([xbDelegate respondsToSelector:@selector(xbTableView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {
-        cell = [xbDelegate xbTableView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell];
+        cell = [xbDelegate xbTableView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
     return cell;
 }
@@ -192,7 +213,7 @@
 {
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbTableView:didSelectRowAtIndexPath:forItem:)])
     {
-        [xbDelegate xbTableView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.row]];
+        [xbDelegate xbTableView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 
@@ -202,7 +223,7 @@
     NSIndexPath *indexPath = [self indexPathForRowAtPoint:buttonPosition];
     if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbTableView:didSelectButton:atIndexPath:forItem:)])
     {
-        [xbDelegate xbTableView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.row]];
+        [xbDelegate xbTableView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 
@@ -215,12 +236,9 @@
         {
             path = @"cell_type";
         }
-        return _informations[@"cells"][[datalist[indexPath.row][path] intValue]];
+        return _informations[@"cells"][[datalist[indexPath.section][@"items"][indexPath.row][path] intValue]];
     }
-    else
-    {
-        return _informations[@"cells"][0];
-    }
+    return _informations[@"cells"][0];
 }
 
 @end

@@ -14,7 +14,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [XBMobile sharedInstance];
+    [[XBChatModule sharedInstance] setUsername:@"admin"];
+    [[XBChatModule sharedInstance] setPassword:@"admin"];
+    [[XBChatModule sharedInstance] setHost:@"sflashcard.com"];
+    [[XBChatModule sharedInstance] connect];
+
+    [[XBMobile sharedInstance] activeLog];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
