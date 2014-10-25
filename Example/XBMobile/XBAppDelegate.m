@@ -18,6 +18,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
+    [[NSUserDefaults standardUserDefaults] setValue:@"http://exmaple.com/service" forKey:@"webhost"];
     XBTestTableViewController *tableView = [[XBTestTableViewController alloc] initWithNibName:@"XBTestTableViewController" bundle:nil];
     [self.window setRootViewController:tableView];
 

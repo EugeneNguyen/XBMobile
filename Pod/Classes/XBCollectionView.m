@@ -49,9 +49,6 @@
     self.dataSource = self;
     self.delegate = self;
 
-    viewlayout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionViewLayout = viewlayout;
-
     [self requestData];
     for (NSDictionary *item in _informations[@"cells"])
     {
