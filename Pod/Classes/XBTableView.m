@@ -200,11 +200,19 @@
 
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
+<<<<<<< HEAD
     [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
     
     if ([xbDelegate respondsToSelector:@selector(xbTableView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {
         cell = [xbDelegate xbTableView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.section][@"items"][indexPath.row]];
+=======
+    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.row]];
+    
+    if ([xbDelegate respondsToSelector:@selector(xbTableView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
+    {
+        cell = [xbDelegate xbTableView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.row]];
+>>>>>>> 1cc8b456bbe57726be987529ed4241000a47305e
     }
     return cell;
 }
