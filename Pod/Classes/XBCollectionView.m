@@ -163,10 +163,9 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *size = _informations[@"size"];
-    if (size[@"percentage"])
+    if ([size[@"percentage"] boolValue])
     {
-        float percentage = [size[@"percentage"] floatValue];
-        return CGSizeMake([size[@"width"] floatValue] * percentage, [size[@"height"] floatValue] * percentage);
+        return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
     }
     else
     {
