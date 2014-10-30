@@ -29,11 +29,10 @@ Pod::Spec.new do |s|
     'XBMobile' => ['Pod/Assets/**/*']
   }
 
-  s.library = 'libxml2'
-
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit', 'CoreData'
-  s.library = 'libxml2'
+  s.library = 'xml2'
+
   s.dependency 'ASIHTTPRequest'
   s.dependency 'JSONKit-NoWarning'
   s.dependency 'MBProgressHUD'

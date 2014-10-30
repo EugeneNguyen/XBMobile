@@ -16,7 +16,7 @@
 @interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate>
 {
     NSMutableArray *datalist;
-    UITableViewController *tableViewController;
+    UIRefreshControl *refreshControl;
     BOOL isMultipleSection;
 }
 
@@ -64,7 +64,7 @@
 
     if ([_informations[@"isUsingRefreshControl"] boolValue])
     {
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        refreshControl = [[UIRefreshControl alloc] init];
         [refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
         [self addSubview:refreshControl];
     }
@@ -125,7 +125,7 @@
     [self configHeightAfterFillData];
     if ([_informations[@"isUsingRefreshControl"] boolValue])
     {
-        [tableViewController.refreshControl endRefreshing];
+        [refreshControl endRefreshing];
     }
 }
 
@@ -139,7 +139,7 @@
 
     if ([_informations[@"isUsingRefreshControl"] boolValue])
     {
-        [tableViewController.refreshControl endRefreshing];
+        [refreshControl endRefreshing];
     }
 }
 
@@ -163,7 +163,15 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *size = _informations[@"size"];
-    return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+    if (size[@"percentage"])
+    {
+        float percentage = [size[@"percentage"] floatValue];
+        return CGSizeMake([size[@"width"] floatValue] * percentage, [size[@"height"] floatValue] * percentage);
+    }
+    else
+    {
+        return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

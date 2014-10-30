@@ -16,6 +16,8 @@
 	<false/>
 	<key>size</key>
 	<dict>
+		<key>percentage</key>
+		<string></string>
 		<key>height</key>
 		<integer>100</integer>
 		<key>width</key>
