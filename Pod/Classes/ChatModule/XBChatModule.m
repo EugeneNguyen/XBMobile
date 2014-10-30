@@ -28,6 +28,7 @@ NSString *const XBChatEventConnected = @"XBChatEventConnected";
 @property (nonatomic, strong, readonly) XMPPvCardAvatarModule *xmppvCardAvatarModule;
 @property (nonatomic, strong, readonly) XMPPCapabilities *xmppCapabilities;
 @property (nonatomic, strong, readonly) XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
+@property (nonatomic, strong, readonly) XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingStorage;
 
 - (void)setupStream;
 - (void)teardownStream;
@@ -97,7 +98,7 @@ NSString *const XBChatEventConnected = @"XBChatEventConnected";
 
     NSXMLElement *_message = [NSXMLElement elementWithName:@"message"];
     [_message addAttributeWithName:@"type" stringValue:@"chat"];
-    [_message addAttributeWithName:@"to" stringValue:@"admin@sflashcard.com"];
+    [_message addAttributeWithName:@"to" stringValue:jid];
     [_message addChild:body];
 
     [[self xmppStream] sendElement:_message];
@@ -194,6 +195,14 @@ NSString *const XBChatEventConnected = @"XBChatEventConnected";
 
     xmppCapabilities.autoFetchHashedCapabilities = YES;
     xmppCapabilities.autoFetchNonHashedCapabilities = NO;
+
+    xmppMessageArchivingStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    xmppMessageArchivingModule = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:xmppMessageArchivingStorage];
+    xmppMessageArchivingModule.clientSideMessageArchivingOnly = NO;
+    
+    [xmppMessageArchivingModule activate:xmppStream];
+
+    [xmppMessageArchivingModule  addDelegate:self delegateQueue:dispatch_get_main_queue()];
 
     // Activate xmpp modules
 
@@ -491,16 +500,9 @@ NSString *const XBChatEventConnected = @"XBChatEventConnected";
         NSString *body = [[message elementForName:@"body"] stringValue];
         NSString *displayName = [user displayName];
 
-        [self alert:displayName message:body];
-
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
-                                                                message:body
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
+            
         }
         else
         {

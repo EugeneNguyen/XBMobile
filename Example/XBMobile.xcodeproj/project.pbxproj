@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44392CB41A01DF8D009008F4 /* XBChatTimeLine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44392CB31A01DF8D009008F4 /* XBChatTimeLine.plist */; };
 		4466787B19F750E700A6EE8D /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4466787019F750E700A6EE8D /* LoadMoreCell.xib */; };
 		4466787C19F750E700A6EE8D /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4466787119F750E700A6EE8D /* TestCell.xib */; };
 		4466787D19F750E700A6EE8D /* TestCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4466787219F750E700A6EE8D /* TestCell1.xib */; };
@@ -18,6 +19,8 @@
 		4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4466787919F750E700A6EE8D /* XBTestTableViewController.m */; };
 		4466788419F750E700A6EE8D /* XBTestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4466787A19F750E700A6EE8D /* XBTestTableViewController.xib */; };
 		44796D341A00D7330003C574 /* XBChatViewDemo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44796D331A00D7330003C574 /* XBChatViewDemo.plist */; };
+		44796D411A014E790003C574 /* XBChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44796D3F1A014E790003C574 /* XBChatViewController.m */; };
+		44796D421A014E790003C574 /* XBChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44796D401A014E790003C574 /* XBChatViewController.xib */; };
 		5A721586A07CB37BE2185DA4 /* libPods-XBMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF744432D1CB3AD467590E3 /* libPods-XBMobile.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -31,6 +34,7 @@
 /* Begin PBXFileReference section */
 		32E31B7DD24C2EE0333B38C7 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		419D5CE81EB9E3B04C7E6FCD /* XBMobile.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XBMobile.podspec; path = ../XBMobile.podspec; sourceTree = "<group>"; };
+		44392CB31A01DF8D009008F4 /* XBChatTimeLine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBChatTimeLine.plist; sourceTree = "<group>"; };
 		4466787019F750E700A6EE8D /* LoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
 		4466787119F750E700A6EE8D /* TestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		4466787219F750E700A6EE8D /* TestCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCell1.xib; sourceTree = "<group>"; };
@@ -43,6 +47,9 @@
 		4466787919F750E700A6EE8D /* XBTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTestTableViewController.m; sourceTree = "<group>"; };
 		4466787A19F750E700A6EE8D /* XBTestTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBTestTableViewController.xib; sourceTree = "<group>"; };
 		44796D331A00D7330003C574 /* XBChatViewDemo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBChatViewDemo.plist; sourceTree = "<group>"; };
+		44796D3E1A014E790003C574 /* XBChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBChatViewController.h; sourceTree = "<group>"; };
+		44796D3F1A014E790003C574 /* XBChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBChatViewController.m; sourceTree = "<group>"; };
+		44796D401A014E790003C574 /* XBChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBChatViewController.xib; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* XBMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,7 +130,11 @@
 				6003F59D195388D20070C39A /* XBAppDelegate.m */,
 				4466787819F750E700A6EE8D /* XBTestTableViewController.h */,
 				4466787919F750E700A6EE8D /* XBTestTableViewController.m */,
+				44796D3E1A014E790003C574 /* XBChatViewController.h */,
+				44796D3F1A014E790003C574 /* XBChatViewController.m */,
+				44796D401A014E790003C574 /* XBChatViewController.xib */,
 				44796D331A00D7330003C574 /* XBChatViewDemo.plist */,
+				44392CB31A01DF8D009008F4 /* XBChatTimeLine.plist */,
 				4466787A19F750E700A6EE8D /* XBTestTableViewController.xib */,
 				4466787019F750E700A6EE8D /* LoadMoreCell.xib */,
 				4466787119F750E700A6EE8D /* TestCell.xib */,
@@ -250,10 +261,12 @@
 				4466787D19F750E700A6EE8D /* TestCell1.xib in Resources */,
 				4466787E19F750E700A6EE8D /* TestCellCollection.xib in Resources */,
 				4466788219F750E700A6EE8D /* XBMainWindow.xib in Resources */,
+				44392CB41A01DF8D009008F4 /* XBChatTimeLine.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				4466788019F750E700A6EE8D /* TestTableViewData1.plist in Resources */,
 				4466787F19F750E700A6EE8D /* TestTableViewData.plist in Resources */,
 				44796D341A00D7330003C574 /* XBChatViewDemo.plist in Resources */,
+				44796D421A014E790003C574 /* XBChatViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				4466787C19F750E700A6EE8D /* TestCell.xib in Resources */,
 				4466788119F750E700A6EE8D /* VMFeedViewController.plist in Resources */,
@@ -302,6 +315,7 @@
 			files = (
 				4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
+				44796D411A014E790003C574 /* XBChatViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +381,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherite)";
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
@@ -406,7 +420,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "$(inherite)";
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";

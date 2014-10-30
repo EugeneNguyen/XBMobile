@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/ChatModule/XBChatSendView.h

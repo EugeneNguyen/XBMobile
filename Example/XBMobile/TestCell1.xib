@@ -3,22 +3,20 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="testcell" rowHeight="114" id="wyH-9M-Z2B">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="testcell" rowHeight="115" id="wyH-9M-Z2B">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wyH-9M-Z2B" id="XsJ-Fy-8jD">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="79" placeholderIntrinsicHeight="28" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="79" translatesAutoresizingMaskIntoConstraints="NO" id="Lso-aa-8qr">
-                        <rect key="frame" x="8" y="8" width="79" height="29"/>
+                        <rect key="frame" x="8" y="9" width="304" height="29"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="29" id="GHe-1J-B7y"/>
-                            <constraint firstAttribute="width" constant="79" id="Tmk-24-soy"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="iWW-Ud-ye1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -26,11 +24,11 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="Lso-aa-8qr" secondAttribute="trailing" constant="225" id="LiE-XK-jnG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Lso-aa-8qr" secondAttribute="bottom" constant="68" id="eBO-tR-6DV"/>
+                    <constraint firstItem="Lso-aa-8qr" firstAttribute="leading" secondItem="XsJ-Fy-8jD" secondAttribute="leading" constant="8" id="3pa-4C-rwl"/>
+                    <constraint firstAttribute="bottom" secondItem="Lso-aa-8qr" secondAttribute="bottom" constant="76" id="Vrf-oU-UC9"/>
                     <constraint firstAttribute="bottom" secondItem="Lso-aa-8qr" secondAttribute="bottom" constant="29" id="hDn-E6-qv5"/>
-                    <constraint firstItem="Lso-aa-8qr" firstAttribute="top" secondItem="XsJ-Fy-8jD" secondAttribute="topMargin" id="iYV-fN-mxi"/>
-                    <constraint firstItem="Lso-aa-8qr" firstAttribute="leading" secondItem="XsJ-Fy-8jD" secondAttribute="leadingMargin" id="x4h-IR-vzX"/>
+                    <constraint firstAttribute="trailing" secondItem="Lso-aa-8qr" secondAttribute="trailing" constant="8" id="iTA-YZ-mRj"/>
+                    <constraint firstItem="Lso-aa-8qr" firstAttribute="top" secondItem="XsJ-Fy-8jD" secondAttribute="top" constant="9" id="mcy-I2-UNa"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -38,7 +36,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="204" y="142"/>
+            <point key="canvasLocation" x="204" y="141.5"/>
         </tableViewCell>
     </objects>
 </document>

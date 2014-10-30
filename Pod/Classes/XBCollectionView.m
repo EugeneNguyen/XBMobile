@@ -179,11 +179,7 @@
 
     if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {
-<<<<<<< HEAD
         cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.section][@"items"][indexPath.row]];
-=======
-        cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.row]];
->>>>>>> 1cc8b456bbe57726be987529ed4241000a47305e
     }
     return cell;
 }

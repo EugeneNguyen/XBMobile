@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XBChatViewController">
+            <connections>
+                <outlet property="chatView" destination="nM2-jr-5eD" id="I2G-xk-ehJ"/>
+                <outlet property="sendView" destination="a9n-kq-895" id="c0T-H3-Qm5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9n-kq-895" customClass="XBChatSendView">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" tag="98" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jia-k8-gFk">
+                            <rect key="frame" x="8" y="10" width="530" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Nf5-x0-O3T"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUe-A3-NPX">
+                            <rect key="frame" x="546" y="10" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="iEe-1d-C1V"/>
+                                <constraint firstAttribute="height" constant="30" id="iep-6W-4LV"/>
+                            </constraints>
+                            <state key="normal" title="Button">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fUe-A3-NPX" firstAttribute="top" secondItem="a9n-kq-895" secondAttribute="top" constant="10" id="2gH-bb-CkZ"/>
+                        <constraint firstAttribute="bottom" secondItem="Jia-k8-gFk" secondAttribute="bottom" constant="10" id="4Zq-bF-Op1"/>
+                        <constraint firstItem="fUe-A3-NPX" firstAttribute="leading" secondItem="Jia-k8-gFk" secondAttribute="trailing" constant="8" id="MRu-ux-E1g"/>
+                        <constraint firstItem="Jia-k8-gFk" firstAttribute="leading" secondItem="a9n-kq-895" secondAttribute="leading" constant="8" id="ToS-S0-djP"/>
+                        <constraint firstAttribute="bottom" secondItem="fUe-A3-NPX" secondAttribute="bottom" constant="10" id="XZY-Na-XOX"/>
+                        <constraint firstAttribute="height" constant="50" id="dRF-Pn-h9f"/>
+                        <constraint firstItem="Jia-k8-gFk" firstAttribute="top" secondItem="a9n-kq-895" secondAttribute="top" constant="10" id="pql-Hx-gTO"/>
+                        <constraint firstAttribute="trailing" secondItem="fUe-A3-NPX" secondAttribute="trailing" constant="8" id="zhj-dR-NhF"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nM2-jr-5eD" customClass="XBChatView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nM2-jr-5eD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Kk-KJ-S3T"/>
+                <constraint firstAttribute="trailing" secondItem="a9n-kq-895" secondAttribute="trailing" id="Jxy-qF-tNx"/>
+                <constraint firstItem="nM2-jr-5eD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JzD-yd-Ia6"/>
+                <constraint firstItem="a9n-kq-895" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NOT-Jh-z88"/>
+                <constraint firstAttribute="bottom" secondItem="a9n-kq-895" secondAttribute="bottom" id="Pbz-rU-0g2"/>
+                <constraint firstAttribute="trailing" secondItem="nM2-jr-5eD" secondAttribute="trailing" id="bme-Xm-mw7"/>
+                <constraint firstItem="a9n-kq-895" firstAttribute="top" secondItem="nM2-jr-5eD" secondAttribute="bottom" id="iHS-TG-R3h"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

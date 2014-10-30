@@ -7,8 +7,9 @@
 //
 
 #import "XBTestTableViewController.h"
+#import "XBChatViewController.h"
 
-@interface XBTestTableViewController ()
+@interface XBTestTableViewController () <XBTableViewDelegate>
 
 @end
 
@@ -18,6 +19,16 @@
 {
     [super viewDidLoad];
     [tableView loadInformationFromPlist:@"XBChatViewDemo"];
+}
+
+- (void)xbTableView:(XBTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath forItem:(id)item
+{
+    XMPPUserCoreDataStorageObject *user = item;
+    XBChatViewController *vc = [[XBChatViewController alloc] init];
+    vc.jidStr = user.jidStr;
+    [self presentViewController:vc animated:YES completion:^{
+
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

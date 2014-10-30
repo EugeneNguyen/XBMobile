@@ -23,7 +23,11 @@
 #import "XMPPMUC.h"
 #import "XMPPRoomCoreDataStorage.h"
 
+#import "XMPPMessageArchivingCoreDataStorage.h"
+
 #import "XBChatFriendListView.h"
+#import "XBChatSendView.h"
+#import "XBChatView.h"
 
 extern NSString *const XBChatEventConnected;
 
@@ -38,6 +42,8 @@ extern NSString *const XBChatEventConnected;
     XMPPvCardAvatarModule *xmppvCardAvatarModule;
     XMPPCapabilities *xmppCapabilities;
     XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
+    XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingStorage;
+    XMPPMessageArchiving *xmppMessageArchivingModule;
 
     NSString *password;
 

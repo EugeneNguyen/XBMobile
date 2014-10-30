@@ -8,6 +8,7 @@
 
 #import "XBView.h"
 #import "XBDataFetching.h"
+#import "UIView+extension.h"
 
 @interface XBView ()
 {
@@ -37,7 +38,10 @@
 - (void)setInformations:(NSDictionary *)info
 {
     _informations = info;
-    
+    if (datalist)
+    {
+        [self applyTemplate:info andInformation:datalist];
+    }
 }
 
 @end

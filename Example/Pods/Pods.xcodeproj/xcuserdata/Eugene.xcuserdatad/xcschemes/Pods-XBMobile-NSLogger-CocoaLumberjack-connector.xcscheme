@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F2EEDC6A6D1C04909FE1FF9B"
+               BlueprintIdentifier = "A3CC8B6EAA41F1FEC3213C44"
                BuildableName = "libPods-XBMobile-NSLogger-CocoaLumberjack-connector.a"
                BlueprintName = "Pods-XBMobile-NSLogger-CocoaLumberjack-connector"
                ReferencedContainer = "container:Pods.xcodeproj">
