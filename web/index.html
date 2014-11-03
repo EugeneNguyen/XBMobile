@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>XBMobile</title>
+    <link rel="stylesheet" type="text/css" href="960gs/960.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="960gs/reset.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="960gs/text.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+  </head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="navigation">
+        <div class="container_16">
+          <div class="grid_16">
+            <div style="float: right">
+              <div class="navigation_item">
+                <a href="">Home</a>
+              </div>
+              <div class="navigation_item">
+                <a href="https://github.com/EugeneNguyen/XBMobile">Github</a>
+              </div>
+              <div class="navigation_item">
+                <a href="https://github.com/EugeneNguyen/XBMobile/wiki">Wiki</a>
+              </div>
+            </div>
+          </div>
+          <div class="clear"> </div>
+        </div>
+      </div><!-- end of .navigation -->
+      <div class="content_header">
+        <div class="building" id="building"> </div>
+        <div class="cloud" id="cloud"> </div>
+        <div class="plane" id="plane"> </div>
+        <div class="logo" id="logo">
+          <img src="images/logo.png" />
+          <div class="logo_description">Boost up your incredible work, for free.</div>
+        </div>
+      </div>
+    </div><!-- end of .header -->
+    <div class="introduction">
+      <div class="intro">
+        <div class="container_16">
+          <div class="grid_16 panel">
+            <div class="intro_image" style="display: inline-block;width: 310px;height: 300px;background: white;"> </div>
+            <div class="intro_text">
+              XBMobile is an open-source tool reducing thousand lines of code when provide all the complex functions in easy-to-use command.
+            </div>
+            <div class="usage_text">
+              Usage: Following some simple steps, we can start and reuse everything with plist file only
+            </div>
+            <div class="usage_image" style="float: right;display: inline-block;width: 390px;height: 260px;background: white;">
+              <img src="https://camo.githubusercontent.com/eaf3e75f154d6c1d6b6c849ac2a0ddf9ba3f4daf/687474703a2f2f78626d6f62696c652e6c696272652e636f6d2e766e2f6173736574732f6769746875622f78627461626c65766965772d322e706e67" width="100%" height="100%" />
+            </div>
+          </div>
+          <div class="clear"> </div>
+        </div>
+      </div>
+    </div><!-- end of .introduction -->
+    <div class="tutorial">
+      <div class="container_16">
+        <div class="grid_16">
+          <div class="title">XBTableView</div>
+          <div class="normal">
+            ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit
+          </div>
+          <h6 class="item">1. Load & config inline</h6>
+          <p class="normal">
+            Now, load it on your XBTableView
+          </p>
+          <br />
+          <pre>
+<code>//Load post params to request (optional)
+tableView postParams = @{@"token":[[NSUserDefaults standardUserDefaults] objectForKey:@"token"],
+            @"photo_id": @(123),
+            @"comment": @"This is a comment from XBTableView"};
+//Load plist file (required)</code>
+          </pre>
+          <h6 class="item">2. Turn your UITableView into XBTableView</h6>
+          <p class="normal">
+            By code:
+          </p>
+          <br />
+          <div class="code" style="">
+            <pre>
+<code>XBTableView *tableView = ...
+tableView.xbDelegate = self;</code>
+            </pre>
+          </div>
+          <br />
+          <br />
+          <!-- 3 -->
+          <h6 class="item">3. Load & config inline</h6>
+          <p class="normal">
+            Now, load it on your XBTableView
+          </p>
+          <br />
+          <div class="code" style="">
+            <pre>
+<code>//Load post params to request (optional)
+tableView.postParams = @{@"token":[[NSUserDefaults standardUserDefaults] objectForKey:@"token"],
+            @"photo_id":@(123),
+            @"comment": @"This is a comment from XBTableView"};</code>
+            </pre>
+          </div>
+          <!-- 4 -->
+          <h6 class="item">4. Turhn your UITableView into XBTableView</h6>
+          <p class="normal">
+            By code:
+          </p>
+          <br />
+          <div class="code" style="">
+            <pre>
+<code>XBTableView *tableView = ...
+tableView.xbDelegate = self;</code>
+            </pre>
+          </div>
+          <br /><br /><br /><br /><br /><br />
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer_text">&copy; 2013-2014 <a>LogoHer.com.vn</a></div>
+    </div>
+    <!-- <div class="container_16">
+      <div class="grid_4">
+      </div>
+      <div class="grid_12">
+      </div>
+    </div> -->
+  </div><!-- End of .container -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

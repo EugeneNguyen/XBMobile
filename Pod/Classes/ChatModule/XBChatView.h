@@ -10,4 +10,6 @@
 
 @interface XBChatView : XBTableView
 
+@property (nonatomic, retain) NSString *jidStr;
+
 @end

@@ -1,0 +1,188 @@
+.header {
+  background: #65bbb6 top center no-repeat;
+  height: 834px;
+  background-size: cover;
+}
+
+.building {
+  background: url(../images/nha.png) top center no-repeat;
+  z-index: 1;
+}
+
+.cloud {
+  background: url(../images/may.png) top center no-repeat;
+  z-index: 2;
+  transition-duration: 0.1s
+}
+
+.plane {
+  background: url(../images/maybay.png) top center no-repeat;
+  z-index: 3;
+  transition-duration: 0.2s
+}
+
+.building, .plane, .cloud {
+  background-size: cover;
+  height: 768px;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.plane {
+  top: -100px;
+}
+
+.navigation_item {
+  display: inline-block;
+  text-align: center;
+  padding: 18px 16px;
+}
+
+.navigation_item > a {
+  color: white;
+  font-size: 20px;
+  font-family: helvetica;
+  text-decoration: none;
+}
+
+.logo {
+  text-align: center;
+  top: 90px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  transition-duration: 0.2s
+}
+
+.logo_description {
+  margin-top: 8px;
+  font-size: 30px;
+  color: white;
+}
+
+.footer_text {
+  height: 30px;
+  color: white;
+  background: #2d2a28;
+  line-height: 28px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.content_header {
+  position: relative;
+}
+
+.introduction {
+  height: 768px;
+  background: #2d2a28;
+  z-index: 100;
+  position: relative;
+}
+
+.panel {
+  position: relative;
+  /*overflow: hidden;*/
+}
+
+.intro {
+  padding-top: 80px;
+}
+
+.intro_text {
+  color: white;
+  font-size: 21px;
+  padding-left: 42px;
+  padding-top: 20px;
+}
+
+.usage {
+  margin-top: 58px;
+}
+
+.usage_text {
+  color: white;
+  font-size: 21px;
+  padding-top: 42px;
+}
+
+.tutorial {
+  background: #3e3e3e;
+  color: white;
+}
+
+.title {
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.normal {
+  font-size: 20px;
+}
+
+.item {
+  font-size: 28px;
+  font-weight: 200;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+
+}
+
+pre code {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+  color: black;
+  font-size: 16px;
+}
+
+.intro_image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition-duration: 1s;
+}
+
+.intro_text {
+  position: absolute;
+  top: 0px;
+  left: 420px;
+  width: 500px;
+  transition-duration: 0.5s;
+}
+
+.usage_image {
+  position: absolute;
+  top: 363px;
+  left: 550px;
+  transition-duration: 1s;
+}
+
+.usage_text {
+  position: absolute;
+  top: 363px;
+  left: 0px;
+  width: 400px;
+  transition-duration: 0.5s;
+}
+
+.container {
+  overflow: hidden;
+}
+

@@ -40,7 +40,7 @@
 
     NSXMLElement *retrieve = [NSXMLElement elementWithName:@"retrieve"];
     [retrieve addAttributeWithName:@"xmlns" stringValue:@"urn:xmpp:archive"];
-    [retrieve addAttributeWithName:@"with" stringValue:@"binh.nx@sflashcard.com"];
+    [retrieve addAttributeWithName:@"with" stringValue:self.jidStr];
     [retrieve addAttributeWithName:@"start" stringValue:@"1469-07-21T02:56:15Z"];
 
     NSXMLElement *set = [NSXMLElement elementWithName:@"set"];
@@ -68,6 +68,7 @@
 
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
                                                   inManagedObjectContext:moc];
+        
         NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
 
         NSArray *sortDescriptors = [NSArray arrayWithObjects:sd1, nil];
@@ -76,6 +77,9 @@
         [fetchRequest setEntity:entity];
         [fetchRequest setSortDescriptors:sortDescriptors];
         [fetchRequest setFetchBatchSize:10];
+        
+        NSPredicate *p1 = [NSPredicate predicateWithFormat:@"bareJidStr=%@" argumentArray:@[self.jidStr]];
+        [fetchRequest setPredicate:p1];
 
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:nil cacheName:nil];
         [fetchedResultsController setDelegate:self];
@@ -83,11 +87,10 @@
         NSError *error = nil;
         if (![fetchedResultsController performFetch:&error])
         {
-            DDLogError(@"Error performing fetch: %@", error);
+            NSLog(@"Error performing fetch: %@", error);
         }
 
     }
-
     return fetchedResultsController;
 }
 

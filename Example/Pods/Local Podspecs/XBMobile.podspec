@@ -24,16 +24,16 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.requires_arc = true
 
+  s.xcconfig                   = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'}
   s.source_files = 'Pod/Classes/', 'Pod/Classes/Extension', 'Pod/Classes/ChatModule'
   s.resource_bundles = {
     'XBMobile' => ['Pod/Assets/**/*']
   }
 
-  s.library = 'libxml2'
-
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit', 'CoreData'
-  s.library = 'libxml2'
+  s.library = 'xml2'
+
   s.dependency 'ASIHTTPRequest'
   s.dependency 'JSONKit-NoWarning'
   s.dependency 'MBProgressHUD'

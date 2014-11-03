@@ -14,6 +14,7 @@
 
 static XBChatModule *__sharedXBChatModule = nil;
 NSString *const XBChatEventConnected = @"XBChatEventConnected";
+NSString *const XBChatEventReceiveMessage = @"XBChatEventReceiveMessage";
 
 @interface XBChatModule ()
 {
@@ -500,6 +501,7 @@ NSString *const XBChatEventConnected = @"XBChatEventConnected";
         NSString *body = [[message elementForName:@"body"] stringValue];
         NSString *displayName = [user displayName];
 
+        [[NSNotificationCenter defaultCenter] postNotificationName:XBChatEventReceiveMessage object:nil];
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
             

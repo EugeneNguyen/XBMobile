@@ -30,6 +30,7 @@
 #import "XBChatView.h"
 
 extern NSString *const XBChatEventConnected;
+extern NSString *const XBChatEventReceiveMessage;
 
 @interface XBChatModule : NSObject
 {

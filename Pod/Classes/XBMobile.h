@@ -12,6 +12,7 @@
 #import "XBCollectionView.h"
 #import "XBExtension.h"
 #import "XBChatModule.h"
+#import "DDLogMacros.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
