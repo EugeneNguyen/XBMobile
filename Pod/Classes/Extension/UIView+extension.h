@@ -11,6 +11,7 @@
 @interface UIView (extension)
 
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info;
+- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target;
 - (void)loadInformation:(NSDictionary *)information;
 - (void)loadInformationFromPlist:(NSString *)plist;
 

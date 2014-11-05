@@ -500,8 +500,8 @@ NSString *const XBChatEventReceiveMessage = @"XBChatEventReceiveMessage";
 
         NSString *body = [[message elementForName:@"body"] stringValue];
         NSString *displayName = [user displayName];
-
-        [[NSNotificationCenter defaultCenter] postNotificationName:XBChatEventReceiveMessage object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:XBChatEventReceiveMessage object:nil userInfo:@{@"user": message.from.user}];
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
             

@@ -101,8 +101,9 @@
     [self finishRequest];
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
+- (void)requestFailed:(ASIHTTPRequest *)_request
 {
+    DDLogVerbose(@"%@", _request.error);
     [self.delegate requestDidFailed:self];
     [self hideHUD];
 }

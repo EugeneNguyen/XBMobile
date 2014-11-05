@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.1.6"
+  s.version          = "0.1.6.2"
   s.summary          = "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically."
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.xcconfig                   = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'}
-  s.source_files = 'Pod/Classes/', 'Pod/Classes/Extension', 'Pod/Classes/ChatModule'
+  s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'XBMobile' => ['Pod/Assets/**/*']
   }
@@ -39,6 +39,6 @@ Pod::Spec.new do |s|
   s.dependency 'MBProgressHUD'
   s.dependency 'SDWebImage-ProgressView'
   s.dependency 'NSLogger-CocoaLumberjack-connector'
-  s.dependency 'XMPPFramework', '~> 3.6'
+  s.dependency 'XMPPFramework'
 
 end

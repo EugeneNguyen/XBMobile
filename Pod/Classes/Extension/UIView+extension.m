@@ -16,6 +16,11 @@
 
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info
 {
+    [self applyTemplate:temp andInformation:info withTarget:nil];
+}
+
+- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target
+{
     if ([self isKindOfClass:[UITableViewCell class]])
     {
         [(UITableViewCell *)self contentView].bounds = CGRectMake(0, 0, 99999, 99999);
@@ -86,10 +91,10 @@
             UIButton *btn = (UIButton *)v;
             [btn setTitle:data forState:UIControlStateNormal];
 
-            if ([self respondsToSelector:NSSelectorFromString(@"didPressButton:")])
+            if ([target respondsToSelector:NSSelectorFromString(@"didPressButton:")])
             {
-                [btn removeTarget:self action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
-                [btn addTarget:self action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
+                [btn removeTarget:target action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
+                [btn addTarget:target action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
             }
         }
         else if ([v isKindOfClass:[XBTableView class]])

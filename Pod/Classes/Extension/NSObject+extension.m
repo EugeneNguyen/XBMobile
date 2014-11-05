@@ -56,7 +56,10 @@
             {
                 obj = [(NSManagedObject *)obj valueForKey:s];
             }
-            return @"";
+            else
+            {
+                return @"";
+            }
         }
         else if ([s length] == 0)
         {
