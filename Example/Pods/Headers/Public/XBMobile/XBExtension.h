@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/XBExtension.h
+../../../../../Pod/Classes/Extension/XBExtension.h

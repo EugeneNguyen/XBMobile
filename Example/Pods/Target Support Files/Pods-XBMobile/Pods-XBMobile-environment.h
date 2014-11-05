@@ -116,9 +116,10 @@
 
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
-#define COCOAPODS_VERSION_MAJOR_XBMobile 0
-#define COCOAPODS_VERSION_MINOR_XBMobile 1
-#define COCOAPODS_VERSION_PATCH_XBMobile 5
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.1.6.2.
 
 // XMPPFramework
 #define COCOAPODS_POD_AVAILABLE_XMPPFramework
