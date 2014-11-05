@@ -19,7 +19,6 @@
 		4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4466787919F750E700A6EE8D /* XBTestTableViewController.m */; };
 		4466788419F750E700A6EE8D /* XBTestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4466787A19F750E700A6EE8D /* XBTestTableViewController.xib */; };
 		44796D341A00D7330003C574 /* XBChatViewDemo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44796D331A00D7330003C574 /* XBChatViewDemo.plist */; };
-		44796D411A014E790003C574 /* XBChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44796D3F1A014E790003C574 /* XBChatViewController.m */; };
 		44796D421A014E790003C574 /* XBChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44796D401A014E790003C574 /* XBChatViewController.xib */; };
 		5A721586A07CB37BE2185DA4 /* libPods-XBMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF744432D1CB3AD467590E3 /* libPods-XBMobile.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -47,8 +46,6 @@
 		4466787919F750E700A6EE8D /* XBTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTestTableViewController.m; sourceTree = "<group>"; };
 		4466787A19F750E700A6EE8D /* XBTestTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBTestTableViewController.xib; sourceTree = "<group>"; };
 		44796D331A00D7330003C574 /* XBChatViewDemo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBChatViewDemo.plist; sourceTree = "<group>"; };
-		44796D3E1A014E790003C574 /* XBChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBChatViewController.h; sourceTree = "<group>"; };
-		44796D3F1A014E790003C574 /* XBChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBChatViewController.m; sourceTree = "<group>"; };
 		44796D401A014E790003C574 /* XBChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBChatViewController.xib; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* XBMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,8 +127,6 @@
 				6003F59D195388D20070C39A /* XBAppDelegate.m */,
 				4466787819F750E700A6EE8D /* XBTestTableViewController.h */,
 				4466787919F750E700A6EE8D /* XBTestTableViewController.m */,
-				44796D3E1A014E790003C574 /* XBChatViewController.h */,
-				44796D3F1A014E790003C574 /* XBChatViewController.m */,
 				44796D401A014E790003C574 /* XBChatViewController.xib */,
 				44796D331A00D7330003C574 /* XBChatViewDemo.plist */,
 				44392CB31A01DF8D009008F4 /* XBChatTimeLine.plist */,
@@ -315,7 +310,6 @@
 			files = (
 				4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
-				44796D411A014E790003C574 /* XBChatViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

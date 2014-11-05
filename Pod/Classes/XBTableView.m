@@ -100,7 +100,6 @@
     }
     else
     {
-        [self reloadData];
         [self configHeightAfterFillData];
     }
 }

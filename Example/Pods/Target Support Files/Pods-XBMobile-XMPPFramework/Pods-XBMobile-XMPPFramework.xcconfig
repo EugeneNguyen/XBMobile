@@ -1,3 +1,0 @@
-PODS_XBMOBILE_XMPPFRAMEWORK_HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv
-PODS_XBMOBILE_XMPPFRAMEWORK_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/XMPPFramework/Vendor/libidn" "$(PODS_ROOT)/XMPPFramework/Vendor/libidn"
-PODS_XBMOBILE_XMPPFRAMEWORK_OTHER_LDFLAGS = -l"idn" -l"resolv" -l"xml2" -framework "CoreData" -framework "CoreLocation" -framework "SystemConfiguration"

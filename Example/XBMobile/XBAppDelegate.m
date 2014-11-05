@@ -14,10 +14,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[XBChatModule sharedInstance] setUsername:@"admin"];
-    [[XBChatModule sharedInstance] setPassword:@"admin"];
-    [[XBChatModule sharedInstance] setHost:@"sflashcard.com"];
-    [[XBChatModule sharedInstance] connect];
 
     [[XBMobile sharedInstance] activeLog];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

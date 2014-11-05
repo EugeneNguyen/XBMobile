@@ -11,7 +11,7 @@
 
 @interface XBTestTableViewController : UIViewController
 {
-    IBOutlet XBChatFriendListView *tableView;
+    
 }
 
 @end

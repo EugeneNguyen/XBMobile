@@ -1,1 +1,0 @@
-../../../../../Pod/Classes/ChatModule/XBChatFriendListView.h
