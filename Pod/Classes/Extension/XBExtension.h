@@ -13,6 +13,4 @@
 #import "UIView+extension.h"
 #import "NSString+extension.h"
 
-#import "DDLogMacros.h"
-
 #endif
