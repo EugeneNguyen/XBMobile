@@ -9,46 +9,52 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
   </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="navigation">
-        <div class="container_16">
-          <div class="grid_16">
-            <div style="float: right">
-              <div class="navigation_item">
-                <a href="">Home</a>
-              </div>
-              <div class="navigation_item">
-                <a href="https://github.com/EugeneNguyen/XBMobile">Github</a>
-              </div>
-              <div class="navigation_item">
-                <a href="https://github.com/EugeneNguyen/XBMobile/wiki">Wiki</a>
-              </div>
-            </div>
-          </div>
-          <div class="clear"> </div>
-        </div>
-      </div><!-- end of .navigation -->
-      <div class="content_header">
-        <div class="building" id="building"> </div>
-        <div class="cloud" id="cloud"> </div>
-        <div class="plane" id="plane"> </div>
-        <div class="logo" id="logo">
-          <img src="images/logo.png" />
-          <div class="logo_description">Boost up your incredible work, for free.</div>
-        </div>
-      </div>
-    </div><!-- end of .header -->
+  <div class="container parallax">
+	<div class="navigation">
+	    <div class="container_16">
+	      <div class="grid_16">
+	        <div style="float: right">
+	          <div class="navigation_item">
+	            <a href="">Home</a>
+	          </div>
+	          <div class="navigation_item">
+	            <a href="https://github.com/EugeneNguyen/XBMobile">Github</a>
+	          </div>
+	          <div class="navigation_item">
+	            <a href="https://github.com/EugeneNguyen/XBMobile/wiki">Wiki</a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="clear"> </div>
+	    </div>
+	</div><!-- end of .navigation -->
+	<div id="group4" class="parallax__group">
+      <div class="parallax__layer parallax__layer--fore">
+		<div class="building"></div>
+	  </div>
+	  <div class="parallax__layer parallax__layer--base">
+		<div class="logo" id="logo">
+			<img src="images/logo.png" />
+  			<div class="logo_description">Boost up your incredible work, for free.</div>
+		</div>
+	  </div>
+	  <div class="parallax__layer parallax__layer--back">
+		<div class="cloud"> </div>
+	  </div>
+	  <div class="parallax__layer parallax__layer--deep">
+	  	<div class="plane"> </div>
+	  </div>
+	</div>
     <div class="introduction">
       <div class="intro">
         <div class="container_16">
           <div class="grid_16 panel">
             <div class="intro_image" style="display: inline-block;width: 310px;height: 300px;background: white;"> </div>
             <div class="intro_text">
-              XBMobile is an open-source tool reducing thousand lines of code when provide all the complex functions in easy-to-use command.
+              Start your UITableView with service support, cache support, pull to refresh, load more cell, dynamic height, asynchronize image loading, nested collectionView inside, and everything here. With just one library.
             </div>
             <div class="usage_text">
-              Usage: Following some simple steps, we can start and reuse everything with plist file only
+              Following some simple steps, we can start and reuse everything with plist file only.
             </div>
             <div class="usage_image" style="float: right;display: inline-block;width: 390px;height: 260px;background: white;">
               <img src="https://camo.githubusercontent.com/eaf3e75f154d6c1d6b6c849ac2a0ddf9ba3f4daf/687474703a2f2f78626d6f62696c652e6c696272652e636f6d2e766e2f6173736574732f6769746875622f78627461626c65766965772d322e706e67" width="100%" height="100%" />
@@ -61,68 +67,99 @@
     <div class="tutorial">
       <div class="container_16">
         <div class="grid_16">
-          <div class="title">XBTableView</div>
+          <div class="title">Getting started</div>
           <div class="normal">
-            ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit
+            <p>With few steps below, you will jump to new incredible style of development</p>
           </div>
-          <h6 class="item">1. Load & config inline</h6>
-          <p class="normal">
-            Now, load it on your XBTableView
-          </p>
+          <h6 class="item">0. Install with CocoaPods</h6>
           <br />
-          <pre>
-<code>//Load post params to request (optional)
-tableView postParams = @{@"token":[[NSUserDefaults standardUserDefaults] objectForKey:@"token"],
-            @"photo_id": @(123),
-            @"comment": @"This is a comment from XBTableView"};
-//Load plist file (required)</code>
-          </pre>
-          <h6 class="item">2. Turn your UITableView into XBTableView</h6>
+          <div class="code">
+	          <pre><code>pod "XBMobile"</code></pre>
+          </div>
+          <h6 class="item">1. Import header file</h6>
+          <br />
+          <div class="code">
+            <pre><code>#import &lt;XBMobile.h&gt;</code></pre>
+          </div>
+          <!-- 4 -->
+          <h6 class="item">2. Turn your UITableView to XBTableView</h6>
           <p class="normal">
             By code:
           </p>
-          <br />
           <div class="code" style="">
             <pre>
 <code>XBTableView *tableView = ...
 tableView.xbDelegate = self;</code>
             </pre>
           </div>
-          <br />
-          <br />
+          
           <!-- 3 -->
-          <h6 class="item">3. Load & config inline</h6>
+          <h6 class="item">3. Prepare the plist</h6>
+          <br />
           <p class="normal">
-            Now, load it on your XBTableView
+            Full document of plist's properties <a style:"color: white; font-weight: bold;" href="https://github.com/EugeneNguyen/XBMobile/wiki">here</a>, and soon we will provide the IDE for XBMobile
           </p>
+          <h6 class="item">4. Load &amp; config table</h6>
           <br />
           <div class="code" style="">
             <pre>
 <code>//Load post params to request (optional)
 tableView.postParams = @{@"token":[[NSUserDefaults standardUserDefaults] objectForKey:@"token"],
-            @"photo_id":@(123),
-            @"comment": @"This is a comment from XBTableView"};</code>
+						 @"photo_id":@(123),
+						 @"comment": @"This is a comment from XBTableView"};
+[tableView loadInformationFromPlist:@"YOUR_PLIST_FILE_NAME"];</code>
             </pre>
           </div>
-          <!-- 4 -->
-          <h6 class="item">4. Turhn your UITableView into XBTableView</h6>
-          <p class="normal">
-            By code:
-          </p>
+          
+          <h6 class="item">5. Using Delegate &amp; extra function</h6>
           <br />
           <div class="code" style="">
             <pre>
-<code>XBTableView *tableView = ...
-tableView.xbDelegate = self;</code>
+<code>// call when user tap to a row. item is the data stored with that index path
+- (void)xbTableView:(XBTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath forItem:(id)item;
+
+// call when user tap to a button of a row. similar like the one above, but provide (UIButton *)btn so you can use it to separated the control.
+- (void)xbTableView:(XBTableView *)tableView didSelectButton:(UIButton *)btn atIndexPath:(NSIndexPath *)indexPath forItem:(id)item;
+
+// call at the end of normal cellForRowAtIndexPath:, with prepared cell and item, allow you to have the last chance to edit the cell before showing it. usually i do something like border colour or round corner, which isn't supported by XIB
+- (UITableViewCell *)xbTableView:(XBTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath withPreparedCell:(UITableViewCell *)cell withItem:(id)item;</code>
             </pre>
           </div>
-          <br /><br /><br /><br /><br /><br />
+          <div class="normal">
+          	<p>After all, we provide set of function &amp; params to expand your options</p>
+          </div>
+          
+          <div class="code" style="">
+            <pre>
+<code>// this is the information of plist. you can load it by function below, but if you have some plist's string somewhere, this is pretty useful for you.
+@property (nonatomic, retain) NSDictionary *informations;
+
+// Post params using in your query to fetch your data to the list
+@property (nonatomic, retain) NSDictionary *postParams;
+
+// allow you using HUB activity indicator and alert error when data from the server have some problem. Default of both is NO
+@property (nonatomic, assign) BOOL usingHUD, usingErrorAlert;
+
+@property (nonatomic, retain) IBOutlet id &lt;XBTableViewDelegate&gt; xbDelegate;
+
+// Control to fetch all the data, including cache, data process, everything here.
+@property (nonatomic, retain) XBDataFetching *dataFetching;
+
+// load setting from plist
+- (void)loadInformationFromPlist:(NSString *)plist;
+
+// load data from custom array, when you don't use external data.
+- (void)loadData:(NSArray *)data;</code>
+            </pre>
+          </div>
+          
+          <h6 class="item">6. Start and enjoy the life :D</h6>
         </div>
         <div class="clear"></div>
       </div>
     </div>
     <div class="footer">
-      <div class="footer_text">&copy; 2013-2014 <a>LogoHer.com.vn</a></div>
+      <div class="footer_text">&copy; 2013-2014 <a>LIBRETeam.com</a></div>
     </div>
     <!-- <div class="container_16">
       <div class="grid_4">

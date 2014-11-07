@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.1.6.5"
+  s.version          = "0.1.7"
   s.summary          = "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically."
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
   s.dependency 'JSONKit-NoWarning'
   s.dependency 'MBProgressHUD'
   s.dependency 'SDWebImage-ProgressView'
-  s.dependency 'NSLogger-CocoaLumberjack-connector'
+  s.dependency 'CocoaLumberjack'
 
 end

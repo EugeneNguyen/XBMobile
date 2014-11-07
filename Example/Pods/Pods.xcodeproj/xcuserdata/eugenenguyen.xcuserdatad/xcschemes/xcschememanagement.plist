@@ -24,16 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-XBMobile-NSLogger-CocoaLumberjack-connector.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-XBMobile-NSLogger.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-XBMobile-Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B8BD0801F9C528887262B81</key>
+		<key>004134110CC9223D62FF717E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1BE43F090185ED046524AA2D</key>
+		<key>0BEE3796A51E88B3B72BA19F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28CBABA669959DBD5ACCD195</key>
+		<key>1A11E7543CE0CEB4C2A3DA24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C8AA24A7B2BE670BC2F7930</key>
+		<key>1CBB634045C0FE8F38CEB8CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E17D1A6C5E8C4907918DFF</key>
+		<key>393EF44BFC5F78C2F3A14036</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A40268915390B932E35D546F</key>
+		<key>62655703CC51AF9F077DE1E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A542655E51D8208A31467FFA</key>
+		<key>6E36177FFB1E9E601150DD02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD6832D9D72C5CFDE8C3E450</key>
+		<key>6F289E872051643C9BA2BACA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8563013AF0D5137CEA5B6A7</key>
+		<key>74BE3CB4CB072F091E3D6ED0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC182E3FFF7E9E856063DB99</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F182683E6FA94DCBFF7B3F39</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB8F9C2BAB467316EE1B88A4</key>
+		<key>ECF356C356384F6D45CEEB23</key>
 		<dict>
 			<key>primary</key>
 			<true/>

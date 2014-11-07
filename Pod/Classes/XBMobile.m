@@ -9,7 +9,6 @@
 #import "XBMobile.h"
 #import "XBViewController.h"
 #import "DDLog.h"
-#import "DDNSLoggerLogger.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 
@@ -37,7 +36,6 @@ static XBMobile *__sharedXBMobileInstance = nil;
 {
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [DDLog addLogger:[DDNSLoggerLogger sharedInstance]];
 }
 
 - (id)init

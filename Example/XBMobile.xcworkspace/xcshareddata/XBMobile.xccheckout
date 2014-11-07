@@ -24,8 +24,13 @@
 		<key>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</key>
 		<string>../..</string>
 	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</key>
+		<string>svn://libre.com.vn/localproject</string>
+	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>svn://libre.com.vn/localproject</string>
+	<string>svn://libre.com.vn/localproject/XBMobile/Example/XBMobile.xcworkspace</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -42,7 +47,7 @@
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</string>
 			<key>IDESourceControlWCCName</key>
@@ -50,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</string>
 			<key>IDESourceControlWCCName</key>
