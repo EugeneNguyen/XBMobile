@@ -90,7 +90,13 @@
         {
             UIButton *btn = (UIButton *)v;
             [btn setTitle:data forState:UIControlStateNormal];
-
+            
+            if (data[@"selector"] && [target respondsToSelector:NSSelectorFromString(data[@"selector"])])
+            {
+                [btn removeTarget:target action:NSSelectorFromString(data[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
+                [btn addTarget:target action:NSSelectorFromString(data[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
+            }
+            
             if ([target respondsToSelector:NSSelectorFromString(@"didPressButton:")])
             {
                 [btn removeTarget:target action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
@@ -113,19 +119,31 @@
     [self setNeedsDisplay];
 }
 
-- (void)loadImage:(NSString *)data
++ (id)viewWithXib:(NSString *)xibName templatePlist:(NSString *)tempString information:(NSDictionary *)information
 {
-
+    return [UIView viewWithXib:xibName templatePlist:tempString information:information withTarget:nil];
 }
 
-- (void)loadInformation:(NSDictionary *)information
++ (id)viewWithXib:(NSString *)xibName templatePlist:(NSString *)tempString information:(NSDictionary *)information withTarget:(id)target
 {
-
+    NSString *path = [[NSBundle mainBundle] pathForResource:tempString ofType:@"plist"];
+    NSArray *temp = [NSArray arrayWithContentsOfFile:path];
+    return [UIView viewWithXib:xibName template:temp information:information withTarget:target];
 }
 
-- (void)loadInformationFromPlist:(NSString *)plist
-{
 
++ (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information
+{
+    return [UIView viewWithXib:xibName template:temp information:information withTarget:nil];
+}
+
++ (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information withTarget:(id)target
+{
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:xibName owner:nil options:nil];
+    if ([array count] == 0) return nil;
+    UIView *v = [array firstObject];
+    [v applyTemplate:temp andInformation:information withTarget:target];
+    return v;
 }
 
 @end

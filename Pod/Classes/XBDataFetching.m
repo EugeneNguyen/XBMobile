@@ -75,23 +75,30 @@
     DDLogVerbose(@"%@", item);
     if (item)
     {
-        if ([_datalist isKindOfClass:[NSMutableArray class]])
+        if ([item[@"code"] intValue] != 200)
         {
-            [(NSMutableArray *)_datalist removeAllObjects];
-            if (isMultipleSection)
-            {
-                [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
-            }
-            else
-            {
-                NSDictionary *section = @{@"title": @"root", @"items": [item objectForPath:info[@"pathToContent"]]};
-                [(NSMutableArray *)_datalist addObject:section];
-            }
+            [self alert:@"Error" message:item[@"description"]];
         }
-        else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
+        else
         {
-            [(NSMutableDictionary *)_datalist removeAllObjects];
-            [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[item objectForPath:info[@"pathToContent"]]];
+            if ([_datalist isKindOfClass:[NSMutableArray class]])
+            {
+                [(NSMutableArray *)_datalist removeAllObjects];
+                if (isMultipleSection)
+                {
+                    [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+                }
+                else
+                {
+                    NSDictionary *section = @{@"title": @"root", @"items": [item objectForPath:info[@"pathToContent"]]};
+                    [(NSMutableArray *)_datalist addObject:section];
+                }
+            }
+            else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
+            {
+                [(NSMutableDictionary *)_datalist removeAllObjects];
+                [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[item objectForPath:info[@"pathToContent"]]];
+            }
         }
     }
     else

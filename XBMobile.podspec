@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.1.7.2"
+  s.version          = "0.1.7.3"
   s.summary          = "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically."
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.

@@ -11,7 +11,7 @@
 
 @interface XBTestTableViewController : UIViewController
 {
-    
+    XBTableView *tableView;
 }
 
 @end

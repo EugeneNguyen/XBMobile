@@ -12,7 +12,11 @@
 
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info;
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target;
-- (void)loadInformation:(NSDictionary *)information;
-- (void)loadInformationFromPlist:(NSString *)plist;
+
++ (id)viewWithXib:(NSString *)xibName templatePlist:(NSString *)tempString information:(NSDictionary *)information;
++ (id)viewWithXib:(NSString *)xibName templatePlist:(NSString *)tempString information:(NSDictionary *)information withTarget:(id)target;
+
++ (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information;
++ (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information withTarget:(id)target;
 
 @end
