@@ -15,69 +15,30 @@
 
 @interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate>
 {
-    NSMutableArray *datalist;
-    UIRefreshControl *refreshControl;
-    BOOL isMultipleSection;
+    
 }
 
 @end
 
 
 @implementation XBCollectionView
-@synthesize informations = _informations;
-@synthesize usingHUD, usingErrorAlert;
-@synthesize postParams = _postParams;
 @synthesize xbDelegate;
-@synthesize dataFetching;
 
-- (void)loadInformationFromPlist:(NSString *)plist
+- (void)initRefreshControl
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
-    NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:path];
-    [self setInformations:info];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:self.refreshControl];
 }
 
-- (void)loadData:(NSArray *)data
+- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier
 {
-    if (isMultipleSection)
-    {
-        datalist = [data mutableCopy];
-    }
-    else
-    {
-        datalist = [@[@{@"title": @"root", @"items": data}] mutableCopy];
-    }
-    [self reloadData];
-}
-
-- (void)setInformations:(NSDictionary *)info
-{
-    _informations = info;
-    self.dataSource = self;
-    self.delegate = self;
-
-    [self requestData];
-    for (NSDictionary *item in _informations[@"cells"])
-    {
-        [self registerNib:[UINib nibWithNibName:item[@"xibname"] bundle:nil] forCellWithReuseIdentifier:item[@"cellIdentify"]];
-    }
-
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        refreshControl = [[UIRefreshControl alloc] init];
-        [refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
-        [self addSubview:refreshControl];
-    }
-
-    if ([_informations[@"loadMore"][@"enable"] boolValue])
-    {
-        [self registerNib:[UINib nibWithNibName:_informations[@"loadMore"][@"xib"] bundle:nil] forCellWithReuseIdentifier:_informations[@"loadMore"][@"identify"]];
-    }
+    [self registerNib:nib forCellWithReuseIdentifier:identifier];
 }
 
 - (void)configHeightAfterFillData
 {
-    if ([_informations[@"isFullTable"] boolValue])
+    if ([self.informations[@"isFullTable"] boolValue])
     {
         self.translatesAutoresizingMaskIntoConstraints = YES;
         CGRect f = self.frame;
@@ -86,7 +47,7 @@
             CGSize s = self.contentSize;
             f.size.height = s.height;
         }
-        else if ([datalist count] == 0)
+        else if ([self.datalist count] == 0)
         {
             f.size.height = 0;
         }
@@ -95,64 +56,17 @@
     }
 }
 
-- (void)requestData
-{
-    if ([_informations[@"isRemoteData"] boolValue])
-    {
-        if (!datalist)
-        {
-            datalist = [[NSMutableArray alloc] init];
-        }
-
-        dataFetching = [[XBDataFetching alloc] init];;
-        dataFetching.datalist = datalist;
-        dataFetching.info = _informations;
-        dataFetching.delegate = self;
-        dataFetching.postParams = _postParams;
-        [dataFetching startFetchingData];
-    }
-    else
-    {
-        [self configHeightAfterFillData];
-    }
-}
-
-#pragma mark - DataFetching Delegate
-
-- (void)requestDidFinish:(XBDataFetching *)dataFetching
-{
-    [self configHeightAfterFillData];
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        [refreshControl endRefreshing];
-    }
-}
-
-- (void)requestDidFailed:(XBDataFetching *)_dataFetching
-{
-    [self configHeightAfterFillData];
-    if (usingErrorAlert)
-    {
-        [self alert:@"Error" message:[_dataFetching.request.error description]];
-    }
-
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        [refreshControl endRefreshing];
-    }
-}
-
 #pragma mark - UITableViewDelegateAndDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [datalist count];
+    return [self.datalist count];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    long count = [datalist[section][@"items"] count];
-    if ([_informations[@"loadMore"][@"enable"] boolValue] && (section == [datalist count] - 1))
+    long count = [self.datalist[section][@"items"] count];
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && (section == [self.datalist count] - 1))
     {
         count ++;
     }
@@ -161,7 +75,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *size = _informations[@"size"];
+    NSDictionary *size = self.informations[@"size"];
     if ([size[@"percentage"] boolValue])
     {
         return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
@@ -174,18 +88,18 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_informations[@"loadMore"][@"enable"] boolValue] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && (indexPath.row == [[self.datalist lastObject][@"items"] count]) && (indexPath.section == ([self.datalist count] - 1)))
     {
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
         return cell;
     }
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row] withTarget:self];
+    [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:self];
 
     if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {
-        cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:datalist[indexPath.section][@"items"][indexPath.row]];
+        cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
     }
     return cell;
 }
@@ -194,7 +108,7 @@
 {
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectRowAtIndexPath:forItem:)])
     {
-        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
+        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 
@@ -204,19 +118,7 @@
     NSIndexPath *indexPath = [self indexPathForItemAtPoint:buttonPosition];
     if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectButton:atIndexPath:forItem:)])
     {
-        [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
-    }
-}
-
-- (NSDictionary *)cellInfoForPath:(NSIndexPath *)indexPath
-{
-    if ([_informations[@"isMutipleType"] boolValue])
-    {
-        return _informations[@"cells"][[datalist[indexPath.section][@"items"][indexPath.row][@"cell_type"] intValue]];
-    }
-    else
-    {
-        return _informations[@"cells"][0];
+        [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
     }
 }
 

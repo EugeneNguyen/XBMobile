@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-XBMobile-XMLDictionary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XBMobile.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D4C337D8CAB4AACFB8E2144</key>
+		<key>38A5E9E45B4ECE3EA09D551C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41B2662F18CBB791391EE3FC</key>
+		<key>7019735D562C2B0B4435CFC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5541C57D3274FCAFE1993F06</key>
+		<key>741115FE06D4747A1FADBC5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55F1FED8234EA7AFA63CB970</key>
+		<key>79D35AE7DEC4EFC3262AEB33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BD1CE56582528EB3A3F970A</key>
+		<key>7CC352E6284818A3F8FDEC6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93619C191BBA2B261323BB98</key>
+		<key>897D301AC056409EF2D54516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B36A82CB2884B9784A083669</key>
+		<key>9F628E1193A2751CCD9AA620</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9FCC3EF8808F6AD713FB2E5</key>
+		<key>A1EA06BC66B60F608F5B9206</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BBBD57434B9DF457FEDCAFFD</key>
+		<key>A2CB2F0E9FE10F6E994BB38F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBC2D2ABD68F5127CDF9EF60</key>
+		<key>A5792AFBAB1E2F2B5E7623C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5FC2A56EA15A4A910DC7E27</key>
 		<dict>
 			<key>primary</key>
 			<true/>

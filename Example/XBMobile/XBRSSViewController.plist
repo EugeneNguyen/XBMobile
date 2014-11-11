@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>isUsingRefreshControl</key>
+	<true/>
+	<key>isRemoteData</key>
+	<true/>
+	<key>isXML</key>
+	<false/>
+	<key>remoteLink</key>
+	<string>http://99closets.sflashcard.com/services/categories/getAll</string>
+	<key>predefinedHostInUserdefault</key>
+	<string></string>
+	<key>pathToContent</key>
+	<string>categories</string>
+	<key>isMutipleType</key>
+	<false/>
+	<key>search</key>
+	<dict/>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>useAutolayout</key>
+			<true/>
+			<key>cellIdentify</key>
+			<string>testcell</string>
+			<key>xibname</key>
+			<string>XBRSSCell</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>name</string>
+					<key>format</key>
+					<string>{name} have {createtime} reviews</string>
+					<key>cases</key>
+					<array>
+						<dict>
+							<key>case</key>
+							<string></string>
+							<key>result</key>
+							<string></string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+					<key>path</key>
+					<string>small_image</string>
+					<key>disableCache</key>
+					<true/>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

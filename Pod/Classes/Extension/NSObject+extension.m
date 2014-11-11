@@ -44,7 +44,15 @@
         }
         else if ([obj isKindOfClass:[NSArray class]])
         {
-            obj = obj[[s intValue]];
+            NSArray *array = (NSArray *)obj;
+            if ([s intValue] < 0 || [s intValue] >= [array count])
+            {
+                return @"";
+            }
+            else
+            {
+                obj = obj[[s intValue]];
+            }
         }
         else if ([obj isKindOfClass:[NSManagedObject class]])
         {

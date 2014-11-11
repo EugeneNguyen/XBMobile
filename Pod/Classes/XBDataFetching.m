@@ -11,6 +11,7 @@
 #import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "JSONKit.h"
+#import "XMLDictionary.h"
 
 @interface XBDataFetching () <ASIHTTPRequestDelegate>
 
@@ -70,8 +71,17 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)_request
 {
+    DDLogVerbose(@"%@", _request.responseString);
     [self hideHUD];
-    NSDictionary *item = [_request.responseString mutableObjectFromJSONString];
+    NSDictionary *item;
+    if ([info[@"isXML"] boolValue])
+    {
+        item = [NSDictionary dictionaryWithXMLString:_request.responseString];
+    }
+    else
+    {
+        item = [_request.responseString mutableObjectFromJSONString];
+    }
     DDLogVerbose(@"%@", item);
     if (item)
     {

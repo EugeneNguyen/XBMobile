@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+XBDataList.h"
 
 @class XBTableView;
 @class XBDataFetching;
@@ -21,22 +22,11 @@
 
 @end
 
-@interface XBTableView : UITableView
+@interface XBTableView : UITableView <XBDataList>
 {
 
 }
 
-@property (nonatomic, retain) NSDictionary *informations;
-
-@property (nonatomic, retain) NSDictionary *postParams;
-
-@property (nonatomic, assign) BOOL usingHUD, usingErrorAlert;
-
 @property (nonatomic, retain) IBOutlet id <XBTableViewDelegate> xbDelegate;
-
-@property (nonatomic, retain) XBDataFetching *dataFetching;
-
-- (void)loadInformationFromPlist:(NSString *)plist;
-- (void)loadData:(NSArray *)data;
 
 @end

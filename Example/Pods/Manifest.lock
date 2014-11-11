@@ -26,12 +26,14 @@ PODS:
   - SDWebImage-ProgressView (0.4.0):
     - SDWebImage (~> 3.7.0)
   - SDWebImage/Core (3.7.1)
-  - XBMobile (0.1.7.1):
+  - XBMobile (0.1.8):
     - ASIHTTPRequest
     - CocoaLumberjack (~> 1.6.2)
     - JSONKit-NoWarning
     - MBProgressHUD
     - SDWebImage-ProgressView
+    - XMLDictionary
+  - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - XBMobile (from `../`)
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SDWebImage-ProgressView: 5b094a93013b3f6ae9d622b58055c942c964b678
-  XBMobile: 03f8c34304304358ec56b49e7d3f47e5a82e947e
+  XBMobile: 2a04ffb211a294c31d4565941226cfff940e54f3
+  XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
 
 COCOAPODS: 0.34.4

@@ -28,6 +28,15 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XBAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
+		B6C64B331A109CD3003B1332 /* XBStaticData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B321A109CD3003B1332 /* XBStaticData.plist */; };
+		B6C64B4F1A10A655003B1332 /* XBStaticDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C64B4E1A10A655003B1332 /* XBStaticDataViewController.m */; };
+		B6C64B511A10A662003B1332 /* XBStaticDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B501A10A662003B1332 /* XBStaticDataViewController.xib */; };
+		B6C64B551A10A96F003B1332 /* XBStaticDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B541A10A96F003B1332 /* XBStaticDataCell.xib */; };
+		B6C64B571A10A9AB003B1332 /* XBStaticDataInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B561A10A9AB003B1332 /* XBStaticDataInformation.plist */; };
+		B6C64B5B1A1103DA003B1332 /* XBRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C64B591A1103DA003B1332 /* XBRSSViewController.m */; };
+		B6C64B5C1A1103DA003B1332 /* XBRSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5A1A1103DA003B1332 /* XBRSSViewController.xib */; };
+		B6C64B5E1A110438003B1332 /* XBRSSViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5D1A110438003B1332 /* XBRSSViewController.plist */; };
+		B6C64B601A11160C003B1332 /* XBRSSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5F1A11160C003B1332 /* XBRSSCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +77,17 @@
 		9592FAA3F7B1877EBA9858F6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A104658C15AAA42BBA5441CB /* Pods-XBMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B8E767C5D9B2853680F682 /* Pods-XBMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.release.xcconfig"; sourceTree = "<group>"; };
+		B6C64B321A109CD3003B1332 /* XBStaticData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBStaticData.plist; sourceTree = "<group>"; };
+		B6C64B4D1A10A655003B1332 /* XBStaticDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBStaticDataViewController.h; sourceTree = "<group>"; };
+		B6C64B4E1A10A655003B1332 /* XBStaticDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBStaticDataViewController.m; sourceTree = "<group>"; };
+		B6C64B501A10A662003B1332 /* XBStaticDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBStaticDataViewController.xib; sourceTree = "<group>"; };
+		B6C64B541A10A96F003B1332 /* XBStaticDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBStaticDataCell.xib; sourceTree = "<group>"; };
+		B6C64B561A10A9AB003B1332 /* XBStaticDataInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBStaticDataInformation.plist; sourceTree = "<group>"; };
+		B6C64B581A1103DA003B1332 /* XBRSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRSSViewController.h; sourceTree = "<group>"; };
+		B6C64B591A1103DA003B1332 /* XBRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRSSViewController.m; sourceTree = "<group>"; };
+		B6C64B5A1A1103DA003B1332 /* XBRSSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSViewController.xib; sourceTree = "<group>"; };
+		B6C64B5D1A110438003B1332 /* XBRSSViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBRSSViewController.plist; sourceTree = "<group>"; };
+		B6C64B5F1A11160C003B1332 /* XBRSSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSCell.xib; sourceTree = "<group>"; };
 		C07622FFAE0E38BAF24C872A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DDDC72761BF70E23254D68D0 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +143,10 @@
 		6003F593195388D20070C39A /* XBMobile */ = {
 			isa = PBXGroup;
 			children = (
+				B6C64B641A11A006003B1332 /* CollectionViewDemo */,
+				B6C64B341A109D49003B1332 /* RSS */,
+				B6C64B2A1A10683A003B1332 /* Main-StaticData */,
+				B6C64B231A106710003B1332 /* PlistDemo */,
 				6003F59C195388D20070C39A /* XBAppDelegate.h */,
 				6003F59D195388D20070C39A /* XBAppDelegate.m */,
 				4466787819F750E700A6EE8D /* XBTestTableViewController.h */,
@@ -196,6 +220,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B6C64B231A106710003B1332 /* PlistDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PlistDemo;
+			sourceTree = "<group>";
+		};
+		B6C64B2A1A10683A003B1332 /* Main-StaticData */ = {
+			isa = PBXGroup;
+			children = (
+				B6C64B4D1A10A655003B1332 /* XBStaticDataViewController.h */,
+				B6C64B4E1A10A655003B1332 /* XBStaticDataViewController.m */,
+				B6C64B501A10A662003B1332 /* XBStaticDataViewController.xib */,
+				B6C64B541A10A96F003B1332 /* XBStaticDataCell.xib */,
+				B6C64B561A10A9AB003B1332 /* XBStaticDataInformation.plist */,
+				B6C64B321A109CD3003B1332 /* XBStaticData.plist */,
+			);
+			name = "Main-StaticData";
+			sourceTree = "<group>";
+		};
+		B6C64B341A109D49003B1332 /* RSS */ = {
+			isa = PBXGroup;
+			children = (
+				B6C64B581A1103DA003B1332 /* XBRSSViewController.h */,
+				B6C64B591A1103DA003B1332 /* XBRSSViewController.m */,
+				B6C64B5A1A1103DA003B1332 /* XBRSSViewController.xib */,
+				B6C64B5D1A110438003B1332 /* XBRSSViewController.plist */,
+				B6C64B5F1A11160C003B1332 /* XBRSSCell.xib */,
+			);
+			name = RSS;
+			sourceTree = "<group>";
+		};
+		B6C64B641A11A006003B1332 /* CollectionViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CollectionViewDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,9 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4466788419F750E700A6EE8D /* XBTestTableViewController.xib in Resources */,
+				B6C64B551A10A96F003B1332 /* XBStaticDataCell.xib in Resources */,
 				4466787B19F750E700A6EE8D /* LoadMoreCell.xib in Resources */,
+				B6C64B571A10A9AB003B1332 /* XBStaticDataInformation.plist in Resources */,
 				4466787D19F750E700A6EE8D /* TestCell1.xib in Resources */,
 				4466787E19F750E700A6EE8D /* TestCellCollection.xib in Resources */,
+				B6C64B511A10A662003B1332 /* XBStaticDataViewController.xib in Resources */,
 				4466788219F750E700A6EE8D /* XBMainWindow.xib in Resources */,
 				44392CB41A01DF8D009008F4 /* XBChatTimeLine.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -262,9 +328,13 @@
 				4466787F19F750E700A6EE8D /* TestTableViewData.plist in Resources */,
 				44796D341A00D7330003C574 /* XBChatViewDemo.plist in Resources */,
 				44796D421A014E790003C574 /* XBChatViewController.xib in Resources */,
+				B6C64B5C1A1103DA003B1332 /* XBRSSViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				B6C64B5E1A110438003B1332 /* XBRSSViewController.plist in Resources */,
 				4466787C19F750E700A6EE8D /* TestCell.xib in Resources */,
+				B6C64B331A109CD3003B1332 /* XBStaticData.plist in Resources */,
 				4466788119F750E700A6EE8D /* VMFeedViewController.plist in Resources */,
+				B6C64B601A11160C003B1332 /* XBRSSCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C64B4F1A10A655003B1332 /* XBStaticDataViewController.m in Sources */,
 				4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */,
+				B6C64B5B1A1103DA003B1332 /* XBRSSViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

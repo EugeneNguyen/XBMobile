@@ -7,21 +7,23 @@
 //
 
 #import "XBAppDelegate.h"
-#import "XBTestTableViewController.h"
+#import "XBStaticDataViewController.h"
 #import <XBMobile.h>
 
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
     [[XBMobile sharedInstance] activeLog];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
     [[NSUserDefaults standardUserDefaults] setValue:@"http://exmaple.com/service" forKey:@"webhost"];
-    XBTestTableViewController *tableView = [[XBTestTableViewController alloc] initWithNibName:@"XBTestTableViewController" bundle:nil];
-    [self.window setRootViewController:tableView];
+    XBStaticDataViewController *tableView = [[XBStaticDataViewController alloc] init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableView];
+    [self.window setRootViewController:navigationController];
 
     [self.window makeKeyAndVisible];
     return YES;

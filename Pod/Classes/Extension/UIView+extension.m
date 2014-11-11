@@ -91,10 +91,10 @@
             UIButton *btn = (UIButton *)v;
             [btn setTitle:data forState:UIControlStateNormal];
             
-            if (data[@"selector"] && [target respondsToSelector:NSSelectorFromString(data[@"selector"])])
+            if (data[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
             {
-                [btn removeTarget:target action:NSSelectorFromString(data[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
-                [btn addTarget:target action:NSSelectorFromString(data[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
+                [btn removeTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
+                [btn addTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
             }
             
             if ([target respondsToSelector:NSSelectorFromString(@"didPressButton:")])

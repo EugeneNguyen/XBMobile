@@ -24,84 +24,17 @@
 
 @implementation XBTableView
 @synthesize informations = _informations;
-@synthesize usingHUD, usingErrorAlert;
 @synthesize postParams = _postParams;
+@synthesize datalist;
+@synthesize isMultipleSection;
 @synthesize xbDelegate;
 @synthesize dataFetching;
+@synthesize refreshControl;
 
-- (void)loadInformationFromPlist:(NSString *)plist
+- (void)setupDelegate
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
-    NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:path];
-    [self setInformations:info];
-}
-
-- (void)loadData:(NSArray *)data
-{
-    if (isMultipleSection)
-    {
-        datalist = [data mutableCopy];
-    }
-    else
-    {
-        datalist = [@[@{@"title": @"root", @"items": data}] mutableCopy];
-    }
-    [self reloadData];
-}
-
-- (void)setInformations:(NSDictionary *)info
-{
-    _informations = info;
-    self.dataSource = self;
     self.delegate = self;
-
-    if (info[@"section"])
-    {
-        isMultipleSection = YES;
-    }
-
-    [self requestData];
-    for (NSDictionary *item in _informations[@"cells"])
-    {
-        [self registerNib:[UINib nibWithNibName:item[@"xibname"] bundle:nil] forCellReuseIdentifier:item[@"cellIdentify"]];
-    }
-
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        tableViewController = [[UITableViewController alloc] init];
-        tableViewController.tableView = self;
-
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-        [refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
-        tableViewController.refreshControl = refreshControl;
-    }
-
-    if ([_informations[@"loadMore"][@"enable"] boolValue])
-    {
-        [self registerNib:[UINib nibWithNibName:_informations[@"loadMore"][@"xib"] bundle:nil] forCellReuseIdentifier:_informations[@"loadMore"][@"identify"]];
-    }
-}
-
-- (void)requestData
-{
-    if ([_informations[@"isRemoteData"] boolValue])
-    {
-        if (!datalist)
-        {
-            datalist = [NSMutableArray new];
-        }
-
-        dataFetching = [[XBDataFetching alloc] init];
-        dataFetching.datalist = datalist;
-        dataFetching.info = _informations;
-        dataFetching.delegate = self;
-        dataFetching.postParams = _postParams;
-        [dataFetching startFetchingData];
-    }
-    else
-    {
-        [self configHeightAfterFillData];
-    }
+    self.dataSource = self;
 }
 
 - (void)configHeightAfterFillData
@@ -116,28 +49,10 @@
     }
 }
 
-#pragma mark - DataFetching Delegate
-
-- (void)requestDidFinish:(XBDataFetching *)_dataFetching
+- (void)initRefreshControl
 {
-    [self configHeightAfterFillData];
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        [tableViewController.refreshControl endRefreshing];
-    }
-}
-
-- (void)requestDidFailed:(XBDataFetching *)_dataFetching
-{
-    if (usingErrorAlert)
-    {
-        [self alert:@"Error" message:[_dataFetching.request.error description]];
-    }
-
-    if ([_informations[@"isUsingRefreshControl"] boolValue])
-    {
-        [tableViewController.refreshControl endRefreshing];
-    }
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - UITableViewDelegateAndDataSource
@@ -223,20 +138,6 @@
     {
         [xbDelegate xbTableView:self didSelectButton:btn atIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
-}
-
-- (NSDictionary *)cellInfoForPath:(NSIndexPath *)indexPath
-{
-    if ([_informations[@"isMutipleType"] boolValue])
-    {
-        NSString *path = _informations[@"cellTypePath"];
-        if (!path)
-        {
-            path = @"cell_type";
-        }
-        return _informations[@"cells"][[datalist[indexPath.section][@"items"][indexPath.row][path] intValue]];
-    }
-    return _informations[@"cells"][0];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+XBDataList.h"
 
 @class XBCollectionView;
 @class XBDataFetching;
@@ -21,22 +22,11 @@
 
 @end
 
-@interface XBCollectionView : UICollectionView
+@interface XBCollectionView : UICollectionView <XBDataList>
 {
 
 }
 
-@property (nonatomic, retain) NSDictionary *informations;
-
-@property (nonatomic, retain) NSDictionary *postParams;
-
-@property (nonatomic, assign) BOOL usingHUD, usingErrorAlert;
-
 @property (nonatomic, retain) IBOutlet id <XBCollectionViewDelegate> xbDelegate;
-
-@property (nonatomic, retain) XBDataFetching *dataFetching;
-
-- (void)loadInformationFromPlist:(NSString *)plist;
-- (void)loadData:(NSArray *)data;
 
 @end

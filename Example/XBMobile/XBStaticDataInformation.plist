@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>isRemoteData</key>
+	<false/>
+	<key>pathToContent</key>
+	<string></string>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>cellIdentify</key>
+			<string>XBStaticDataCell</string>
+			<key>xibname</key>
+			<string>XBStaticDataCell</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string>title</string>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+					<key>path</key>
+					<string>subtitle</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
