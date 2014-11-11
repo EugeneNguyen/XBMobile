@@ -121,7 +121,17 @@
     {
         if ([self.informations[@"searchOptions"][@"online"] boolValue])
         {
+            NSString *searchParams = self.informations[@"searchOptions"][@"searchParam"];
             
+            NSMutableDictionary *post = [self.postParams copy];
+            post[searchParams] = searchKey;
+            
+            self.dataFetching = [[XBDataFetching alloc] init];
+            self.dataFetching.datalist = self.datalist;
+            self.dataFetching.info = self.informations;
+            self.dataFetching.delegate = self;
+            self.dataFetching.postParams = post;
+            [self.dataFetching startFetchingData];
         }
         else
         {

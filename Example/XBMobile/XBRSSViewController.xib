@@ -19,7 +19,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aA2-wy-3BT" customClass="XBTableView">
                     <rect key="frame" x="0.0" y="46" width="600" height="490"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="xbDelegate" destination="-1" id="fYe-GD-9Kz"/>
                     </connections>

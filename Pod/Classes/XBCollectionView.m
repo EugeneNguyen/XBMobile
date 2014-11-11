@@ -23,6 +23,18 @@
 
 @implementation XBCollectionView
 @synthesize xbDelegate;
+@synthesize postParams;
+@synthesize datalist;
+@synthesize informations;
+@synthesize dataFetching;
+@synthesize isMultipleSection;
+@synthesize refreshControl;
+
+- (void)setupDelegate
+{
+    self.delegate = self;
+    self.dataSource = self;
+}
 
 - (void)initRefreshControl
 {

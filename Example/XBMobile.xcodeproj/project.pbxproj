@@ -37,6 +37,10 @@
 		B6C64B5C1A1103DA003B1332 /* XBRSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5A1A1103DA003B1332 /* XBRSSViewController.xib */; };
 		B6C64B5E1A110438003B1332 /* XBRSSViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5D1A110438003B1332 /* XBRSSViewController.plist */; };
 		B6C64B601A11160C003B1332 /* XBRSSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B5F1A11160C003B1332 /* XBRSSCell.xib */; };
+		B6C64B721A11F937003B1332 /* XBRSSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C64B711A11F937003B1332 /* XBRSSCollectionView.m */; };
+		B6C64B741A11F949003B1332 /* XBRSSCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B731A11F949003B1332 /* XBRSSCollectionView.xib */; };
+		B6C64B761A11F9C4003B1332 /* XBRSSCollectionView.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B751A11F9C4003B1332 /* XBRSSCollectionView.plist */; };
+		B6C64B781A11FAB9003B1332 /* XBRSSCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B771A11FAB9003B1332 /* XBRSSCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +92,11 @@
 		B6C64B5A1A1103DA003B1332 /* XBRSSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSViewController.xib; sourceTree = "<group>"; };
 		B6C64B5D1A110438003B1332 /* XBRSSViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBRSSViewController.plist; sourceTree = "<group>"; };
 		B6C64B5F1A11160C003B1332 /* XBRSSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSCell.xib; sourceTree = "<group>"; };
+		B6C64B701A11F937003B1332 /* XBRSSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRSSCollectionView.h; sourceTree = "<group>"; };
+		B6C64B711A11F937003B1332 /* XBRSSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRSSCollectionView.m; sourceTree = "<group>"; };
+		B6C64B731A11F949003B1332 /* XBRSSCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSCollectionView.xib; sourceTree = "<group>"; };
+		B6C64B751A11F9C4003B1332 /* XBRSSCollectionView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBRSSCollectionView.plist; sourceTree = "<group>"; };
+		B6C64B771A11FAB9003B1332 /* XBRSSCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRSSCollectionCell.xib; sourceTree = "<group>"; };
 		C07622FFAE0E38BAF24C872A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DDDC72761BF70E23254D68D0 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +264,11 @@
 		B6C64B641A11A006003B1332 /* CollectionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B6C64B701A11F937003B1332 /* XBRSSCollectionView.h */,
+				B6C64B711A11F937003B1332 /* XBRSSCollectionView.m */,
+				B6C64B731A11F949003B1332 /* XBRSSCollectionView.xib */,
+				B6C64B751A11F9C4003B1332 /* XBRSSCollectionView.plist */,
+				B6C64B771A11FAB9003B1332 /* XBRSSCollectionCell.xib */,
 			);
 			name = CollectionViewDemo;
 			sourceTree = "<group>";
@@ -320,7 +334,9 @@
 				B6C64B571A10A9AB003B1332 /* XBStaticDataInformation.plist in Resources */,
 				4466787D19F750E700A6EE8D /* TestCell1.xib in Resources */,
 				4466787E19F750E700A6EE8D /* TestCellCollection.xib in Resources */,
+				B6C64B781A11FAB9003B1332 /* XBRSSCollectionCell.xib in Resources */,
 				B6C64B511A10A662003B1332 /* XBStaticDataViewController.xib in Resources */,
+				B6C64B741A11F949003B1332 /* XBRSSCollectionView.xib in Resources */,
 				4466788219F750E700A6EE8D /* XBMainWindow.xib in Resources */,
 				44392CB41A01DF8D009008F4 /* XBChatTimeLine.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -332,6 +348,7 @@
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				B6C64B5E1A110438003B1332 /* XBRSSViewController.plist in Resources */,
 				4466787C19F750E700A6EE8D /* TestCell.xib in Resources */,
+				B6C64B761A11F9C4003B1332 /* XBRSSCollectionView.plist in Resources */,
 				B6C64B331A109CD3003B1332 /* XBStaticData.plist in Resources */,
 				4466788119F750E700A6EE8D /* VMFeedViewController.plist in Resources */,
 				B6C64B601A11160C003B1332 /* XBRSSCell.xib in Resources */,
@@ -383,6 +400,7 @@
 				B6C64B5B1A1103DA003B1332 /* XBRSSViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				B6C64B721A11F937003B1332 /* XBRSSCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

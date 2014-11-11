@@ -8,6 +8,7 @@
 
 #import "XBStaticDataViewController.h"
 #import "XBRSSViewController.h"
+#import "XBRSSCollectionView.h"
 
 @implementation XBStaticDataViewController
 
@@ -24,6 +25,13 @@
         case 0:
         {
             XBRSSViewController *rss = [[XBRSSViewController alloc] init];
+            [self.navigationController pushViewController:rss animated:YES];
+        }
+            break;
+            
+        case 1:
+        {
+            XBRSSCollectionView *rss = [[XBRSSCollectionView alloc] init];
             [self.navigationController pushViewController:rss animated:YES];
         }
             break;
