@@ -57,7 +57,7 @@
 					<key>tag</key>
 					<integer>101</integer>
 					<key>path</key>
-					<string>small_image</string>
+					<string>big_image</string>
 					<key>disableCache</key>
 					<true/>
 				</dict>

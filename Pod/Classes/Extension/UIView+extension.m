@@ -28,6 +28,16 @@
     for (NSDictionary *element in temp)
     {
         UIView *v = [self viewWithTag:[element[@"tag"] intValue]];
+        
+        if (element[@"backgroundColor"])
+        {
+            NSString *backgroundColorString = [info objectForPath:element[@"path"]];
+            if ([backgroundColorString length] >= 6)
+            {
+                
+            }
+        }
+        
         id data = [info objectForPath:element[@"path"]];
         if (data == [NSNull null])
         {
@@ -67,23 +77,34 @@
                 {
                     data = [NSString stringWithFormat:@"%@/%@", [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost], data];
                 }
+                SDWebImageOptions option;
                 if ([element[@"disableCache"] intValue])
                 {
-                    [(UIImageView *)v sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:nil options:SDWebImageRefreshCached completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                        if ([element[@"autoHeight"] boolValue])
-                        {
-                            CGRect f = v.frame;
-                            CGSize s = image.size;
-                            f.size.height = f.size.width / s.width * s.height;
-                            v.frame = f;
-                            [self layoutSubviews];
-                        }
-                    }];
+                    option = SDWebImageRefreshCached;
                 }
                 else
                 {
-                    [(UIImageView *)v sd_setImageWithURL:[NSURL URLWithString:data]];
+                    option = 0;
                 }
+                [(UIImageView *)v sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:nil options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                    [UIView transitionWithView:(UIImageView *)v
+                                      duration:0.5
+                                       options:UIViewAnimationOptionTransitionCrossDissolve
+                                    animations:^{
+                                        [(UIImageView *)v setImage:image];
+                                        v.alpha = 1.0;
+                                    } completion:NULL];
+                    
+                    if ([element[@"autoHeight"] boolValue])
+                    {
+                        CGRect f = v.frame;
+                        CGSize s = image.size;
+                        f.size.height = f.size.width / s.width * s.height;
+                        v.frame = f;
+                        [self layoutSubviews];
+                    }
+                }];
             }
         }
         else if ([v isKindOfClass:[UIButton class]])

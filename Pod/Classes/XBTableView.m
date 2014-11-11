@@ -30,6 +30,7 @@
 @synthesize xbDelegate;
 @synthesize dataFetching;
 @synthesize refreshControl;
+@synthesize backupWhenSearch;
 
 - (void)setupDelegate
 {

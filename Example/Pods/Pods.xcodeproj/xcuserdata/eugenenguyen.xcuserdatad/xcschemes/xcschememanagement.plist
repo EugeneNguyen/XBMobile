@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-XBMobile-AVHexColor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XBMobile-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38A5E9E45B4ECE3EA09D551C</key>
+		<key>091AABC262D55B398E1A8A11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7019735D562C2B0B4435CFC9</key>
+		<key>1D7564CCB8E85C7DB2A5472F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>741115FE06D4747A1FADBC5C</key>
+		<key>33387DA046E982FBF83ACF59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79D35AE7DEC4EFC3262AEB33</key>
+		<key>339699E6505BBCF9BD563A0E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7CC352E6284818A3F8FDEC6B</key>
+		<key>3842AA3D7D3827EDD992DDCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>897D301AC056409EF2D54516</key>
+		<key>5010B1E1FA042B8CE9113DC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F628E1193A2751CCD9AA620</key>
+		<key>55B7D019B888C3A3C1B349CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1EA06BC66B60F608F5B9206</key>
+		<key>686A2E94BA0C900CF85B39B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2CB2F0E9FE10F6E994BB38F</key>
+		<key>6F5756C7857282B4A461BA2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5792AFBAB1E2F2B5E7623C8</key>
+		<key>90494EFA54F1AE2CD3FFAF98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5FC2A56EA15A4A910DC7E27</key>
+		<key>9A4F8053FA4C68ED5A72E8F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9268BEC545EC0DA441C517C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

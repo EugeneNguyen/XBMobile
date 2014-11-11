@@ -23,6 +23,7 @@
     XBStaticDataViewController *tableView = [[XBStaticDataViewController alloc] init];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableView];
+    navigationController.navigationBar.translucent = NO;
     [self.window setRootViewController:navigationController];
 
     [self.window makeKeyAndVisible];

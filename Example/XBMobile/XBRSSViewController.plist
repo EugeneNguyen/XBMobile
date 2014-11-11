@@ -16,8 +16,15 @@
 	<string>categories</string>
 	<key>isMutipleType</key>
 	<false/>
-	<key>search</key>
-	<dict/>
+	<key>searchOptions</key>
+	<dict>
+		<key>online</key>
+		<false/>
+		<key>fields</key>
+		<array>
+			<string>name</string>
+		</array>
+	</dict>
 	<key>cells</key>
 	<array>
 		<dict>

@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_ASIHTTPRequest_S3 8
 #define COCOAPODS_VERSION_PATCH_ASIHTTPRequest_S3 2
 
+// AVHexColor
+#define COCOAPODS_POD_AVAILABLE_AVHexColor
+#define COCOAPODS_VERSION_MAJOR_AVHexColor 1
+#define COCOAPODS_VERSION_MINOR_AVHexColor 2
+#define COCOAPODS_VERSION_PATCH_AVHexColor 0
+
 // CocoaLumberjack
 #define COCOAPODS_POD_AVAILABLE_CocoaLumberjack
 // This library does not follow semantic-versioning,
@@ -95,9 +101,10 @@
 
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
-#define COCOAPODS_VERSION_MAJOR_XBMobile 0
-#define COCOAPODS_VERSION_MINOR_XBMobile 1
-#define COCOAPODS_VERSION_PATCH_XBMobile 8
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.1.8.2.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

@@ -29,6 +29,7 @@
 @synthesize dataFetching;
 @synthesize isMultipleSection;
 @synthesize refreshControl;
+@synthesize backupWhenSearch;
 
 - (void)setupDelegate
 {

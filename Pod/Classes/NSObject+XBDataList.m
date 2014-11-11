@@ -135,24 +135,38 @@
         }
         else
         {
-            NSMutableString *predicateFormat = [@"ANY " mutableCopy];
-            NSMutableArray *args = [@[] mutableCopy];
-            for (NSString *field in self.informations[@"searchOptions"][@"fields"])
+            if (!self.backupWhenSearch)
             {
-                [predicateFormat appendFormat:@"%@ ", field];
-                [predicateFormat appendString:@"CONTAINS %@"];
-                if ([self.informations[@"searchOptions"][@"fields"] indexOfObject:field] != [self.informations[@"searchOptions"][@"fields"] count] - 1)
-                {
-                    [predicateFormat appendString:@" OR "];
-                }
-                [args addObject:searchKey];
+                self.backupWhenSearch = [self.datalist mutableCopy];
             }
-            
-            NSPredicate *pred = [NSPredicate predicateWithFormat:predicateFormat argumentArray:args];
-            NSArray *result = [self.datalist filteredArrayUsingPredicate:pred];
-            self.backupWhenSearch = [self.datalist mutableCopy];
-            [self.datalist removeAllObjects];
-            [self.datalist addObjectsFromArray:result];
+            self.datalist = [self.backupWhenSearch mutableCopy];
+            if ([searchKey length] != 0)
+            {
+                NSMutableString *predicateFormat = [@"" mutableCopy];
+                NSMutableArray *args = [@[] mutableCopy];
+                for (NSString *field in self.informations[@"searchOptions"][@"fields"])
+                {
+                    [predicateFormat appendFormat:@"%@ ", field];
+                    [predicateFormat appendString:@"CONTAINS %@"];
+                    if ([self.informations[@"searchOptions"][@"fields"] indexOfObject:field] != [self.informations[@"searchOptions"][@"fields"] count] - 1)
+                    {
+                        [predicateFormat appendString:@" OR "];
+                    }
+                    [args addObject:searchKey];
+                }
+                
+                NSPredicate *pred = [NSPredicate predicateWithFormat:predicateFormat argumentArray:args];
+                
+                NSMutableArray *result = [@[] mutableCopy];
+                for (int i = 0; i < [self.datalist count]; i ++)
+                {
+                    NSMutableDictionary *item = [self.datalist[i] mutableCopy];
+                    NSArray *array = item[@"items"];
+                    item[@"items"] = [array filteredArrayUsingPredicate:pred];
+                    [result addObject:item];
+                }
+                self.datalist = [result mutableCopy];
+            }
             [self reloadData];
         }
     }
@@ -160,7 +174,7 @@
 
 - (void)cancelSearch
 {
-    
+    self.datalist = [self.backupWhenSearch mutableCopy];
 }
 
 #pragma mark - Cell generation
