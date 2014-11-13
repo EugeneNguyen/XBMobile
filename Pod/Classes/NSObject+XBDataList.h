@@ -39,6 +39,8 @@
 
 @property (nonatomic, retain) NSMutableArray *backupWhenSearch;
 
+- (void)setupWaterFall;
+
 - (void)reloadData;
 
 - (void)configHeightAfterFillData;

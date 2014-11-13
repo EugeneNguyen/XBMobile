@@ -42,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_AVHexColor 2
 #define COCOAPODS_VERSION_PATCH_AVHexColor 0
 
+// CHTCollectionViewWaterfallLayout
+#define COCOAPODS_POD_AVAILABLE_CHTCollectionViewWaterfallLayout
+#define COCOAPODS_VERSION_MAJOR_CHTCollectionViewWaterfallLayout 0
+#define COCOAPODS_VERSION_MINOR_CHTCollectionViewWaterfallLayout 8
+#define COCOAPODS_VERSION_PATCH_CHTCollectionViewWaterfallLayout 0
+
 // CocoaLumberjack
 #define COCOAPODS_POD_AVAILABLE_CocoaLumberjack
 // This library does not follow semantic-versioning,
@@ -101,10 +107,9 @@
 
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
-// This library does not follow semantic-versioning,
-// so we were not able to define version macros.
-// Please contact the author.
-// Version: 0.1.8.2.
+#define COCOAPODS_VERSION_MAJOR_XBMobile 0
+#define COCOAPODS_VERSION_MINOR_XBMobile 2
+#define COCOAPODS_VERSION_PATCH_XBMobile 0
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

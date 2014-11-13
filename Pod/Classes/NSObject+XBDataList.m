@@ -65,6 +65,11 @@
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"loadMore"][@"xib"] bundle:nil] forCellReuseIdentifier:self.informations[@"loadMore"][@"identify"]];
     }
+    
+    if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
+    {
+        [self setupWaterFall];
+    }
 }
 
 #pragma mark - Data method & DataFetching Delegate

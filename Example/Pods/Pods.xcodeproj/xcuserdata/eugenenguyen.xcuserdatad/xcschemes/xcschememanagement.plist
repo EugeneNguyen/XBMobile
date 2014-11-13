@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-XBMobile-CHTCollectionViewWaterfallLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XBMobile-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>091AABC262D55B398E1A8A11</key>
+		<key>01BEAE305CBFBA0DCCE9265D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D7564CCB8E85C7DB2A5472F</key>
+		<key>0874E631867B7FA07A8F9ECA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33387DA046E982FBF83ACF59</key>
+		<key>23F7D3115FB9C8169E159674</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>339699E6505BBCF9BD563A0E</key>
+		<key>292CE3D34BED5EB999EE7CD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3842AA3D7D3827EDD992DDCD</key>
+		<key>4594BCECF34069D49487EBD8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5010B1E1FA042B8CE9113DC7</key>
+		<key>7C1B26F9A36633A5A5BBA752</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55B7D019B888C3A3C1B349CD</key>
+		<key>96FC8BB11D90C0242AF497CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>686A2E94BA0C900CF85B39B6</key>
+		<key>A34B12B73D7135018183B7A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F5756C7857282B4A461BA2D</key>
+		<key>C7E06BDA9104D6FBA73B96F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90494EFA54F1AE2CD3FFAF98</key>
+		<key>C91EA03A045C0B45ACB75EB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A4F8053FA4C68ED5A72E8F6</key>
+		<key>CC78DFB6EDD965396B8EA917</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9268BEC545EC0DA441C517C</key>
+		<key>ECA631AD3C403988D772EBEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F93F252AB148F82B92338C62</key>
 		<dict>
 			<key>primary</key>
 			<true/>

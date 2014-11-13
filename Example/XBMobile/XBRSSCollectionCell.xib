@@ -16,6 +16,10 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4o3-9j-FbI">
                         <rect key="frame" x="0.0" y="0.0" width="209" height="166"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="209" id="EtA-Fq-VcD"/>
+                            <constraint firstAttribute="height" constant="166" id="K1P-sp-BOm"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRQ-IJ-uuV">
                         <rect key="frame" x="8" y="8" width="193" height="21"/>
@@ -39,7 +43,7 @@
                 <constraint firstAttribute="trailing" secondItem="4o3-9j-FbI" secondAttribute="trailing" id="ysV-0i-c2q"/>
             </constraints>
             <size key="customSize" width="209" height="166"/>
-            <point key="canvasLocation" x="365.5" y="176"/>
+            <point key="canvasLocation" x="192.5" y="168"/>
         </collectionViewCell>
     </objects>
 </document>

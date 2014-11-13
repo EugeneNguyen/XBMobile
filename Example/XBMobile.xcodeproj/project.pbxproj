@@ -552,6 +552,8 @@
 					"-l\"resolv\"",
 					"-lxml2",
 					"-l\"z.1\"",
+					"-l\"Pods-XBMobile-AVHexColor\"",
+					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -599,6 +601,8 @@
 					"-l\"resolv\"",
 					"-lxml2",
 					"-l\"z.1\"",
+					"-l\"Pods-XBMobile-AVHexColor\"",
+					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

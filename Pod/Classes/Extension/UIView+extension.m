@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import <XBTableView.h>
 #import <XBCollectionView.h>
+#import <AVHexColor.h>
 
 @implementation UIView (extension)
 
@@ -31,10 +32,10 @@
         
         if (element[@"backgroundColor"])
         {
-            NSString *backgroundColorString = [info objectForPath:element[@"path"]];
-            if ([backgroundColorString length] >= 6)
+            NSString *backgroundColorString = [info objectForPath:element[@"backgroundColor"]];
+            if (backgroundColorString && [backgroundColorString length] >= 6)
             {
-                
+                self.backgroundColor = [AVHexColor colorWithHexString:backgroundColorString];
             }
         }
         
@@ -68,6 +69,7 @@
         {
             if ([data rangeOfString:@"(BUNDLE)"].location == 0)
             {
+                data = [data substringFromIndex:8];
                 [(UIImageView *)v setImage:[UIImage imageNamed:data]];
             }
             else
@@ -88,15 +90,18 @@
                 }
                 [(UIImageView *)v sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:nil options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     
-                    [UIView transitionWithView:(UIImageView *)v
-                                      duration:0.5
-                                       options:UIViewAnimationOptionTransitionCrossDissolve
-                                    animations:^{
-                                        [(UIImageView *)v setImage:image];
-                                        v.alpha = 1.0;
-                                    } completion:NULL];
+                    if ([(UIImageView *)v image] == NULL)
+                    {
+                        [UIView transitionWithView:(UIImageView *)v
+                                          duration:0.5
+                                           options:UIViewAnimationOptionTransitionCrossDissolve
+                                        animations:^{
+                                            [(UIImageView *)v setImage:image];
+                                            v.alpha = 1.0;
+                                        } completion:NULL];
+                    }
                     
-                    if ([element[@"autoHeight"] boolValue])
+                    if ([element[@"autoHeight"] boolValue] && !(element[@"widthPath"] && element[@"heightPath"]))
                     {
                         CGRect f = v.frame;
                         CGSize s = image.size;
@@ -105,6 +110,16 @@
                         [self layoutSubviews];
                     }
                 }];
+                if (element[@"widthPath"] && element[@"heightPath"] && [element[@"autoHeight"] boolValue])
+                {
+                    float h = [[info objectForPath:element[@"heightPath"]] floatValue];
+                    float w = [[info objectForPath:element[@"widthPath"]] floatValue];
+                    
+                    CGRect f = v.frame;
+                    f.size.height = f.size.width / w * h;
+                    v.frame = f;
+                    [self layoutSubviews];
+                }
             }
         }
         else if ([v isKindOfClass:[UIButton class]])
@@ -112,7 +127,7 @@
             UIButton *btn = (UIButton *)v;
             [btn setTitle:data forState:UIControlStateNormal];
             
-            if (data[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
+            if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
             {
                 [btn removeTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
                 [btn addTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];

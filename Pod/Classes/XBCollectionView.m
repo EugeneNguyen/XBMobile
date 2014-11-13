@@ -12,8 +12,9 @@
 #import "JSONKit.h"
 #import "UIImageView+WebCache.h"
 #import "XBDataFetching.h"
+#import "CHTCollectionViewWaterfallLayout.h"
 
-@interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate>
+@interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate, CHTCollectionViewDelegateWaterfallLayout>
 {
     
 }
@@ -35,6 +36,13 @@
 {
     self.delegate = self;
     self.dataSource = self;
+}
+
+- (void)setupWaterFall
+{
+    CHTCollectionViewWaterfallLayout *waterfallLayout = [[CHTCollectionViewWaterfallLayout alloc] init];
+    waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
+    self.collectionViewLayout = waterfallLayout;
 }
 
 - (void)initRefreshControl
@@ -88,15 +96,37 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *size = self.informations[@"size"];
-    if ([size[@"percentage"] boolValue])
+    if ([informations[@"waterfall"][@"enable"] boolValue])
     {
-        return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
+        NSDictionary *item = [self cellInfoForPath:indexPath];
+        UICollectionViewCell *sizingCell = [[[NSBundle mainBundle] loadNibNamed:item[@"xibname"] owner:nil options:nil] lastObject];
+//        CGRect f = sizingCell.frame;
+//        f.size.width = [(CHTCollectionViewWaterfallLayout *)self.collectionViewLayout itemWidthInSectionAtIndex:indexPath.section];
+//        sizingCell.frame = f;
+        [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
+        return [self calculateSizeForConfiguredSizingCell:sizingCell];
     }
     else
     {
-        return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+        NSDictionary *size = self.informations[@"size"];
+        if ([size[@"percentage"] boolValue])
+        {
+            return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
+        }
+        else
+        {
+            return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+        }
     }
+}
+
+- (CGSize)calculateSizeForConfiguredSizingCell:(UICollectionViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"size: %@", NSStringFromCGSize(size));
+    return size;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
