@@ -100,9 +100,9 @@
     {
         NSDictionary *item = [self cellInfoForPath:indexPath];
         UICollectionViewCell *sizingCell = [[[NSBundle mainBundle] loadNibNamed:item[@"xibname"] owner:nil options:nil] lastObject];
-//        CGRect f = sizingCell.frame;
-//        f.size.width = [(CHTCollectionViewWaterfallLayout *)self.collectionViewLayout itemWidthInSectionAtIndex:indexPath.section];
-//        sizingCell.frame = f;
+        CGRect f = sizingCell.frame;
+        f.size.width = [(CHTCollectionViewWaterfallLayout *)self.collectionViewLayout itemWidthInSectionAtIndex:indexPath.section];
+        sizingCell.frame = f;
         [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
         return [self calculateSizeForConfiguredSizingCell:sizingCell];
     }

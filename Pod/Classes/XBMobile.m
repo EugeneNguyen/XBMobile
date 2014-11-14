@@ -12,6 +12,8 @@
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 
+NSString *const XBMobileCollectionViewWaterfallImageDownloaded = @"XBMobileCollectionViewWaterfallImageDownloaded";
+
 static XBMobile *__sharedXBMobileInstance = nil;
 
 @interface XBMobile ()

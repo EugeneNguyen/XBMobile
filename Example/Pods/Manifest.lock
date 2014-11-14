@@ -28,7 +28,8 @@ PODS:
   - SDWebImage-ProgressView (0.4.0):
     - SDWebImage (~> 3.7.0)
   - SDWebImage/Core (3.7.1)
-  - XBMobile (0.2):
+  - UIImage-Helpers (0.0.3)
+  - XBMobile (0.2.0.1):
     - ASIHTTPRequest
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
@@ -36,6 +37,7 @@ PODS:
     - JSONKit-NoWarning
     - MBProgressHUD
     - SDWebImage-ProgressView
+    - UIImage-Helpers
     - XMLDictionary
   - XMLDictionary (1.4)
 
@@ -56,7 +58,8 @@ SPEC CHECKSUMS:
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SDWebImage-ProgressView: 5b094a93013b3f6ae9d622b58055c942c964b678
-  XBMobile: 94e1c1b432ba5b0ff2dfe2092648ab3519d3dc59
+  UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
+  XBMobile: 2fec78900c7d685cc8833dca62dc850266e8b9f8
   XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
 
 COCOAPODS: 0.34.4

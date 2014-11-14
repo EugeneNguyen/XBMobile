@@ -19,7 +19,7 @@
 	<key>waterfall</key>
 	<dict>
 		<key>enable</key>
-		<false/>
+		<true/>
 		<key>numberOfColumns</key>
 		<integer>2</integer>
 	</dict>

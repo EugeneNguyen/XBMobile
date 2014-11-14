@@ -105,11 +105,18 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// UIImage-Helpers
+#define COCOAPODS_POD_AVAILABLE_UIImage_Helpers
+#define COCOAPODS_VERSION_MAJOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_MINOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_PATCH_UIImage_Helpers 3
+
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
-#define COCOAPODS_VERSION_MAJOR_XBMobile 0
-#define COCOAPODS_VERSION_MINOR_XBMobile 2
-#define COCOAPODS_VERSION_PATCH_XBMobile 0
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.2.0.1.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

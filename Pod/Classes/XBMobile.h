@@ -13,6 +13,8 @@
 #import "XBExtension.h"
 #import "DDLog.h"
 
+extern NSString *const XBMobileCollectionViewWaterfallImageDownloaded;
+
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface XBMobile : UIWindow

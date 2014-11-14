@@ -12,6 +12,8 @@
 #import <XBTableView.h>
 #import <XBCollectionView.h>
 #import <AVHexColor.h>
+#import <UIImage-Helpers.h>
+#import "XBMobile.h"
 
 @implementation UIView (extension)
 
@@ -67,10 +69,11 @@
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {
+            UIImageView *imgView = (UIImageView *)v;
             if ([data rangeOfString:@"(BUNDLE)"].location == 0)
             {
                 data = [data substringFromIndex:8];
-                [(UIImageView *)v setImage:[UIImage imageNamed:data]];
+                [imgView setImage:[UIImage imageNamed:data]];
             }
             else
             {
@@ -88,15 +91,38 @@
                 {
                     option = 0;
                 }
-                [(UIImageView *)v sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:nil options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                
+                UIImage *placeHolderImage = nil;
+                if (element[@"widthPath"] && element[@"heightPath"] && [element[@"autoHeight"] boolValue])
+                {
+                    float h = [[info objectForPath:element[@"heightPath"]] floatValue];
+                    float w = [[info objectForPath:element[@"widthPath"]] floatValue];
                     
-                    if ([(UIImageView *)v image] == NULL)
+                    CGRect rect = CGRectMake(0, 0, w, h);
+                    UIGraphicsBeginImageContext(rect.size);
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    
+                    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+                    CGContextFillRect(context, rect);
+                    
+                    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    
+                    placeHolderImage = image;
+                    
+                    [self layoutSubviews];
+                }
+                
+                __block BOOL prevImage = [(UIImageView *)v image] == NULL;
+                [imgView sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:placeHolderImage options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                    if (prevImage)
                     {
-                        [UIView transitionWithView:(UIImageView *)v
+                        [UIView transitionWithView:imgView
                                           duration:0.5
                                            options:UIViewAnimationOptionTransitionCrossDissolve
                                         animations:^{
-                                            [(UIImageView *)v setImage:image];
+                                            [imgView setImage:image];
                                             v.alpha = 1.0;
                                         } completion:NULL];
                     }
@@ -107,19 +133,14 @@
                         CGSize s = image.size;
                         f.size.height = f.size.width / s.width * s.height;
                         v.frame = f;
+                        
                         [self layoutSubviews];
                     }
+                    if (cacheType == SDImageCacheTypeNone)
+                    {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:XBMobileCollectionViewWaterfallImageDownloaded object:nil];
+                    }
                 }];
-                if (element[@"widthPath"] && element[@"heightPath"] && [element[@"autoHeight"] boolValue])
-                {
-                    float h = [[info objectForPath:element[@"heightPath"]] floatValue];
-                    float w = [[info objectForPath:element[@"widthPath"]] floatValue];
-                    
-                    CGRect f = v.frame;
-                    f.size.height = f.size.width / w * h;
-                    v.frame = f;
-                    [self layoutSubviews];
-                }
             }
         }
         else if ([v isKindOfClass:[UIButton class]])
