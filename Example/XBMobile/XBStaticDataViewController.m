@@ -9,6 +9,7 @@
 #import "XBStaticDataViewController.h"
 #import "XBRSSViewController.h"
 #import "XBRSSCollectionView.h"
+#import "XBFormViewController.h"
 
 @implementation XBStaticDataViewController
 
@@ -35,6 +36,11 @@
             [self.navigationController pushViewController:rss animated:YES];
         }
             break;
+        case 2:
+        {
+            XBFormViewController *form = [[XBFormViewController alloc] init];
+            [self.navigationController pushViewController:form animated:YES];
+        }
             
         default:
             break;

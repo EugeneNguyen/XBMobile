@@ -14,5 +14,11 @@
 		<key>subtitle</key>
 		<string>Collection with JSON Service</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Third Demo</string>
+		<key>subtitle</key>
+		<string>Manual Form With Validation</string>
+	</dict>
 </array>
 </plist>

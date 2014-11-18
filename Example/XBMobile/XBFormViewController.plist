@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>submitMethod</key>
+	<string></string>
+	<key>submitURL</key>
+	<string></string>
+	<key>elements</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>username</string>
+			<key>tag</key>
+			<integer>100</integer>
+			<key>errorTag</key>
+			<string>200</string>
+			<key>type</key>
+			<string>text</string>
+			<key>required</key>
+			<true/>
+			<key>maxLength</key>
+			<integer>20</integer>
+			<key>minLength</key>
+			<string>5</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>password</string>
+			<key>tag</key>
+			<integer>101</integer>
+			<key>errorTag</key>
+			<string>200</string>
+			<key>type</key>
+			<string>password</string>
+			<key>required</key>
+			<true/>
+			<key>minLength</key>
+			<string>5</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>password</string>
+			<key>tag</key>
+			<string>99</string>
+			<key>type</key>
+			<string>submit</string>
+			<key>required</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

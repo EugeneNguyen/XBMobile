@@ -12,8 +12,7 @@
 #import "XBCollectionView.h"
 #import "XBExtension.h"
 #import "DDLog.h"
-
-extern NSString *const XBMobileCollectionViewWaterfallImageDownloaded;
+#import "XBForm.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 

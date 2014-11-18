@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSString (extension)
 
 - (NSString *)applyData:(NSDictionary *)data;
+
+- (BOOL)validateEmail;
 
 @end

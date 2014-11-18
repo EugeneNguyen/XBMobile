@@ -113,10 +113,10 @@
                     [self layoutSubviews];
                 }
                 
-                __block BOOL prevImage = [(UIImageView *)v image] == NULL;
+                __block BOOL noPrevImage = [(UIImageView *)v image] == NULL;
                 [imgView sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:placeHolderImage options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     
-                    if (prevImage)
+                    if (noPrevImage && [element[@"fadein"] boolValue])
                     {
                         [UIView transitionWithView:imgView
                                           duration:0.5
@@ -125,6 +125,10 @@
                                             [imgView setImage:image];
                                             v.alpha = 1.0;
                                         } completion:NULL];
+                    }
+                    else
+                    {
+                        imgView.image = image;
                     }
                     
                     if ([element[@"autoHeight"] boolValue] && !(element[@"widthPath"] && element[@"heightPath"]))
@@ -135,10 +139,6 @@
                         v.frame = f;
                         
                         [self layoutSubviews];
-                    }
-                    if (cacheType == SDImageCacheTypeNone)
-                    {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:XBMobileCollectionViewWaterfallImageDownloaded object:nil];
                     }
                 }];
             }
@@ -164,13 +164,13 @@
         {
             XBTableView *tableview = (XBTableView *)v;
             [tableview loadData:data];
-            tableview.informations = element;
+            [tableview loadInformations:element withReload:YES];
         }
         else if ([v isKindOfClass:[XBCollectionView class]])
         {
             XBCollectionView *tableview = (XBCollectionView *)v;
             [tableview loadData:data];
-            tableview.informations = element;
+            [tableview loadInformations:element withReload:YES];
         }
     }
     [self setNeedsDisplay];

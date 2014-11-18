@@ -28,6 +28,10 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XBAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
+		B62436421A170191007161B4 /* XBFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62436401A170191007161B4 /* XBFormViewController.m */; };
+		B62436431A170191007161B4 /* XBFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62436411A170191007161B4 /* XBFormViewController.xib */; };
+		B62436481A172F02007161B4 /* XBFormViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = B62436471A172F02007161B4 /* XBFormViewController.plist */; };
+		B624364E1A17413D007161B4 /* FormErrorList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B624364D1A17413D007161B4 /* FormErrorList.plist */; };
 		B6C64B331A109CD3003B1332 /* XBStaticData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B321A109CD3003B1332 /* XBStaticData.plist */; };
 		B6C64B4F1A10A655003B1332 /* XBStaticDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C64B4E1A10A655003B1332 /* XBStaticDataViewController.m */; };
 		B6C64B511A10A662003B1332 /* XBStaticDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C64B501A10A662003B1332 /* XBStaticDataViewController.xib */; };
@@ -81,6 +85,11 @@
 		9592FAA3F7B1877EBA9858F6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A104658C15AAA42BBA5441CB /* Pods-XBMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B8E767C5D9B2853680F682 /* Pods-XBMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.release.xcconfig"; sourceTree = "<group>"; };
+		B624363F1A170191007161B4 /* XBFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFormViewController.h; sourceTree = "<group>"; };
+		B62436401A170191007161B4 /* XBFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFormViewController.m; sourceTree = "<group>"; };
+		B62436411A170191007161B4 /* XBFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBFormViewController.xib; sourceTree = "<group>"; };
+		B62436471A172F02007161B4 /* XBFormViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBFormViewController.plist; sourceTree = "<group>"; };
+		B624364D1A17413D007161B4 /* FormErrorList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FormErrorList.plist; sourceTree = "<group>"; };
 		B6C64B321A109CD3003B1332 /* XBStaticData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBStaticData.plist; sourceTree = "<group>"; };
 		B6C64B4D1A10A655003B1332 /* XBStaticDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBStaticDataViewController.h; sourceTree = "<group>"; };
 		B6C64B4E1A10A655003B1332 /* XBStaticDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBStaticDataViewController.m; sourceTree = "<group>"; };
@@ -152,10 +161,10 @@
 		6003F593195388D20070C39A /* XBMobile */ = {
 			isa = PBXGroup;
 			children = (
+				B6585B8F1A16582200841480 /* Form */,
 				B6C64B641A11A006003B1332 /* CollectionViewDemo */,
 				B6C64B341A109D49003B1332 /* RSS */,
 				B6C64B2A1A10683A003B1332 /* Main-StaticData */,
-				B6C64B231A106710003B1332 /* PlistDemo */,
 				6003F59C195388D20070C39A /* XBAppDelegate.h */,
 				6003F59D195388D20070C39A /* XBAppDelegate.m */,
 				4466787819F750E700A6EE8D /* XBTestTableViewController.h */,
@@ -229,11 +238,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B6C64B231A106710003B1332 /* PlistDemo */ = {
+		B6585B8F1A16582200841480 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				B624363F1A170191007161B4 /* XBFormViewController.h */,
+				B62436401A170191007161B4 /* XBFormViewController.m */,
+				B62436411A170191007161B4 /* XBFormViewController.xib */,
+				B62436471A172F02007161B4 /* XBFormViewController.plist */,
+				B624364D1A17413D007161B4 /* FormErrorList.plist */,
 			);
-			name = PlistDemo;
+			name = Form;
 			sourceTree = "<group>";
 		};
 		B6C64B2A1A10683A003B1332 /* Main-StaticData */ = {
@@ -328,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62436481A172F02007161B4 /* XBFormViewController.plist in Resources */,
 				4466788419F750E700A6EE8D /* XBTestTableViewController.xib in Resources */,
 				B6C64B551A10A96F003B1332 /* XBStaticDataCell.xib in Resources */,
 				4466787B19F750E700A6EE8D /* LoadMoreCell.xib in Resources */,
@@ -338,12 +353,14 @@
 				B6C64B511A10A662003B1332 /* XBStaticDataViewController.xib in Resources */,
 				B6C64B741A11F949003B1332 /* XBRSSCollectionView.xib in Resources */,
 				4466788219F750E700A6EE8D /* XBMainWindow.xib in Resources */,
+				B62436431A170191007161B4 /* XBFormViewController.xib in Resources */,
 				44392CB41A01DF8D009008F4 /* XBChatTimeLine.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				4466788019F750E700A6EE8D /* TestTableViewData1.plist in Resources */,
 				4466787F19F750E700A6EE8D /* TestTableViewData.plist in Resources */,
 				44796D341A00D7330003C574 /* XBChatViewDemo.plist in Resources */,
 				44796D421A014E790003C574 /* XBChatViewController.xib in Resources */,
+				B624364E1A17413D007161B4 /* FormErrorList.plist in Resources */,
 				B6C64B5C1A1103DA003B1332 /* XBRSSViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				B6C64B5E1A110438003B1332 /* XBRSSViewController.plist in Resources */,
@@ -399,6 +416,7 @@
 				4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */,
 				B6C64B5B1A1103DA003B1332 /* XBRSSViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
+				B62436421A170191007161B4 /* XBFormViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				B6C64B721A11F937003B1332 /* XBRSSCollectionView.m in Sources */,
 			);

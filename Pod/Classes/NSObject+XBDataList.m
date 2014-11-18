@@ -42,6 +42,11 @@
 
 - (void)loadInformations:(NSDictionary *)info
 {
+    [self loadInformations:info withReload:NO];
+}
+
+- (void)loadInformations:(NSDictionary *)info withReload:(BOOL)withReload
+{
     [self setupDelegate];
     self.informations = info;
     
@@ -50,7 +55,7 @@
         self.isMultipleSection = YES;
     }
     
-    [self requestData];
+    [self requestDataWithReload:withReload];
     for (NSDictionary *item in self.informations[@"cells"])
     {
         [self registerNib:[UINib nibWithNibName:item[@"xibname"] bundle:nil] forCellReuseIdentifier:item[@"cellIdentify"]];
@@ -74,7 +79,7 @@
 
 #pragma mark - Data method & DataFetching Delegate
 
-- (void)requestData
+- (void)requestDataWithReload:(BOOL)withReload
 {
     if ([self.informations[@"isRemoteData"] boolValue])
     {

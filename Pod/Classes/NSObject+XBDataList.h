@@ -29,6 +29,8 @@
 
 - (void)loadInformations:(NSDictionary *)info;
 
+- (void)loadInformations:(NSDictionary *)info withReload:(BOOL)withReload;
+
 - (void)requestData;
 
 - (NSDictionary *)cellInfoForPath:(NSIndexPath *)indexPath;
