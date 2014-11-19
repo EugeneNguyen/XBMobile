@@ -203,4 +203,25 @@
     return v;
 }
 
+- (void)dim
+{
+    UIView *view = [self viewWithTag:999];
+    if (!view)
+    {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        view.tag = 999;
+        view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [self addSubview:view];
+    }
+}
+
+- (void)undim
+{
+    UIView *view = [self viewWithTag:999];
+    if (view)
+    {
+        [view removeFromSuperview];
+    }
+}
+
 @end

@@ -19,4 +19,7 @@
 + (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information;
 + (id)viewWithXib:(NSString *)xibName template:(NSArray *)temp information:(NSDictionary *)information withTarget:(id)target;
 
+- (void)dim;
+- (void)undim;
+
 @end
