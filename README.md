@@ -11,7 +11,11 @@ XBMobile is open-source library support user to build iOS application extremely 
 
 XBMobile also will be used with CodeIgnore & PlusIgniter as IDE & backend system.
 
-XBMobile is a product of [LIBRETeamStudio](http://libre.com.vn)
+XBMobile is a product of [LIBRETeamStudio](https://twitter.com/LIBRETeamStudio)
+
+## Documentation
+
+We tried as best as we can to provide super detailed document [here](https://github.com/EugeneNguyen/XBMobile/wiki). And anything's unclear or need more support, don't be shy to contact us via contact@libreteam.com. We appreciate any idea, bug report, function request ...
 
 ## Usage
 

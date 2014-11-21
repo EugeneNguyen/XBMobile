@@ -79,6 +79,11 @@
 
 #pragma mark - Data method & DataFetching Delegate
 
+- (void)requestData
+{
+    [self requestDataWithReload:NO];
+}
+
 - (void)requestDataWithReload:(BOOL)withReload
 {
     if ([self.informations[@"isRemoteData"] boolValue])
