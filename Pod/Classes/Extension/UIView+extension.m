@@ -37,7 +37,7 @@
             NSString *backgroundColorString = [info objectForPath:element[@"backgroundColor"]];
             if (backgroundColorString && [backgroundColorString length] >= 6)
             {
-                self.backgroundColor = [AVHexColor colorWithHexString:backgroundColorString];
+                v.backgroundColor = [AVHexColor colorWithHexString:backgroundColorString];
             }
         }
         
@@ -83,7 +83,7 @@
                     data = [NSString stringWithFormat:@"%@/%@", [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost], data];
                 }
                 SDWebImageOptions option;
-                if ([element[@"disableCache"] intValue])
+                if ([element[@"disableCache"] boolValue])
                 {
                     option = SDWebImageRefreshCached;
                 }

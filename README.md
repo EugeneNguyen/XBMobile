@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/XBMobile.svg?style=flat)](http://cocoadocs.org/docsets/XBMobile)
 [![License](https://img.shields.io/cocoapods/l/XBMobile.svg?style=flat)](http://cocoadocs.org/docsets/XBMobile)
 [![Platform](https://img.shields.io/cocoapods/p/XBMobile.svg?style=flat)](http://cocoadocs.org/docsets/XBMobile)
+[![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y22J3LQZCAN2A "Donate once-off to this project using Paypal")
 
 ## About XBMobile
 
