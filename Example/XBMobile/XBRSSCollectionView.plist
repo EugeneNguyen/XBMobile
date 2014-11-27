@@ -19,16 +19,18 @@
 	<key>waterfall</key>
 	<dict>
 		<key>enable</key>
-		<true/>
+		<false/>
 		<key>numberOfColumns</key>
-		<integer>3</integer>
+		<integer>2</integer>
 	</dict>
 	<key>size</key>
 	<dict>
+		<key>percentage</key>
+		<true/>
 		<key>height</key>
-		<integer>100</integer>
+		<integer>1</integer>
 		<key>width</key>
-		<integer>100</integer>
+		<integer>1</integer>
 	</dict>
 	<key>search</key>
 	<dict/>

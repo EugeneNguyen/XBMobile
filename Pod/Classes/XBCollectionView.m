@@ -31,11 +31,23 @@
 @synthesize isMultipleSection;
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
+@synthesize pageControl;
 
 - (void)setupDelegate
 {
     self.delegate = self;
     self.dataSource = self;
+    [self reloadPageControl];
+}
+
+- (void)reloadPageControl
+{
+    if (pageControl)
+    {
+        pageControl.numberOfPages = self.contentSize.width / self.frame.size.width;
+        pageControl.currentPage = self.contentOffset.x / self.frame.size.width;
+        NSLog(@"%d %d", pageControl.numberOfPages, pageControl.currentPage);
+    }
 }
 
 - (void)setupWaterFall
@@ -78,6 +90,14 @@
 }
 
 #pragma mark - UITableViewDelegateAndDataSource
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (pageControl && [self.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]])
+    {
+        [self reloadPageControl];
+    }
+}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -125,7 +145,6 @@
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    NSLog(@"size: %@", NSStringFromCGSize(size));
     return size;
 }
 

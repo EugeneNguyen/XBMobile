@@ -54,6 +54,7 @@
 {
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:refreshControl];
 }
 
 #pragma mark - UITableViewDelegateAndDataSource

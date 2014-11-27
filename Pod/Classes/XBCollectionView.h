@@ -28,5 +28,6 @@
 }
 
 @property (nonatomic, retain) IBOutlet id <XBCollectionViewDelegate> xbDelegate;
+@property (nonatomic, assign) IBOutlet UIPageControl *pageControl;
 
 @end
