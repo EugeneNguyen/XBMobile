@@ -46,7 +46,6 @@
     {
         pageControl.numberOfPages = self.contentSize.width / self.frame.size.width;
         pageControl.currentPage = self.contentOffset.x / self.frame.size.width;
-        NSLog(@"%d %d", pageControl.numberOfPages, pageControl.currentPage);
     }
 }
 

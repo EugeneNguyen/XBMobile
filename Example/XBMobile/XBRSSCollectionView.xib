@@ -25,7 +25,7 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="pageControl" destination="WCB-uv-dfE" id="L6K-ky-esq"/>
+                        <outlet property="pageControl" destination="WCB-uv-dfE" id="4dZ-4U-fyF"/>
                         <outlet property="xbDelegate" destination="-1" id="OyR-wk-sHy"/>
                     </connections>
                 </collectionView>

@@ -95,8 +95,14 @@
                 UIImage *placeHolderImage = nil;
                 if (element[@"widthPath"] && element[@"heightPath"] && [element[@"autoHeight"] boolValue])
                 {
+                    [self layoutIfNeeded];
                     float h = [[info objectForPath:element[@"heightPath"]] floatValue];
                     float w = [[info objectForPath:element[@"widthPath"]] floatValue];
+                    
+                    float scale = w / h;
+                    
+                    w = v.frame.size.width;
+                    h = w / scale;
                     
                     CGRect rect = CGRectMake(0, 0, w, h);
                     UIGraphicsBeginImageContext(rect.size);
