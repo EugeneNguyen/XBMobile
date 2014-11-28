@@ -49,6 +49,12 @@
     }
 }
 
+- (void)reloadData
+{
+    [super reloadData];
+    [self reloadPageControl];
+}
+
 - (void)setupWaterFall
 {
     CHTCollectionViewWaterfallLayout *waterfallLayout = [[CHTCollectionViewWaterfallLayout alloc] init];
