@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pathToContent</key>
+	<string>reviews</string>
+	<key>size</key>
+	<dict>
+		<key>autoResize</key>
+		<true/>
+	</dict>
+	<key>cells</key>
+	<array>
+		<dict>
+			<key>useAutolayout</key>
+			<true/>
+			<key>cellIdentify</key>
+			<string>testcell</string>
+			<key>xibname</key>
+			<string>XBTagViewDefault</string>
+			<key>elements</key>
+			<array>
+				<dict>
+					<key>tag</key>
+					<integer>100</integer>
+					<key>path</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>tag</key>
+					<integer>101</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

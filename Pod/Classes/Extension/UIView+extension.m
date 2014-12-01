@@ -152,7 +152,10 @@
         else if ([v isKindOfClass:[UIButton class]])
         {
             UIButton *btn = (UIButton *)v;
-            [btn setTitle:data forState:UIControlStateNormal];
+            if (element[@"path"] || element[@"format"])
+            {
+                [btn setTitle:data forState:UIControlStateNormal];
+            }
             
             if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
             {
@@ -179,6 +182,8 @@
             [tableview loadInformations:element withReload:YES];
         }
     }
+    
+    [self layoutSubviews];
     [self setNeedsDisplay];
 }
 
@@ -240,6 +245,22 @@
         } completion:^(BOOL finished) {
             [view removeFromSuperview];
         }];
+    }
+}
+
+- (UIViewController *) firstAvailableUIViewController {
+    // convenience function for casting and to "mask" the recursive function
+    return (UIViewController *)[self traverseResponderChainForUIViewController];
+}
+
+- (id) traverseResponderChainForUIViewController {
+    id nextResponder = [self nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return nextResponder;
+    } else if ([nextResponder isKindOfClass:[UIView class]]) {
+        return [nextResponder traverseResponderChainForUIViewController];
+    } else {
+        return nil;
     }
 }
 

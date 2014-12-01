@@ -8,7 +8,7 @@
 
 #import "NSObject+XBDataList.h"
 #import "ASIFormDataRequest.h"
-#import "NSObject+extension.h"
+#import "XBExtension.h"
 
 @implementation NSObject (XBDataList)
 @dynamic informations;
@@ -58,7 +58,8 @@
     [self requestDataWithReload:withReload];
     for (NSDictionary *item in self.informations[@"cells"])
     {
-        [self registerNib:[UINib nibWithNibName:item[@"xibname"] bundle:nil] forCellReuseIdentifier:item[@"cellIdentify"]];
+        UINib *nib = [UINib loadResourceWithInformation:item];
+        [self registerNib:nib forCellReuseIdentifier:item[@"cellIdentify"]];
     }
     
     if ([self.informations[@"isUsingRefreshControl"] boolValue])

@@ -29,4 +29,6 @@
 
 @property (nonatomic, retain) IBOutlet id <XBTableViewDelegate> xbDelegate;
 
+- (void)didPressButton:(UIButton *)btn;
+
 @end

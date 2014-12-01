@@ -6,19 +6,33 @@
 		<key>title</key>
 		<string>First demo</string>
 		<key>subtitle</key>
-		<string>Table with JSON service</string>
+		<string>Table with JSON service qwekj qw;ekfj qw;ekfj q;wekf q;wekjf q;wek fj</string>
+		<key>push</key>
+		<string>XBRSSViewController</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Second demo</string>
 		<key>subtitle</key>
 		<string>Collection with JSON Service</string>
+		<key>push</key>
+		<string>XBRSSCollectionView</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Third Demo</string>
 		<key>subtitle</key>
 		<string>Manual Form With Validation</string>
+		<key>push</key>
+		<string>XBFormViewController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Fourth demo</string>
+		<key>subtitle</key>
+		<string>tag line</string>
+		<key>push</key>
+		<string>XBTagViewController</string>
 	</dict>
 </array>
 </plist>

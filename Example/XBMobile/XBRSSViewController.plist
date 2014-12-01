@@ -28,8 +28,6 @@
 	<key>cells</key>
 	<array>
 		<dict>
-			<key>useAutolayout</key>
-			<true/>
 			<key>cellIdentify</key>
 			<string>testcell</string>
 			<key>xibname</key>

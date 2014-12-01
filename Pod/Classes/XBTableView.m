@@ -130,6 +130,30 @@
     {
         [xbDelegate xbTableView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
+    else if (datalist[indexPath.section][@"items"][indexPath.row][@"push"])
+    {
+        UIViewController *viewController = [self firstAvailableUIViewController];
+        if (viewController && viewController.navigationController)
+        {
+            NSString *push = datalist[indexPath.section][@"items"][indexPath.row][@"push"];
+            Class class = NSClassFromString(push);
+            if (class)
+            {
+                id nextView = [[class alloc] init];
+                [viewController.navigationController pushViewController:nextView animated:YES];
+            }
+            else
+            {
+                push = [self cellInfoForPath:indexPath][@"push"];
+                class = NSClassFromString(push);
+                if (class)
+                {
+                    id nextView = [[class alloc] init];
+                    [viewController.navigationController pushViewController:nextView animated:YES];
+                }
+            }
+        }
+    }
 }
 
 - (void)didPressButton:(UIButton *)btn

@@ -30,4 +30,6 @@
 @property (nonatomic, retain) IBOutlet id <XBCollectionViewDelegate> xbDelegate;
 @property (nonatomic, assign) IBOutlet UIPageControl *pageControl;
 
+- (void)didPressButton:(UIButton *)btn;
+
 @end

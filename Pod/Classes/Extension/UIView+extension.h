@@ -22,4 +22,7 @@
 - (void)dim;
 - (void)undim;
 
+- (UIViewController *) firstAvailableUIViewController;
+- (id) traverseResponderChainForUIViewController;
+
 @end

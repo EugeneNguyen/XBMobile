@@ -13,5 +13,6 @@
 #import "UIView+extension.h"
 #import "NSString+extension.h"
 #import "NSArray+extension.h"
+#import "UINib+load.h"
 
 #endif

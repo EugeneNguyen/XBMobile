@@ -20,31 +20,4 @@
     [tableView loadData:[NSArray arrayWithContentsOfPlist:@"XBStaticData"]];
 }
 
-- (void)xbTableView:(XBTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath forItem:(id)item
-{
-    switch (indexPath.row) {
-        case 0:
-        {
-            XBRSSViewController *rss = [[XBRSSViewController alloc] init];
-            [self.navigationController pushViewController:rss animated:YES];
-        }
-            break;
-            
-        case 1:
-        {
-            XBRSSCollectionView *rss = [[XBRSSCollectionView alloc] init];
-            [self.navigationController pushViewController:rss animated:YES];
-        }
-            break;
-        case 2:
-        {
-            XBFormViewController *form = [[XBFormViewController alloc] init];
-            [self.navigationController pushViewController:form animated:YES];
-        }
-            
-        default:
-            break;
-    }
-}
-
 @end

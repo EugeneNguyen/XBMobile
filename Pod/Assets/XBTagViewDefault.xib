@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zNM-mq-Fn7">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abn-px-jYs">
+                        <rect key="frame" x="8" y="7" width="149.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="8fe-ay-BUb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp0-5y-ATi">
+                        <rect key="frame" x="165" y="0.0" width="34.5" height="34.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34.5" id="mha-kZ-oBN"/>
+                            <constraint firstAttribute="height" constant="34.5" id="sfn-7w-oKs"/>
+                        </constraints>
+                        <state key="normal" title="x">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fp0-5y-ATi" firstAttribute="leading" secondItem="abn-px-jYs" secondAttribute="trailing" constant="8" id="DaN-bN-Ju4"/>
+                <constraint firstItem="fp0-5y-ATi" firstAttribute="top" secondItem="zNM-mq-Fn7" secondAttribute="top" id="Dv5-tm-gXu"/>
+                <constraint firstAttribute="bottom" secondItem="fp0-5y-ATi" secondAttribute="bottom" id="JJ8-U3-xdG"/>
+                <constraint firstAttribute="trailing" secondItem="fp0-5y-ATi" secondAttribute="trailing" id="KqP-wO-A16"/>
+                <constraint firstItem="abn-px-jYs" firstAttribute="top" secondItem="zNM-mq-Fn7" secondAttribute="top" constant="7" id="TuC-fD-pLy"/>
+                <constraint firstAttribute="bottom" secondItem="abn-px-jYs" secondAttribute="bottom" constant="7" id="nt0-N3-tne"/>
+                <constraint firstItem="abn-px-jYs" firstAttribute="leading" secondItem="zNM-mq-Fn7" secondAttribute="leading" constant="8" id="vDO-ar-eoX"/>
+            </constraints>
+            <size key="customSize" width="200" height="35"/>
+            <point key="canvasLocation" x="541" y="289.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

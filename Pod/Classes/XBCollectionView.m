@@ -124,7 +124,8 @@
     if ([informations[@"waterfall"][@"enable"] boolValue])
     {
         NSDictionary *item = [self cellInfoForPath:indexPath];
-        UICollectionViewCell *sizingCell = [[[NSBundle mainBundle] loadNibNamed:item[@"xibname"] owner:nil options:nil] lastObject];
+        UINib *nib = [UINib loadResourceWithInformation:item];
+        UICollectionViewCell *sizingCell = [[nib instantiateWithOwner:nil options:nil] lastObject];
         CGRect f = sizingCell.frame;
         f.size.width = [(CHTCollectionViewWaterfallLayout *)self.collectionViewLayout itemWidthInSectionAtIndex:indexPath.section];
         sizingCell.frame = f;
@@ -134,13 +135,24 @@
     else
     {
         NSDictionary *size = self.informations[@"size"];
-        if ([size[@"percentage"] boolValue])
+        if ([size[@"autoResize"] boolValue])
         {
-            return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
+            NSDictionary *item = [self cellInfoForPath:indexPath];
+            UINib *nib = [UINib loadResourceWithInformation:item];
+            UICollectionViewCell *sizingCell = [[nib instantiateWithOwner:nil options:nil] lastObject];
+            [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
+            return [self calculateSizeForConfiguredSizingCell:sizingCell];
         }
         else
         {
-            return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+            if ([size[@"percentage"] boolValue])
+            {
+                return CGSizeMake([size[@"width"] floatValue] * self.frame.size.width, [size[@"height"] floatValue] * self.frame.size.width);
+            }
+            else
+            {
+                return CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]);
+            }
         }
     }
 }
