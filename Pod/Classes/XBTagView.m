@@ -11,6 +11,7 @@
 
 @implementation XBTagView
 @synthesize tagList = _tagList;
+@synthesize tagViewDelegate;
 
 - (void)loadInformations:(NSDictionary *)info
 {
@@ -30,6 +31,10 @@
 {
     [_tagList addObject:tagString];
     [self reloadData];
+    if (tagViewDelegate && [tagViewDelegate respondsToSelector:@selector(xbTagView:didAddTag:)])
+    {
+        [tagViewDelegate xbTagView:self didAddTag:tagString];
+    }
 }
 
 - (void)removeTagAtIndex:(long)index
@@ -38,7 +43,10 @@
         [self deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
         [_tagList removeObjectAtIndex:index];
     } completion:^(BOOL finished) {
-        
+        if (tagViewDelegate && [tagViewDelegate respondsToSelector:@selector(xbTagView:didRemoveTag:atIndex:)])
+        {
+            [tagViewDelegate xbTagView:self didRemoveTag:self.tagList[index] atIndex:(int)index];
+        }
     }];
 }
 
