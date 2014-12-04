@@ -22,7 +22,7 @@
 @property (nonatomic, retain) NSMutableArray *tagList;
 @property (nonatomic, retain) IBOutlet id <XBTagViewDelegate> tagViewDelegate;
 
-- (void)addTag:(NSString *)_tag;
+- (void)addTag:(id)item;
 - (void)removeTagAtIndex:(long)index;
 
 @end

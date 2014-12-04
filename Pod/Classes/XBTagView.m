@@ -27,25 +27,32 @@
     [self reloadData];
 }
 
-- (void)addTag:(NSString *)tagString
+- (void)addTag:(id)item
 {
-    [_tagList addObject:tagString];
+    if (!_tagList)
+    {
+        _tagList = [@[] mutableCopy];
+    }
+    [_tagList addObject:item];
+    [self loadData:_tagList];
     [self reloadData];
     if (tagViewDelegate && [tagViewDelegate respondsToSelector:@selector(xbTagView:didAddTag:)])
     {
-        [tagViewDelegate xbTagView:self didAddTag:tagString];
+        [tagViewDelegate xbTagView:self didAddTag:item];
     }
 }
 
 - (void)removeTagAtIndex:(long)index
 {
+    id item = _tagList[index];
     [self performBatchUpdates:^{
         [self deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
         [_tagList removeObjectAtIndex:index];
     } completion:^(BOOL finished) {
+        [self loadData:_tagList];
         if (tagViewDelegate && [tagViewDelegate respondsToSelector:@selector(xbTagView:didRemoveTag:atIndex:)])
         {
-            [tagViewDelegate xbTagView:self didRemoveTag:self.tagList[index] atIndex:(int)index];
+            [tagViewDelegate xbTagView:self didRemoveTag:item atIndex:(int)index];
         }
     }];
 }
