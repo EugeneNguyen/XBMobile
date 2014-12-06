@@ -14,5 +14,6 @@
 #import "NSString+extension.h"
 #import "NSArray+extension.h"
 #import "UINib+load.h"
+#import "CALayer+XibConfiguration.h"
 
 #endif
