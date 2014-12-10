@@ -13,11 +13,4 @@
 
 @implementation XBStaticDataViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [tableView loadInformationFromPlist:@"XBStaticDataInformation"];
-    [tableView loadData:[NSArray arrayWithContentsOfPlist:@"XBStaticData"]];
-}
-
 @end

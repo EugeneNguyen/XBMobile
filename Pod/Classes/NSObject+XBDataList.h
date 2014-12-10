@@ -23,6 +23,10 @@
 
 @property (nonatomic, retain) UIRefreshControl *refreshControl;
 
+- (void)setPlist:(NSString *)plist;
+
+- (void)setPlistData:(NSString *)plistdata;
+
 - (void)loadInformationFromPlist:(NSString *)plist;
 
 - (void)loadData:(NSArray *)data;

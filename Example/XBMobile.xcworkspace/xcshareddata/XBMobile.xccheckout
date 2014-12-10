@@ -14,6 +14,8 @@
 		<string>svn://libre.com.vn/localproject</string>
 		<key>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</key>
 		<string>svn://libre.com.vn/localproject</string>
+		<key>77F9018940E1E1E5A7B6A7ED35D02A3693763630</key>
+		<string>svn://libre.com.vn/localproject/XBMobile</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Example/XBMobile.xcworkspace</string>
@@ -23,13 +25,20 @@
 		<string>../../..</string>
 		<key>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</key>
 		<string>../..</string>
+		<key>77F9018940E1E1E5A7B6A7ED35D02A3693763630</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>77F9018940E1E1E5A7B6A7ED35D02A3693763630</key>
+		<string>svn://libre.com.vn/localproject</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>svn://libre.com.vn/localproject</string>
+	<string>svn://libre.com.vn/localproject/XBMobile/Example/XBMobile.xcworkspace</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</string>
+	<string>77F9018940E1E1E5A7B6A7ED35D02A3693763630</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -42,15 +51,15 @@
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</string>
+			<string>77F9018940E1E1E5A7B6A7ED35D02A3693763630</string>
 			<key>IDESourceControlWCCName</key>
 			<string>XBMobile</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>0150ed9b-fc8f-4ec8-97ee-24be316e0ef3++1706</string>
 			<key>IDESourceControlWCCName</key>

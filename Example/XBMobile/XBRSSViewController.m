@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [tableView loadInformationFromPlist:@"XBRSSViewController"];
 }
 
 - (void)didReceiveMemoryWarning {

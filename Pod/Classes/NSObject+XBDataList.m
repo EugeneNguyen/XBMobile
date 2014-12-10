@@ -20,6 +20,16 @@
 
 #pragma mark - Loading Information
 
+- (void)setPlist:(NSString *)plist
+{
+    [self loadInformationFromPlist:plist];
+}
+
+- (void)setPlistData:(NSString *)plistdata
+{
+    [self loadData:[NSArray arrayWithContentsOfPlist:plistdata]];
+}
+
 - (void)loadInformationFromPlist:(NSString *)plist
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
