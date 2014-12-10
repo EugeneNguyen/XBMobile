@@ -20,6 +20,13 @@
 
 #pragma mark - Loading Information
 
+- (void)cleanup
+{
+    [self loadData:@[]];
+    [self loadInformations:@{}];
+    [self reloadData];
+}
+
 - (void)setPlist:(NSString *)plist
 {
     [self loadInformationFromPlist:plist];
@@ -85,6 +92,16 @@
     if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
     {
         [self setupWaterFall];
+    }
+}
+
+- (void)initRefreshControl
+{
+    if (!self.refreshControl)
+    {
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
+        [(UIView *)self addSubview:self.refreshControl];
     }
 }
 

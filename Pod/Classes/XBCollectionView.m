@@ -62,13 +62,6 @@
     self.collectionViewLayout = waterfallLayout;
 }
 
-- (void)initRefreshControl
-{
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
-    [self addSubview:self.refreshControl];
-}
-
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier
 {
     [self registerNib:nib forCellWithReuseIdentifier:identifier];

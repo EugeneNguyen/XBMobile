@@ -50,13 +50,6 @@
     }
 }
 
-- (void)initRefreshControl
-{
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
-    [self addSubview:refreshControl];
-}
-
 #pragma mark - UITableViewDelegateAndDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -90,9 +83,9 @@
 - (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
-
+    
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height;
+    return size.height + 1.0f; // Add 1.0f for the cell separator height
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
