@@ -69,7 +69,9 @@
         {
             return [item[@"fixedHeight"] floatValue];
         }
-        UITableViewCell *sizingCell = [self dequeueReusableCellWithIdentifier:item[@"cellIdentify"]];
+        
+        UINib *nib = [UINib loadResourceWithInformation:item];
+        UITableViewCell *sizingCell = [[nib instantiateWithOwner:nil options:nil] lastObject];
         [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
         return [self calculateHeightForConfiguredSizingCell:sizingCell];
     }
@@ -85,7 +87,7 @@
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + 1.0f; // Add 1.0f for the cell separator height
+    return size.height + 1.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
