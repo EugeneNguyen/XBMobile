@@ -15,6 +15,8 @@
 
 - (BOOL)validateEmail;
 
-- (NSString *)uuidString;
+- (NSDate *)mysqlDate;
+
++ (NSString *)uuidString;
 
 @end
