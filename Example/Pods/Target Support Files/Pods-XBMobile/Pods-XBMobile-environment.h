@@ -116,7 +116,7 @@
 // This library does not follow semantic-versioning,
 // so we were not able to define version macros.
 // Please contact the author.
-// Version: 0.2.3.5.
+// Version: 0.2.3.7.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

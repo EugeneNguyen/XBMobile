@@ -43,7 +43,14 @@
     return [emailTest evaluateWithObject:self];
 }
 
-- (NSString *)uuidString {
+- (NSDate *)mysqlDate
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    return [df dateFromString:self];
+}
+
++ (NSString *)uuidString {
     // Returns a UUID
     
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
