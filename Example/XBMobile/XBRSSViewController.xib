@@ -22,6 +22,9 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="plist" value="XBRSSViewController"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="bottomMargin">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="xbDelegate" destination="-1" id="fYe-GD-9Kz"/>

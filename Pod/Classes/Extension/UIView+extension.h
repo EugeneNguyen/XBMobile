@@ -10,6 +10,9 @@
 
 @interface UIView (extension)
 
+@property (nonatomic, assign) float bottomMargin;
+@property (nonatomic, assign) float originalHeight;
+
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info;
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target;
 

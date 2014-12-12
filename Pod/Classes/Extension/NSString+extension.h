@@ -15,4 +15,6 @@
 
 - (BOOL)validateEmail;
 
+- (NSString *)uuidString;
+
 @end
