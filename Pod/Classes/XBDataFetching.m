@@ -86,7 +86,7 @@
     }
     else
     {
-        item = [_request.responseString mutableObjectFromJSONString];
+        item = _request.responseJSON;
     }
     DDLogVerbose(@"%@", item);
     if (item)
