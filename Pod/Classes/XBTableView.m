@@ -54,10 +54,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if ([self ableToShowNoData]) return 1;
     return [datalist count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self ableToShowNoData]) return self.frame.size.height;
     return [self heightForBasicCellAtIndexPath:indexPath];
 }
 
@@ -92,6 +94,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([self ableToShowNoData]) return 1;
     long count = [datalist[section][@"items"] count];
     if ([_informations[@"loadMore"][@"enable"] boolValue] && (section == [datalist count] - 1))
     {
@@ -102,6 +105,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self ableToShowNoData])
+    {
+        NSDictionary *item = self.informations[@"NoDataCell"];
+        UINib *nib = [UINib loadResourceWithInformation:item];
+        UITableViewCell *cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
+        return cell;
+    }
     if ([_informations[@"loadMore"][@"enable"] boolValue] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
@@ -121,6 +131,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self ableToShowNoData])
+    {
+        [self requestData];
+        return;
+    }
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbTableView:didSelectRowAtIndexPath:forItem:)])
     {
         [xbDelegate xbTableView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];

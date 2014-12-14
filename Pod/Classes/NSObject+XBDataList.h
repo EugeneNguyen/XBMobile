@@ -43,6 +43,10 @@
 
 - (void)applySearch:(NSString *)searchKey;
 
+- (int)totalRows;
+
+- (BOOL)ableToShowNoData;
+
 @optional
 
 @property (nonatomic, retain) NSMutableArray *backupWhenSearch;
