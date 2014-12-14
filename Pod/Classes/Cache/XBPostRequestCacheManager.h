@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import <CoreData/CoreData.h>
 
 @protocol XBPostRequestCacheManager <ASIHTTPRequestDelegate>
@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSURL *url;
 @property (nonatomic, retain) NSDictionary *dataPost;
 @property (nonatomic, assign) id <XBPostRequestCacheManager> delegate;
+@property (nonatomic, retain) ASIFormDataRequest *request;
 
 - (void)start;
 + (XBPostRequestCacheManager *)startRequest:(NSURL *)_url postData:(NSDictionary *)_dataPost delegate:(id<XBPostRequestCacheManager>)_delegate;

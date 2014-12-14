@@ -12,21 +12,18 @@
 #import "XBExtension.h"
 #import "JSONKit.h"
 #import "XMLDictionary.h"
-#import "XBPostRequestCacheManager.h"
 
 @interface XBDataFetching () <XBPostRequestCacheManager>
 {
     
 }
 
-@property (nonatomic, retain) XBPostRequestCacheManager *cache;
 @end
 
 @implementation XBDataFetching
 @synthesize datalist = _datalist;
 @synthesize info;
 @synthesize postParams = _postParams;
-@synthesize request;
 @synthesize isMultipleSection;
 @synthesize cache;
 
@@ -39,12 +36,6 @@
 - (void)startFetchingData
 {
     [self requestData];
-}
-
-- (void)dealloc
-{
-    self.request.delegate = nil;
-    [self.request cancel];
 }
 
 #pragma mark - ASIHTTPRequestDelegate
@@ -61,7 +52,11 @@
     {
         _postParams = @{};
     }
-    cache = [XBPostRequestCacheManager startRequest:[NSURL URLWithString:url] postData:_postParams delegate:self];
+    cache = [[XBPostRequestCacheManager alloc] init];
+    cache.url = [NSURL URLWithString:url];
+    cache.postParams = _postParams;
+    cache.delegate = self;
+    [cache start];
 
     if ([info[@"usingHUD"] boolValue])
     {

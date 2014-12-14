@@ -13,7 +13,7 @@
 static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
 
 @implementation XBPostRequestCacheManager
-@synthesize url, dataPost, delegate;
+@synthesize url, dataPost, delegate, request;
 
 + (XBPostRequestCacheManager *)sharedInstance
 {
@@ -26,7 +26,7 @@ static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
 
 - (void)start
 {
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    request = [ASIFormDataRequest requestWithURL:url];
     [request setDelegate:self];
     for (NSString *key in [dataPost allKeys])
     {
@@ -52,25 +52,31 @@ static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
 
 #pragma mark - ASIHTTPRequestDelegate
 
-- (void)requestFinished:(ASIHTTPRequest *)request
+- (void)requestFinished:(ASIHTTPRequest *)_request
 {
-    [XBM_storageRequest addCache:url postData:dataPost response:request.responseString];
+    [XBM_storageRequest addCache:url postData:dataPost response:_request.responseString];
     if (delegate && [delegate respondsToSelector:@selector(requestFinished:)])
     {
-        [delegate requestFinished:request];
+        [delegate requestFinished:_request];
     }
     if (delegate && [delegate respondsToSelector:@selector(requestFinishedWithString:)])
     {
-        [delegate requestFinishedWithString:request.responseString];
+        [delegate requestFinishedWithString:_request.responseString];
     }
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
+- (void)requestFailed:(ASIHTTPRequest *)_request
 {
     if (delegate && [delegate respondsToSelector:@selector(requestFailed:)])
     {
-        [delegate requestFailed:request];
+        [delegate requestFailed:_request];
     }
+}
+
+- (void)dealloc
+{
+    [request setDelegate:nil];
+    [request cancel];
 }
 
 #pragma mark - Core Data stack

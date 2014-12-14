@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XBPostRequestCacheManager.h"
 
 @class XBDataFetching;
 @class ASIFormDataRequest;
@@ -29,11 +30,11 @@
 
 @property (nonatomic, retain) NSDictionary *postParams;
 
-@property (nonatomic, retain) ASIFormDataRequest *request;
-
 @property (nonatomic, retain) id <XBDataFetchingDelegate> delegate;
 
 @property (nonatomic, assign) BOOL isMultipleSection;
+
+@property (nonatomic, retain) XBPostRequestCacheManager *cache;
 
 - (void)startFetchingData;
 
