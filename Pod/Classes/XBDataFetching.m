@@ -54,7 +54,7 @@
     }
     cache = [[XBPostRequestCacheManager alloc] init];
     cache.url = [NSURL URLWithString:url];
-    cache.postParams = _postParams;
+    cache.dataPost = _postParams;
     cache.delegate = self;
     [cache start];
 
