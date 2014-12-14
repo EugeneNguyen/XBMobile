@@ -12,9 +12,14 @@
 #import "XBExtension.h"
 #import "JSONKit.h"
 #import "XMLDictionary.h"
+#import "XBPostRequestCacheManager.h"
 
-@interface XBDataFetching () <ASIHTTPRequestDelegate>
+@interface XBDataFetching () <XBPostRequestCacheManager>
+{
+    
+}
 
+@property (nonatomic, retain) XBPostRequestCacheManager *cache;
 @end
 
 @implementation XBDataFetching
@@ -23,6 +28,7 @@
 @synthesize postParams = _postParams;
 @synthesize request;
 @synthesize isMultipleSection;
+@synthesize cache;
 
 - (void)setDatalist:(id)datalist
 {
@@ -51,14 +57,11 @@
     {
         url = [NSString stringWithFormat:@"%@/%@", [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost], url];
     }
-    request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
-    request.cachePolicy = ASIFallbackToCacheIfLoadFailsCachePolicy;
-    request.delegate = self;
-    for (NSString *key in [_postParams allKeys])
+    if (!_postParams)
     {
-        [request setPostValue:_postParams[key] forKey:key];
+        _postParams = @{};
     }
-    [request startAsynchronous];
+    cache = [XBPostRequestCacheManager startRequest:[NSURL URLWithString:url] postData:_postParams delegate:self];
 
     if ([info[@"usingHUD"] boolValue])
     {
@@ -75,18 +78,18 @@
     }
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)_request
+- (void)requestFinishedWithString:(NSString *)resultFromRequest
 {
-    DDLogVerbose(@"%@", _request.responseString);
+    DDLogVerbose(@"%@", resultFromRequest);
     [self hideHUD];
     NSDictionary *item;
     if ([info[@"isXML"] boolValue])
     {
-        item = [NSDictionary dictionaryWithXMLString:_request.responseString];
+        item = [NSDictionary dictionaryWithXMLString:resultFromRequest];
     }
     else
     {
-        item = _request.responseJSON;
+        item = [resultFromRequest objectFromJSONString];
     }
     DDLogVerbose(@"%@", item);
     if (item)

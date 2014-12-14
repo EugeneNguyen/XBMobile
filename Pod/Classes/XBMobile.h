@@ -26,5 +26,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)activeLog;
 
 + (id)sharedInstance;
++ (void)registerPush;
 
 @end
