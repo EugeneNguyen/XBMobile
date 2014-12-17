@@ -38,7 +38,11 @@
     id obj = self;
     for (NSString *s in array)
     {
-        if ([obj isKindOfClass:[NSDictionary class]])
+        if ([s length] == 0)
+        {
+            obj = obj;
+        }
+        else if ([obj isKindOfClass:[NSDictionary class]])
         {
             obj = obj[s];
         }
@@ -69,9 +73,9 @@
                 return @"";
             }
         }
-        else if ([s length] == 0)
+        else if ([obj respondsToSelector:NSSelectorFromString(s)])
         {
-            obj = obj;
+            obj = [obj performSelector:NSSelectorFromString(s)];
         }
     }
     return obj;
