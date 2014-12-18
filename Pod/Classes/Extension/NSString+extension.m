@@ -9,6 +9,7 @@
 #import "NSString+extension.h"
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "NSObject+extension.h"
 
 @implementation NSString (extension)
 
@@ -24,7 +25,7 @@
         NSString *s = [self substringWithRange:result.range];
         s = [s substringWithRange:NSMakeRange(1, [s length] - 2)];
         
-        NSString *key = [data valueForKeyPath:s];
+        NSString *key = [data objectForPath:s];
         resultString = [resultString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", key]];
     }
     return resultString;
