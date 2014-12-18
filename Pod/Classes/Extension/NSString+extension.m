@@ -14,23 +14,20 @@
 
 - (NSString *)applyData:(NSDictionary *)data
 {
-    NSString *result = [self copy];
-    if ([data isKindOfClass:[NSDictionary class]])
+    NSString *resultString = [self copy];
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{[^\\{\\}]*\\}" options:NSRegularExpressionAnchorsMatchLines error:&error];
+    NSArray *keys = [regex matchesInString:self options:NSMatchingReportCompletion range:NSMakeRange(0, [self length])];
+    
+    for (NSTextCheckingResult *result in keys)
     {
-        for (NSString *s in [data allKeys])
-        {
-            result = [result stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", data[s]]];
-        }
+        NSString *s = [self substringWithRange:result.range];
+        s = [s substringWithRange:NSMakeRange(1, [s length] - 2)];
+        
+        NSString *key = [data valueForKeyPath:s];
+        resultString = [resultString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", key]];
     }
-    else if ([data isKindOfClass:[NSManagedObject class]])
-    {
-        NSManagedObject *obj = (NSManagedObject *)data;
-        for (NSString *s in [[obj.entity attributesByName] allKeys])
-        {
-            result = [result stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%@}", s] withString:[NSString stringWithFormat:@"%@", [obj valueForKey:s]]];
-        }
-    }
-    return result;
+    return resultString;
 }
 
 - (BOOL)validateEmail
