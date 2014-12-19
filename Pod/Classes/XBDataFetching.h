@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XBPostRequestCacheManager.h"
+#import "XBExtension.h"
 
 @class XBDataFetching;
 @class ASIFormDataRequest;
@@ -34,7 +34,7 @@
 
 @property (nonatomic, assign) BOOL isMultipleSection;
 
-@property (nonatomic, retain) XBPostRequestCacheManager *cache;
+@property (nonatomic, retain) XBCacheRequest *cacheRequest;
 
 - (void)startFetchingData;
 

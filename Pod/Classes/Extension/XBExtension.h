@@ -15,5 +15,6 @@
 #import "UINib+load.h"
 #import "CALayer+XibConfiguration.h"
 #import "ASIHTTPRequest+extension.h"
+#import "XBCacheRequest.h"
 
 #endif

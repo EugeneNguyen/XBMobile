@@ -7,8 +7,6 @@
 //
 
 #import "XBPostRequestCacheManager.h"
-#import "ASIFormDataRequest.h"
-#import "XBM_storageRequest.h"
 
 static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
 

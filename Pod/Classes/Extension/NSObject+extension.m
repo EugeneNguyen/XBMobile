@@ -68,6 +68,10 @@
             {
                 obj = [(NSManagedObject *)obj valueForKey:s];
             }
+            else if ([obj respondsToSelector:NSSelectorFromString(s)])
+            {
+                obj = [obj performSelector:NSSelectorFromString(s)];
+            }
             else
             {
                 return @"";

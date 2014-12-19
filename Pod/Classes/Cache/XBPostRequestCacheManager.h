@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ASIFormDataRequest.h"
 #import <CoreData/CoreData.h>
+#import "XBM_storageRequest.h"
 
 @protocol XBPostRequestCacheManager <ASIHTTPRequestDelegate>
 

@@ -162,7 +162,7 @@
 {
     if ([self.informations[@"isUsingAlert"] boolValue])
     {
-        [self alert:@"Error" message:[self.dataFetching.cache.request.error description]];
+        [self alert:@"Error" message:[self.dataFetching.cacheRequest.error description]];
     }
     
     if ([self.informations[@"isUsingRefreshControl"] boolValue])
