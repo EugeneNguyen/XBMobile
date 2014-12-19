@@ -38,6 +38,12 @@
     [self requestData];
 }
 
+- (void)dealloc
+{
+    [cacheRequest cancel];
+    cacheRequest.delegate = nil;
+}
+
 #pragma mark - ASIHTTPRequestDelegate
 
 - (void)requestData
