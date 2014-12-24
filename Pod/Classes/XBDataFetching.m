@@ -90,7 +90,7 @@
     }
     else
     {
-        item = [resultFromRequest objectFromJSONString];
+        item = [resultFromRequest mutableObjectFromJSONString];
     }
     DDLogVerbose(@"%@", item);
     if (item)

@@ -1,4 +1,6 @@
-//
+^{
+    <#code#>
+}//
 //  NSObject+XBDataList.m
 //  Pods
 //
@@ -17,6 +19,7 @@
 @dynamic isMultipleSection;
 @dynamic dataFetching;
 @dynamic refreshControl;
+@dynamic requestDelegate;
 
 #pragma mark - Loading Information
 
@@ -156,6 +159,10 @@
     {
         [self.refreshControl endRefreshing];
     }
+    if ([self.requestDelegate respondsToSelector:@selector(requestFinished:)])
+    {
+        [self.requestDelegate requestFinished:_dataFetching.cacheRequest];
+    }
 }
 
 - (void)requestDidFailed:(XBDataFetching *)_dataFetching
@@ -168,6 +175,10 @@
     if ([self.informations[@"isUsingRefreshControl"] boolValue])
     {
         [self.refreshControl endRefreshing];
+    }
+    if ([self.requestDelegate respondsToSelector:@selector(requestFailed:)])
+    {
+        [self.requestDelegate requestFailed:_dataFetching.cacheRequest];
     }
 }
 
