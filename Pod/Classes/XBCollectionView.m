@@ -32,6 +32,7 @@
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
 @synthesize pageControl;
+@synthesize requestDelegate;
 
 - (void)setupDelegate
 {

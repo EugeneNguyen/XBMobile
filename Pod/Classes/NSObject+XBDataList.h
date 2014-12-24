@@ -24,7 +24,7 @@
 
 @property (nonatomic, retain) UIRefreshControl *refreshControl;
 
-@property (nonatomic, assign) id <ASIHTTPRequestDelegate> requestDelegate;
+@property (nonatomic, assign) IBOutlet id <ASIHTTPRequestDelegate> requestDelegate;
 
 - (void)cleanup;
 

@@ -31,6 +31,7 @@
 @synthesize dataFetching;
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
+@synthesize requestDelegate;
 
 - (void)setupDelegate
 {

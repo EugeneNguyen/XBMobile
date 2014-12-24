@@ -1,6 +1,4 @@
-^{
-    <#code#>
-}//
+//
 //  NSObject+XBDataList.m
 //  Pods
 //
