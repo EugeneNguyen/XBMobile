@@ -21,5 +21,8 @@
 
 @property (nonatomic, retain) NSMutableDictionary *dataPost;
 @property (nonatomic, assign) id <XBCacheRequestDelegate> cacheDelegate;
+@property (nonatomic, assign) BOOL disableCache;
+
++ (void)clearCache;
 
 @end

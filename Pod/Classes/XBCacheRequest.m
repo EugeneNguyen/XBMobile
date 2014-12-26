@@ -10,7 +10,17 @@
 #import "XBPostRequestCacheManager.h"
 
 @implementation XBCacheRequest
-@synthesize dataPost = _dataPost, cacheDelegate;
+@synthesize dataPost = _dataPost, cacheDelegate, disableCache;
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        disableCache = NO;
+    }
+    return self;
+}
 
 - (void)setDataPost:(NSMutableDictionary *)dataPost
 {
@@ -25,6 +35,10 @@
 {
     [super setDelegate:self];
     [super startAsynchronous];
+    if (disableCache)
+    {
+        return;
+    }
     XBM_storageRequest *cache = [XBM_storageRequest getCache:self.url postData:_dataPost];
     if (cache)
     {
@@ -54,6 +68,11 @@
     {
         [cacheDelegate requestFinishedWithString:_request.responseString];
     }
+}
+
++ (void)clearCache
+{
+    [XBM_storageRequest clear];
 }
 
 @end

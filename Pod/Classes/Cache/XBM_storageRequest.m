@@ -57,4 +57,24 @@
     return result;
 }
 
++ (NSArray *)getAll
+{
+    NSEntityDescription *ed = [NSEntityDescription entityForName:@"XBM_storageRequest" inManagedObjectContext:[[XBPostRequestCacheManager sharedInstance] managedObjectContext]];
+    NSFetchRequest *fr = [[NSFetchRequest alloc] init];
+    [fr setEntity:ed];
+    
+    NSArray *result = [[[XBPostRequestCacheManager sharedInstance] managedObjectContext] executeFetchRequest:fr error:nil];
+    return result;
+}
+
++ (void)clear
+{
+    NSArray *array = [XBM_storageRequest getAll];
+    for (XBM_storageRequest *request in array)
+    {
+        [[[XBPostRequestCacheManager sharedInstance] managedObjectContext] deleteObject:request];
+    }
+    [[XBPostRequestCacheManager sharedInstance] saveContext];
+}
+
 @end

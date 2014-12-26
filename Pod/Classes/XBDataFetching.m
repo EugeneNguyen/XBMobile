@@ -26,6 +26,17 @@
 @synthesize postParams = _postParams;
 @synthesize isMultipleSection;
 @synthesize cacheRequest;
+@synthesize disableCache;
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        disableCache = NO;
+    }
+    return self;
+}
 
 - (void)setDatalist:(id)datalist
 {
@@ -62,6 +73,7 @@
     cacheRequest = [XBCacheRequest requestWithURL:[NSURL URLWithString:url]];
     cacheRequest.dataPost = [_postParams mutableCopy];
     cacheRequest.cacheDelegate = self;
+    cacheRequest.disableCache = self.disableCache;
     [cacheRequest startAsynchronous];
 
     if ([info[@"usingHUD"] boolValue])

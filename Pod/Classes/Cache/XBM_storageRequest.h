@@ -19,4 +19,6 @@
 + (void)addCache:(NSURL *)url postData:(NSDictionary *)postData response:(NSString *)response;
 + (XBM_storageRequest *)getCache:(NSURL *)url postData:(NSDictionary *)postData;
 
++ (void)clear;
+
 @end

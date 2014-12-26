@@ -36,6 +36,8 @@
 
 @property (nonatomic, retain) XBCacheRequest *cacheRequest;
 
+@property (nonatomic, assign) BOOL disableCache;
+
 - (void)startFetchingData;
 
 @end

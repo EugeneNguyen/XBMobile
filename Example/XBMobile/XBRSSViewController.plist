@@ -10,6 +10,8 @@
 	<false/>
 	<key>remoteLink</key>
 	<string>http://99closets.sflashcard.com/services/categories/getAll</string>
+	<key>disableCache</key>
+	<false/>
 	<key>predefinedHostInUserdefault</key>
 	<string></string>
 	<key>pathToContent</key>

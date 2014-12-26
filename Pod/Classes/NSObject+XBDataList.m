@@ -142,6 +142,7 @@
         self.dataFetching.info = self.informations;
         self.dataFetching.delegate = self;
         self.dataFetching.postParams = self.postParams;
+        self.dataFetching.disableCache = [self.informations[@"disableCache"] boolValue];
         [self.dataFetching startFetchingData];
     }
     else
