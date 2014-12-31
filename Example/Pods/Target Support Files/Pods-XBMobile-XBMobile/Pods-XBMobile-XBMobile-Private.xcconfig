@@ -1,5 +1,0 @@
-#include "Pods-XBMobile-XBMobile.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/XBMobile" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ASIHTTPRequest" "${PODS_ROOT}/Headers/Public/AVHexColor" "${PODS_ROOT}/Headers/Public/CHTCollectionViewWaterfallLayout" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/JSONKit-NoWarning" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/SDWebImage-ProgressView" "${PODS_ROOT}/Headers/Public/UIImage-Helpers" "${PODS_ROOT}/Headers/Public/XBMobile" "${PODS_ROOT}/Headers/Public/XMLDictionary" ${PODS_XBMOBILE_XBMOBILE_HEADER_SEARCH_PATHS}
-OTHER_LDFLAGS = ${PODS_XBMOBILE_XBMOBILE_OTHER_LDFLAGS} -ObjC
-PODS_ROOT = ${SRCROOT}

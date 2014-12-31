@@ -15,7 +15,7 @@
 
 - (id)responseJSON
 {
-    return [self.responseString objectFromJSONString];
+    return [self.responseString mutableObjectFromJSONString];
 }
 
 @end
