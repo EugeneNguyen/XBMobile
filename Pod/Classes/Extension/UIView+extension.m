@@ -224,9 +224,12 @@
         UIView *view = [[UIView alloc] initWithFrame:self.frame];
         view.tag = 999;
         view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-        view.userInteractionEnabled = NO;
+        view.userInteractionEnabled = YES;
         view.alpha = 0;
         [self.superview addSubview:view];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapDim)];
+        [view addGestureRecognizer:tapGesture];
         
         [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionAllowUserInteraction animations:^{
             view.alpha = 1;
@@ -236,12 +239,17 @@
     }
 }
 
+- (void)didTapDim
+{
+    [self undim];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
 - (void)undim
 {
     UIView *view = [self.superview viewWithTag:999];
     if (view)
     {
-        
         [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionAllowUserInteraction animations:^{
             view.alpha = 0;
         } completion:^(BOOL finished) {
