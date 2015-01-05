@@ -109,7 +109,7 @@
     {
         if ([item[@"code"] intValue] != 200)
         {
-            [self alert:@"Error" message:item[@"description"]];
+//            [self alert:@"Error" message:item[@"description"]];
         }
         else
         {
