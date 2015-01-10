@@ -145,8 +145,7 @@
                         CGSize s = image.size;
                         f.size.height = f.size.width / s.width * s.height;
                         v.frame = f;
-                        
-                        [self layoutSubviews];
+                        [self layoutIfNeeded];
                     }
                 }];
             }

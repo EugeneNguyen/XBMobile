@@ -44,7 +44,7 @@
 - (NSDate *)mysqlDate
 {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     return [df dateFromString:self];
 }
 
