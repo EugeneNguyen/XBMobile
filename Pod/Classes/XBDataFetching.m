@@ -27,7 +27,7 @@
 @synthesize isMultipleSection;
 @synthesize cacheRequest;
 @synthesize disableCache;
-@synthesize count;
+@synthesize resultCount;
 
 - (id)init
 {
@@ -35,7 +35,7 @@
     if (self)
     {
         disableCache = NO;
-        count = 20;
+        resultCount = 20;
         self.isEndOfData = YES;
     }
     return self;
@@ -95,7 +95,7 @@
     if (isMore)
     {
         [cacheRequest.dataPost setObject:@([self.datalist count]) forKey:@"offset"];
-        [cacheRequest.dataPost setObject:@(self.count) forKey:@"count"];
+        [cacheRequest.dataPost setObject:@(self.resultCount) forKey:@"count"];
     }
     else
     {

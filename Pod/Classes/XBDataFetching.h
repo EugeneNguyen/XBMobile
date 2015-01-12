@@ -38,7 +38,7 @@
 
 @property (nonatomic, assign) BOOL disableCache;
 
-@property (nonatomic, assign) int count;
+@property (nonatomic, assign) int resultCount;
 
 @property (nonatomic, assign) BOOL isEndOfData;
 
