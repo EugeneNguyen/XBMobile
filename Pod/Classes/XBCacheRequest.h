@@ -8,9 +8,12 @@
 
 #import "ASIFormDataRequest.h"
 
+@class XBCacheRequest;
+
 @protocol XBCacheRequestDelegate <ASIHTTPRequestDelegate>
 
 - (void)requestFinishedWithString:(NSString *)result;
+- (void)request:(XBCacheRequest *)request finishedWithString:(NSString *)result;
 
 @end
 

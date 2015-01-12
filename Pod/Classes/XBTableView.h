@@ -12,7 +12,7 @@
 @class XBTableView;
 @class XBDataFetching;
 
-@protocol XBTableViewDelegate <NSObject>
+@protocol XBTableViewDelegate <UIScrollViewDelegate>
 
 @optional
 

@@ -38,6 +38,11 @@
 
 @property (nonatomic, assign) BOOL disableCache;
 
+@property (nonatomic, assign) int count;
+
+@property (nonatomic, assign) BOOL isEndOfData;
+
 - (void)startFetchingData;
+- (void)fetchMore;
 
 @end

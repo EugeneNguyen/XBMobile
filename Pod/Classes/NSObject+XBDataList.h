@@ -50,6 +50,8 @@
 
 - (BOOL)ableToShowNoData;
 
+- (void)scrolledToBottom;
+
 @optional
 
 @property (nonatomic, retain) NSMutableArray *backupWhenSearch;

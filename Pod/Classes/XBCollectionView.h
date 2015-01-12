@@ -12,7 +12,7 @@
 @class XBCollectionView;
 @class XBDataFetching;
 
-@protocol XBCollectionViewDelegate <NSObject>
+@protocol XBCollectionViewDelegate <UIScrollViewDelegate>
 
 @optional
 

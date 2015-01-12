@@ -68,6 +68,10 @@
     {
         [cacheDelegate requestFinishedWithString:_request.responseString];
     }
+    if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(request:finishedWithString:)])
+    {
+        [cacheDelegate request:self finishedWithString:_request.responseString];
+    }
 }
 
 + (void)clearCache

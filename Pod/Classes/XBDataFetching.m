@@ -27,6 +27,7 @@
 @synthesize isMultipleSection;
 @synthesize cacheRequest;
 @synthesize disableCache;
+@synthesize count;
 
 - (id)init
 {
@@ -34,6 +35,8 @@
     if (self)
     {
         disableCache = NO;
+        count = 20;
+        self.isEndOfData = YES;
     }
     return self;
 }
@@ -49,6 +52,11 @@
     [self requestData];
 }
 
+- (void)fetchMore
+{
+    [self requestDataWithMore:YES];
+}
+
 - (void)dealloc
 {
     [cacheRequest cancel];
@@ -59,6 +67,15 @@
 
 - (void)requestData
 {
+    [self requestDataWithMore:NO];
+}
+
+- (void)requestDataWithMore:(BOOL)isMore
+{
+    if (isMore && self.isEndOfData)
+    {
+        return;
+    }
     NSString *url = info[@"remoteLink"];
     NSString *predefaultHost = info[@"predefinedHostInUserdefault"];
     if (predefaultHost && [predefaultHost length] > 0 && [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost])
@@ -69,11 +86,21 @@
     {
         _postParams = @{};
     }
-    
+    [cacheRequest cancel];
     cacheRequest = [XBCacheRequest requestWithURL:[NSURL URLWithString:url]];
     cacheRequest.dataPost = [_postParams mutableCopy];
     cacheRequest.cacheDelegate = self;
     cacheRequest.disableCache = self.disableCache;
+    
+    if (isMore)
+    {
+        [cacheRequest.dataPost setObject:@([self.datalist count]) forKey:@"offset"];
+        [cacheRequest.dataPost setObject:@(self.count) forKey:@"count"];
+    }
+    else
+    {
+        self.isEndOfData = NO;
+    }
     [cacheRequest startAsynchronous];
 
     if ([info[@"usingHUD"] boolValue])
@@ -91,7 +118,7 @@
     }
 }
 
-- (void)requestFinishedWithString:(NSString *)resultFromRequest
+- (void)request:(XBCacheRequest *)request finishedWithString:(NSString *)resultFromRequest
 {
     DDLogVerbose(@"%@", resultFromRequest);
     [self hideHUD];
@@ -115,15 +142,30 @@
         {
             if ([_datalist isKindOfClass:[NSMutableArray class]])
             {
-                [(NSMutableArray *)_datalist removeAllObjects];
+                if (!request.dataPost[@"count"])
+                {
+                    [(NSMutableArray *)_datalist removeAllObjects];
+                }
                 if (isMultipleSection)
                 {
                     [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
                 }
                 else
                 {
-                    NSDictionary *section = @{@"title": @"root", @"items": [item objectForPath:info[@"pathToContent"]]};
-                    [(NSMutableArray *)_datalist addObject:section];
+                    NSMutableArray *sections = (NSMutableArray *)_datalist;
+                    if ([sections count] == 0)
+                    {
+                        NSDictionary *section = @{@"title": @"root", @"items": [[item objectForPath:info[@"pathToContent"]] mutableCopy]};
+                        [(NSMutableArray *)_datalist addObject:section];
+                    }
+                    else
+                    {
+                        [[sections lastObject][@"items"] addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+                        if ([[item objectForPath:info[@"pathToContent"]] count] == 0)
+                        {
+                            self.isEndOfData = YES;
+                        }
+                    }
                 }
             }
             else if ([_datalist isKindOfClass:[NSMutableDictionary class]])

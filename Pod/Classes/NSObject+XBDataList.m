@@ -85,7 +85,7 @@
         [self initRefreshControl];
     }
     
-    if ([self.informations[@"loadMore"][@"enable"] boolValue])
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"])
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"loadMore"][@"xib"] bundle:nil] forCellReuseIdentifier:self.informations[@"loadMore"][@"identify"]];
     }
@@ -119,6 +119,14 @@
 - (BOOL)ableToShowNoData
 {
     return self.informations[@"NoDataCell"] && ([self totalRows] == 0);
+}
+
+- (void)scrolledToBottom
+{
+    if ([self.informations[@"loadMore"][@"enable"] boolValue])
+    {
+        [self.dataFetching fetchMore];
+    }
 }
 
 #pragma mark - Data method & DataFetching Delegate

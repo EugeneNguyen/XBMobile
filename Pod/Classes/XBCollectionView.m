@@ -92,6 +92,21 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    CGPoint offset = scrollView.contentOffset;
+    CGRect bounds = scrollView.bounds;
+    CGSize size = scrollView.contentSize;
+    UIEdgeInsets inset = scrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 10;
+    if(y > h + reload_distance) {
+        [self scrolledToBottom];
+    }
+    if ([xbDelegate respondsToSelector:@selector(scrollViewDidScroll:)])
+    {
+        [xbDelegate scrollViewDidScroll:self];
+    }
     if (pageControl && [self.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]])
     {
         [self reloadPageControl];
