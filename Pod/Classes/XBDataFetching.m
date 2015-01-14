@@ -57,6 +57,16 @@
     [self requestDataWithMore:YES];
 }
 
+- (NSInteger)totalRow
+{
+    int _count = 0;
+    for (NSDictionary *item in self.datalist)
+    {
+        _count += [item[@"items"] count];
+    }
+    return _count;
+}
+
 - (void)dealloc
 {
     [cacheRequest cancel];
@@ -88,19 +98,20 @@
     }
     [cacheRequest cancel];
     cacheRequest = [XBCacheRequest requestWithURL:[NSURL URLWithString:url]];
-    cacheRequest.dataPost = [_postParams mutableCopy];
     cacheRequest.cacheDelegate = self;
     cacheRequest.disableCache = self.disableCache;
     
+    NSMutableDictionary * mutablePostParams = [_postParams mutableCopy];
     if (isMore)
     {
-        [cacheRequest.dataPost setObject:@([self.datalist count]) forKey:@"offset"];
-        [cacheRequest.dataPost setObject:@(self.resultCount) forKey:@"count"];
+        mutablePostParams[@"offset"] = @([[self.datalist firstObject][@"items"] count]);
+        mutablePostParams[@"count"] = @(self.resultCount);
     }
     else
     {
         self.isEndOfData = NO;
     }
+    cacheRequest.dataPost = [mutablePostParams mutableCopy];
     [cacheRequest startAsynchronous];
 
     if ([info[@"usingHUD"] boolValue])

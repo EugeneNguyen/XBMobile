@@ -45,7 +45,7 @@
 {
     if (pageControl)
     {
-        pageControl.numberOfPages = self.contentSize.width / self.frame.size.width;
+        pageControl.numberOfPages = [dataFetching totalRow];
         pageControl.currentPage = self.contentOffset.x / self.frame.size.width;
     }
 }
