@@ -57,16 +57,6 @@
     [self requestDataWithMore:YES];
 }
 
-- (NSInteger)totalRow
-{
-    int _count = 0;
-    for (NSDictionary *item in self.datalist)
-    {
-        _count += [item[@"items"] count];
-    }
-    return _count;
-}
-
 - (void)dealloc
 {
     [cacheRequest cancel];

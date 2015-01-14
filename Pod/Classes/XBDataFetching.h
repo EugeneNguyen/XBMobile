@@ -44,6 +44,5 @@
 
 - (void)startFetchingData;
 - (void)fetchMore;
-- (NSInteger)totalRow;
 
 @end
