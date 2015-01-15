@@ -14,6 +14,7 @@
 #import "DDLog.h"
 #import "XBForm.h"
 #import "XBTagView.h"
+#import "XBLanguage.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 

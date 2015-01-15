@@ -67,7 +67,14 @@
         }
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
         {
-            [(UILabel *)v setText:data];
+            if (element[@"screen"])
+            {
+                [(UILabel *)v setText:XBText(data, element[@"screen"])];
+            }
+            else
+            {
+                [(UILabel *)v setText:data];
+            }
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {
@@ -155,7 +162,14 @@
             UIButton *btn = (UIButton *)v;
             if (element[@"path"] || element[@"format"])
             {
-                [btn setTitle:data forState:UIControlStateNormal];
+                if (element[@"screen"])
+                {
+                    [btn setTitle:XBText(data, element[@"screen"]) forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [btn setTitle:data forState:UIControlStateNormal];
+                }
             }
             
             if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
