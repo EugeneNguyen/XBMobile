@@ -92,6 +92,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (scrollView.contentSize.height < scrollView.frame.size.height) return;
     CGPoint offset = scrollView.contentOffset;
     CGRect bounds = scrollView.bounds;
     CGSize size = scrollView.contentSize;

@@ -24,7 +24,7 @@
 
 }
 
-@property (nonatomic, assign) id datalist;
+@property (nonatomic, retain) id datalist;
 
 @property (nonatomic, retain) NSDictionary *info;
 

@@ -19,4 +19,8 @@
 
 + (NSString *)uuidString;
 
+- (NSString *)emojiEncode;
+
+- (NSString *)emojiDecode;
+
 @end

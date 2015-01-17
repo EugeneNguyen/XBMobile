@@ -108,22 +108,34 @@
                     float h = [[info objectForPath:element[@"heightPath"]] floatValue];
                     float w = [[info objectForPath:element[@"widthPath"]] floatValue];
                     
-                    float scale = w / h;
-                    
-                    w = v.frame.size.width;
-                    h = w / scale;
-                    
-                    CGRect rect = CGRectMake(0, 0, w, h);
-                    UIGraphicsBeginImageContext(rect.size);
-                    CGContextRef context = UIGraphicsGetCurrentContext();
-                    
-                    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
-                    CGContextFillRect(context, rect);
-                    
-                    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-                    UIGraphicsEndImageContext();
-                    
-                    placeHolderImage = image;
+                    if (h != 0 && w != 0)
+                    {
+                        for (NSLayoutConstraint *constraint in v.constraints)
+                        {
+                            if (constraint.firstAttribute == NSLayoutAttributeWidth || constraint.firstAttribute == NSLayoutAttributeHeight)
+                            {
+                                [v removeConstraint:constraint];
+                            }
+                        }
+                        float scale = w / h;
+                        
+                        w = v.frame.size.width;
+                        h = w / scale;
+                        [v addConstraint:[NSLayoutConstraint constraintWithItem:v
+                                                                      attribute:NSLayoutAttributeHeight
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:nil
+                                                                      attribute:NSLayoutAttributeNotAnAttribute
+                                                                     multiplier:1.0
+                                                                       constant:h]];
+                        [v addConstraint:[NSLayoutConstraint constraintWithItem:v
+                                                                      attribute:NSLayoutAttributeWidth
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:nil
+                                                                      attribute:NSLayoutAttributeNotAnAttribute
+                                                                     multiplier:1.0
+                                                                       constant:w]];
+                    }
                     
                     [self layoutSubviews];
                 }

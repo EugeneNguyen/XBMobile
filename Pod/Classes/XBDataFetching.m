@@ -72,7 +72,7 @@
 
 - (void)requestDataWithMore:(BOOL)isMore
 {
-    if (isMore && self.isEndOfData)
+    if (isMore && self.isEndOfData && [cacheRequest inProgress])
     {
         return;
     }

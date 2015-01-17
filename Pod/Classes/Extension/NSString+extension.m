@@ -58,4 +58,18 @@
     return uuidString;
 }
 
+- (NSString *)emojiEncode
+{
+    NSString *uniText = [NSString stringWithUTF8String:[self UTF8String]];
+    NSData *msgData = [uniText dataUsingEncoding:NSNonLossyASCIIStringEncoding];
+    return [[NSString alloc] initWithData:msgData encoding:NSUTF8StringEncoding] ;
+}
+
+- (NSString *)emojiDecode
+{
+    const char *jsonString = [self UTF8String];
+    NSData *jsonData = [NSData dataWithBytes:jsonString length:strlen(jsonString)];
+    return [[NSString alloc] initWithData:jsonData encoding:NSNonLossyASCIIStringEncoding];
+}
+
 @end
