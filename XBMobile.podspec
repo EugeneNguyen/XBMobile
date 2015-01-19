@@ -44,5 +44,4 @@ Pod::Spec.new do |s|
   s.dependency 'CHTCollectionViewWaterfallLayout'
   s.dependency 'UIImage-Helpers'
   s.dependency 'XBLanguage'
-  s.dependency 'DDMathParser'
 end
