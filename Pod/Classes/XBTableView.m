@@ -32,6 +32,7 @@
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
 @synthesize requestDelegate;
+@synthesize dataListSource;
 
 - (void)setupDelegate
 {

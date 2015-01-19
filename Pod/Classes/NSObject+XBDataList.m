@@ -161,6 +161,10 @@
 
 - (void)requestDidFinish:(XBDataFetching *)_dataFetching
 {
+    if (self.dataListSource && [self.dataListSource respondsToSelector:@selector(modifiedDataFor:andSource:)])
+    {
+        self.datalist = [self.dataListSource modifiedDataFor:self andSource:self.datalist];
+    }
     [self configHeightAfterFillData];
     if ([self.informations[@"isUsingRefreshControl"] boolValue])
     {

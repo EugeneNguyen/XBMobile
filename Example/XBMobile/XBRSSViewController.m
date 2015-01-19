@@ -8,7 +8,7 @@
 
 #import "XBRSSViewController.h"
 
-@interface XBRSSViewController ()
+@interface XBRSSViewController () <XBDataListSource>
 {
     IBOutlet UITextField *tfSearch;
 }
@@ -19,16 +19,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tableView.dataListSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)didPressSearch:(id)sender
 {
     [tableView applySearch:tfSearch.text];
+}
+
+- (id)modifiedDataFor:(id<XBDataList>)view andSource:(id)data
+{
+    NSArray *array = data;
+    NSLog(@"%@", array);
+    if ([array count] == 0)
+    {
+        
+    }
+    else
+    {
+        
+    }
+    return array;
 }
 
 /*

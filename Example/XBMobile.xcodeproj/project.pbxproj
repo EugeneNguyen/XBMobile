@@ -598,6 +598,7 @@
 					"-l\"z.1\"",
 					"-l\"Pods-XBMobile-AVHexColor\"",
 					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -647,6 +648,7 @@
 					"-l\"z.1\"",
 					"-l\"Pods-XBMobile-AVHexColor\"",
 					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

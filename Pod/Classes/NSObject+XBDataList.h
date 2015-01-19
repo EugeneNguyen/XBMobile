@@ -28,7 +28,7 @@
 
 @property (nonatomic, assign) BOOL isMultipleSection;
 
-@property (nonatomic, retain) XBDataFetching *dataFetching;
+@property (nonatomic, retain) IBOutlet XBDataFetching *dataFetching;
 
 @property (nonatomic, retain) UIRefreshControl *refreshControl;
 

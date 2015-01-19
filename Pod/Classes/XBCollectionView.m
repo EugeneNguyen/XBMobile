@@ -33,6 +33,7 @@
 @synthesize backupWhenSearch;
 @synthesize pageControl;
 @synthesize requestDelegate;
+@synthesize dataListSource;
 
 - (void)setupDelegate
 {
