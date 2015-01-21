@@ -130,8 +130,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbTableView:didDeleteRowAtIndexPath:forItem:)])
+        {
+            [xbDelegate xbTableView:self didDeleteRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
+        }
     }
 }
 
