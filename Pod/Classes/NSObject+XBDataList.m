@@ -268,7 +268,7 @@
         {
             path = @"cell_type";
         }
-        return self.informations[@"cells"][[self.datalist[indexPath.section][@"items"][indexPath.row][path] intValue]];
+        return self.informations[@"cells"][[[self.datalist[indexPath.section][@"items"][indexPath.row] objectForPath:path] intValue]];
     }
     return self.informations[@"cells"][0];
 }

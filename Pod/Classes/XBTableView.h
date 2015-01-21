@@ -25,7 +25,7 @@
 
 @interface XBTableView : UITableView <XBDataList>
 {
-
+    
 }
 
 @property (nonatomic, retain) IBOutlet id <XBTableViewDelegate> xbDelegate;
