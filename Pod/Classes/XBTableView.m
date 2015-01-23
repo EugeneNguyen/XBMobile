@@ -143,9 +143,7 @@
 {
     if ([self ableToShowNoData])
     {
-        NSDictionary *item = self.informations[@"NoDataCell"];
-        UINib *nib = [UINib loadResourceWithInformation:item];
-        UITableViewCell *cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"NoDataCell"][@"cellIdentify"] forIndexPath:indexPath];
         return cell;
     }
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))

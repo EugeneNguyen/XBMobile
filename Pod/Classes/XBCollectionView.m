@@ -53,6 +53,18 @@
 
 - (void)reloadData
 {
+    if ([informations[@"waterfall"][@"enable"] boolValue])
+    {
+        CHTCollectionViewWaterfallLayout *waterfallLayout = (CHTCollectionViewWaterfallLayout *)self.collectionViewLayout;
+        if ([self ableToShowNoData])
+        {
+            waterfallLayout.columnCount = 1;
+        }
+        else
+        {
+            waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
+        }
+    }
     [super reloadData];
     [self reloadPageControl];
 }
@@ -117,11 +129,13 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    if ([self ableToShowNoData]) return 1;
     return [self.datalist count];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if ([self ableToShowNoData]) return 1;
     long count = [self.datalist[section][@"items"] count];
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"] && (section == [self.datalist count] - 1))
     {
@@ -132,6 +146,10 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)_collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self ableToShowNoData])
+    {
+        return self.frame.size;
+    }
     if ([informations[@"waterfall"][@"enable"] boolValue])
     {
         NSDictionary *item = [self cellInfoForPath:indexPath];
@@ -200,6 +218,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self ableToShowNoData])
+    {
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"] forIndexPath:indexPath];
+        [cell layoutSubviews];
+        [cell setNeedsDisplay];
+        return cell;
+    }
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"] && (indexPath.row == [[self.datalist lastObject][@"items"] count]) && (indexPath.section == ([self.datalist count] - 1)))
     {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
@@ -208,7 +233,7 @@
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
     [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:self];
-
+    
     if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {
         cell = [xbDelegate xbCollectionView:self cellForRowAtIndexPath:indexPath withPreparedCell:cell withItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
@@ -218,6 +243,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self ableToShowNoData])
+    {
+        [self requestData];
+        return;
+    }
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectRowAtIndexPath:forItem:)])
     {
         [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
