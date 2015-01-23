@@ -151,7 +151,14 @@
         self.dataFetching.delegate = self;
         self.dataFetching.postParams = self.postParams;
         self.dataFetching.disableCache = [self.informations[@"disableCache"] boolValue];
-        [self.dataFetching startFetchingData];
+        if ([self.informations[@"loadMore"][@"enable"] boolValue])
+        {
+            [self.dataFetching fetchMore];
+        }
+        else
+        {
+            [self.dataFetching startFetchingData];
+        }
     }
     else
     {
