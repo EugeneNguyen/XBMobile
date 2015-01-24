@@ -159,7 +159,8 @@
         f.size.width = [(CHTCollectionViewWaterfallLayout *)self.collectionViewLayout itemWidthInSectionAtIndex:indexPath.section];
         sizingCell.frame = f;
         [sizingCell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row]];
-        return [self calculateSizeForConfiguredSizingCell:sizingCell];
+        CGSize result = [self calculateSizeForConfiguredSizingCell:sizingCell];
+        return CGSizeMake(result.width, result.height + 1);
     }
     else
     {

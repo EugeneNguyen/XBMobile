@@ -18,6 +18,7 @@
 @dynamic dataFetching;
 @dynamic refreshControl;
 @dynamic requestDelegate;
+@dynamic dataListSource;
 
 #pragma mark - Loading Information
 
@@ -41,7 +42,7 @@
 - (void)loadInformationFromPlist:(NSString *)plist
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
-    NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSMutableDictionary *info = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     [self loadInformations:info];
 }
 
@@ -123,7 +124,7 @@
 
 - (BOOL)ableToShowNoData
 {
-    return self.informations[@"NoDataCell"] && ([self totalRows] == 0);
+    return self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue] && ([self totalRows] == 0);
 }
 
 - (void)scrolledToBottom
@@ -132,6 +133,17 @@
     {
         [self.dataFetching fetchMore];
     }
+}
+
+#pragma mark - Personal Modification
+
+- (void)setEnableNoDataCell:(BOOL)isNoData
+{
+    if (self.informations[@"NoDataCell"])
+    {
+        self.informations[@"NoDataCell"][@"enable"] = @(isNoData);
+    }
+    [self reloadData];
 }
 
 #pragma mark - Data method & DataFetching Delegate

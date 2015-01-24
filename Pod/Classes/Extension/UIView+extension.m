@@ -65,16 +65,14 @@
                 }
             }
         }
+        
+        if (element[@"screen"])
+        {
+            data = XBText(data, element[@"screen"]);
+        }
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
         {
-            if (element[@"screen"])
-            {
-                [(UILabel *)v setText:XBText(data, element[@"screen"])];
-            }
-            else
-            {
-                [(UILabel *)v setText:data];
-            }
+            [(UILabel *)v setText:data];
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {

@@ -62,6 +62,10 @@
 
 - (void)scrolledToBottom;
 
+// no data cell
+
+- (void)setEnableNoDataCell:(BOOL)isNoData;
+
 @optional
 
 @property (nonatomic, retain) NSMutableArray *backupWhenSearch;
