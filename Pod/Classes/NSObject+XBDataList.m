@@ -67,11 +67,17 @@
 - (void)loadInformations:(NSDictionary *)info withReload:(BOOL)withReload
 {
     [self setupDelegate];
+    
     self.informations = info;
     
     if (info[@"section"])
     {
         self.isMultipleSection = YES;
+    }
+    
+    if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
+    {
+        [self setupWaterFall];
     }
     
     [self requestDataWithReload:withReload];
@@ -94,11 +100,6 @@
     if (self.informations[@"NoDataCell"] && self.informations[@"NoDataCell"][@"cellIdentify"] && self.informations[@"NoDataCell"][@"xibname"])
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"NoDataCell"][@"xibname"] bundle:nil] forCellReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"]];
-    }
-    
-    if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
-    {
-        [self setupWaterFall];
     }
 }
 
@@ -155,6 +156,7 @@
 
 - (void)requestDataWithReload:(BOOL)withReload
 {
+    [self setEnableNoDataCell:NO];
     if ([self.informations[@"isRemoteData"] boolValue])
     {
         if (!self.datalist)
@@ -185,6 +187,7 @@
 
 - (void)requestDidFinish:(XBDataFetching *)_dataFetching
 {
+    [self setEnableNoDataCell:YES];
     if (self.dataListSource && [self.dataListSource respondsToSelector:@selector(modifiedDataFor:andSource:)])
     {
         self.datalist = [self.dataListSource modifiedDataFor:self andSource:self.datalist];
@@ -202,6 +205,7 @@
 
 - (void)requestDidFailed:(XBDataFetching *)_dataFetching
 {
+    [self setEnableNoDataCell:YES];
     if ([self.informations[@"isUsingAlert"] boolValue])
     {
         [self alert:@"Error" message:[self.dataFetching.cacheRequest.error description]];

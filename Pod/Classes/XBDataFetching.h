@@ -44,5 +44,6 @@
 
 - (void)startFetchingData;
 - (void)fetchMore;
+- (void)requestDataWithMore:(BOOL)isMore;
 
 @end
