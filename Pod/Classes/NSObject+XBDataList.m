@@ -156,9 +156,9 @@
 
 - (void)requestDataWithReload:(BOOL)withReload
 {
-    [self setEnableNoDataCell:NO];
     if ([self.informations[@"isRemoteData"] boolValue])
     {
+        [self setEnableNoDataCell:NO];
         if (!self.datalist)
         {
             self.datalist = [NSMutableArray new];
