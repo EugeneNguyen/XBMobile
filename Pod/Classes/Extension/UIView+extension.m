@@ -14,6 +14,7 @@
 #import <AVHexColor.h>
 #import <UIImage-Helpers.h>
 #import "XBMobile.h"
+#import <NSDate+TimeAgo.h>
 
 @implementation UIView (extension)
 @dynamic bottomMargin;
@@ -69,6 +70,21 @@
         if (element[@"screen"])
         {
             data = XBText(data, element[@"screen"]);
+        }
+        
+        if (element[@"dateFormat"])
+        {
+            NSDate *date = [data mysqlDate];
+            if ([element[@"dateFormat"] isEqualToString:@"fuzzy"])
+            {
+                data = [date timeAgoWithLimit:5184000];
+            }
+            else
+            {
+                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                [df setDateFormat:element[@"dateFormat"]];
+                data = [df stringFromDate:date];
+            }
         }
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
         {

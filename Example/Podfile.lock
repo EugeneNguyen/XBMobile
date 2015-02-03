@@ -22,6 +22,7 @@ PODS:
     - CocoaLumberjack/Core
   - JSONKit-NoWarning (1.2)
   - MBProgressHUD (0.9)
+  - NSDate+TimeAgo (1.0.3)
   - Reachability (3.2)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
@@ -32,13 +33,14 @@ PODS:
   - XBLanguage (0.2.3):
     - ASIHTTPRequest
     - JSONKit-NoWarning
-  - XBMobile (0.4.1.1):
+  - XBMobile (0.4.5.1):
     - ASIHTTPRequest
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
     - JSONKit-NoWarning
     - MBProgressHUD
+    - NSDate+TimeAgo
     - UIActivityIndicator-for-SDWebImage
     - UIImage-Helpers
     - XBLanguage
@@ -59,12 +61,13 @@ SPEC CHECKSUMS:
   CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
   JSONKit-NoWarning: fc8d6dd8ec65e303867d1bd274632fc60a4a8ab9
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UIActivityIndicator-for-SDWebImage: 8bd92c15280fbe54816448c6b14674145eee05c7
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
   XBLanguage: 8c195bdcc7d42f551176a2b38b3bdae97a39beaa
-  XBMobile: 820730ece408bc7c7ed7ea295a7f5bc220835059
+  XBMobile: e267808ea50d01ef84f0c961aed6a7e2d6d7d2bc
   XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
 
 COCOAPODS: 0.34.4
