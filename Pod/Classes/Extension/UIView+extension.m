@@ -74,7 +74,16 @@
         
         if (element[@"dateFormat"])
         {
-            NSDate *date = [data mysqlDate];
+            NSDate *date;
+            if ([data isKindOfClass:[NSDate class]])
+            {
+                date = data;
+            }
+            else
+            {
+                date = [data mysqlDate];
+            }
+            
             if ([element[@"dateFormat"] isEqualToString:@"fuzzy"])
             {
                 data = [date timeAgoWithLimit:5184000];

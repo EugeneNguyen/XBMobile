@@ -23,6 +23,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 }
 
+@property (nonatomic, retain) NSString *host;
+
 - (void)settingWithInformation:(NSDictionary *)info;
 - (void)activeLog;
 
