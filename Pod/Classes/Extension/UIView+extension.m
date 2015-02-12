@@ -117,7 +117,7 @@
                 SDWebImageOptions option;
                 if ([element[@"disableCache"] boolValue])
                 {
-                    option = SDWebImageRefreshCached;
+                    option = SDWebImageCacheMemoryOnly;
                 }
                 else
                 {

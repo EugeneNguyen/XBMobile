@@ -70,10 +70,7 @@
     
     self.informations = info;
     
-    if (info[@"section"])
-    {
-        self.isMultipleSection = YES;
-    }
+    self.isMultipleSection = [info[@"section"] boolValue];
     
     if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
     {
@@ -92,12 +89,12 @@
         [self initRefreshControl];
     }
     
-    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"])
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"])
     {
-        [self registerNib:[UINib nibWithNibName:self.informations[@"loadMore"][@"xib"] bundle:nil] forCellReuseIdentifier:self.informations[@"loadMore"][@"identify"]];
+        [self registerNib:[UINib nibWithNibName:self.informations[@"loadMore"][@"xibname"] bundle:nil] forCellReuseIdentifier:self.informations[@"loadMore"][@"cellIdentify"]];
     }
     
-    if (self.informations[@"NoDataCell"] && self.informations[@"NoDataCell"][@"cellIdentify"] && self.informations[@"NoDataCell"][@"xibname"])
+    if ([self.informations[@"NoDataCell"][@"enable"] boolValue] && self.informations[@"NoDataCell"][@"cellIdentify"] && self.informations[@"NoDataCell"][@"xibname"])
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"NoDataCell"][@"xibname"] bundle:nil] forCellReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"]];
     }

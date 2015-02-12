@@ -88,7 +88,6 @@
     }
     [cacheRequest cancel];
     cacheRequest = [XBCacheRequest requestWithURL:[NSURL URLWithString:url]];
-    cacheRequest.cacheDelegate = self;
     cacheRequest.disableCache = self.disableCache;
     
     NSMutableDictionary * mutablePostParams = [_postParams mutableCopy];
@@ -102,7 +101,77 @@
         self.isEndOfData = NO;
     }
     cacheRequest.dataPost = [mutablePostParams mutableCopy];
-    [cacheRequest startAsynchronous];
+    [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error) {
+        
+        [self hideHUD];
+        if (error)
+        {
+            DDLogVerbose(@"%@", error);
+            [self.delegate requestDidFailed:self];
+        }
+        else
+        {
+            DDLogVerbose(@"%@", result);
+            NSDictionary *item;
+            if ([info[@"isXML"] boolValue])
+            {
+                item = [NSDictionary dictionaryWithXMLString:result];
+            }
+            else
+            {
+                item = [result mutableObjectFromJSONString];
+            }
+            DDLogVerbose(@"%@", item);
+            if (item)
+            {
+                if ([item[@"code"] intValue] != 200)
+                {
+//                    [self alert:@"Error" message:item[@"description"]];
+                }
+                else
+                {
+                    if ([_datalist isKindOfClass:[NSMutableArray class]])
+                    {
+                        if (!request.dataPost[@"count"] || (request.dataPost[@"offset"] && ([request.dataPost[@"offset"] intValue] == 0)))
+                        {
+                            [(NSMutableArray *)_datalist removeAllObjects];
+                        }
+                        if (isMultipleSection)
+                        {
+                            [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+                        }
+                        else
+                        {
+                            NSMutableArray *sections = (NSMutableArray *)_datalist;
+                            if ([sections count] == 0)
+                            {
+                                NSDictionary *section = @{@"title": @"root", @"items": [[item objectForPath:info[@"pathToContent"]] mutableCopy]};
+                                [(NSMutableArray *)_datalist addObject:section];
+                            }
+                            else
+                            {
+                                [[sections lastObject][@"items"] addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+                                if ([[item objectForPath:info[@"pathToContent"]] count] == 0)
+                                {
+                                    self.isEndOfData = YES;
+                                }
+                            }
+                        }
+                    }
+                    else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
+                    {
+                        [(NSMutableDictionary *)_datalist removeAllObjects];
+                        [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[item objectForPath:info[@"pathToContent"]]];
+                    }
+                }
+            }
+            else
+            {
+                [self alert:@"Error" message:@"Error when pasing result"];
+            }
+            [self finishRequest];
+        }
+    }];
 
     if ([info[@"usingHUD"] boolValue])
     {
@@ -117,77 +186,6 @@
     {
         [self.delegate performSelector:@selector(reloadData)];
     }
-}
-
-- (void)request:(XBCacheRequest *)request finishedWithString:(NSString *)resultFromRequest
-{
-    DDLogVerbose(@"%@", resultFromRequest);
-    [self hideHUD];
-    NSDictionary *item;
-    if ([info[@"isXML"] boolValue])
-    {
-        item = [NSDictionary dictionaryWithXMLString:resultFromRequest];
-    }
-    else
-    {
-        item = [resultFromRequest mutableObjectFromJSONString];
-    }
-    DDLogVerbose(@"%@", item);
-    if (item)
-    {
-        if ([item[@"code"] intValue] != 200)
-        {
-//            [self alert:@"Error" message:item[@"description"]];
-        }
-        else
-        {
-            if ([_datalist isKindOfClass:[NSMutableArray class]])
-            {
-                if (!request.dataPost[@"count"])
-                {
-                    [(NSMutableArray *)_datalist removeAllObjects];
-                }
-                if (isMultipleSection)
-                {
-                    [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
-                }
-                else
-                {
-                    NSMutableArray *sections = (NSMutableArray *)_datalist;
-                    if ([sections count] == 0)
-                    {
-                        NSDictionary *section = @{@"title": @"root", @"items": [[item objectForPath:info[@"pathToContent"]] mutableCopy]};
-                        [(NSMutableArray *)_datalist addObject:section];
-                    }
-                    else
-                    {
-                        [[sections lastObject][@"items"] addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
-                        if ([[item objectForPath:info[@"pathToContent"]] count] == 0)
-                        {
-                            self.isEndOfData = YES;
-                        }
-                    }
-                }
-            }
-            else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
-            {
-                [(NSMutableDictionary *)_datalist removeAllObjects];
-                [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[item objectForPath:info[@"pathToContent"]]];
-            }
-        }
-    }
-    else
-    {
-        [self alert:@"Error" message:@"Error when pasing result"];
-    }
-    [self finishRequest];
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)_request
-{
-    DDLogVerbose(@"%@", _request.error);
-    [self.delegate requestDidFailed:self];
-    [self hideHUD];
 }
 
 @end

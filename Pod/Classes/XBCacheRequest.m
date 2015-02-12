@@ -12,6 +12,17 @@
 @implementation XBCacheRequest
 @synthesize dataPost = _dataPost, cacheDelegate, disableCache;
 
+- (void)setCallback:(XBPostRequestCallback)_callback
+{
+    callback = _callback;
+}
+
+- (void)startAsynchronousWithCallback:(XBPostRequestCallback)_callback
+{
+    [self setCallback:_callback];
+    [self startAsynchronous];
+}
+
 - (id)init
 {
     self = [super init];
@@ -45,6 +56,12 @@
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(requestFinishedWithString:)])
         {
             [cacheDelegate requestFinishedWithString:cache.response];
+            if (callback) callback(self, cache.response, YES, nil);
+        }
+        if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(request:finishedWithString:)])
+        {
+            [cacheDelegate request:self finishedWithString:cache.response];
+            if (callback) callback(self, cache.response, YES, nil);
         }
     }
 }
@@ -55,6 +72,7 @@
     {
         [cacheDelegate requestFailed:_request];
     }
+    if (callback) callback(self, nil, NO, self.error);
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)_request
@@ -72,6 +90,7 @@
     {
         [cacheDelegate request:self finishedWithString:_request.responseString];
     }
+    if (callback) callback(self, _request.responseString, NO, nil);
 }
 
 + (void)clearCache

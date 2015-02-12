@@ -100,7 +100,7 @@
     }
     else
     {
-        UITableViewCell *sizingCell = [self dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"identify"]];
+        UITableViewCell *sizingCell = [self dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"cellIdentify"]];
         return sizingCell.frame.size.height;
     }
 }
@@ -117,7 +117,7 @@
 {
     if ([self ableToShowNoData]) return 1;
     long count = [datalist[section][@"items"] count];
-    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"] && (section == [datalist count] - 1))
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (section == [datalist count] - 1))
     {
         count ++;
     }
@@ -146,9 +146,9 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"NoDataCell"][@"cellIdentify"] forIndexPath:indexPath];
         return cell;
     }
-    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"identify"] && self.informations[@"loadMore"][@"xib"] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
+    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"identify"] forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"cellIdentify"] forIndexPath:indexPath];
         return cell;
     }
     
