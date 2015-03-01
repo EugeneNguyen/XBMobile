@@ -121,7 +121,7 @@
                 }
                 else
                 {
-                    option = 0;
+                    option = SDWebImageContinueInBackground;
                 }
                 
                 UIImage *placeHolderImage = nil;

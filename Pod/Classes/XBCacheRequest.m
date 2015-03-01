@@ -56,13 +56,12 @@
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(requestFinishedWithString:)])
         {
             [cacheDelegate requestFinishedWithString:cache.response];
-            if (callback) callback(self, cache.response, YES, nil);
         }
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(request:finishedWithString:)])
         {
             [cacheDelegate request:self finishedWithString:cache.response];
-            if (callback) callback(self, cache.response, YES, nil);
         }
+        if (callback) callback(self, cache.response, YES, nil);
     }
 }
 
