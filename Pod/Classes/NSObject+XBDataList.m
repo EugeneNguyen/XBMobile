@@ -124,7 +124,14 @@
 {
     if (self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue])
     {
-        [self setScrollEnabled:![self.informations[@"NoDataCell"][@"disableScrolling"] boolValue]];
+        if (self.totalRows == 0)
+        {
+            [self setScrollEnabled:![self.informations[@"NoDataCell"][@"disableScrolling"] boolValue]];
+        }
+        else
+        {
+            [self setScrollEnabled:YES];
+        }
     }
     return self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue] && ([self totalRows] == 0);
 }
