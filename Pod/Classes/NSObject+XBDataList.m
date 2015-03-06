@@ -122,6 +122,10 @@
 
 - (BOOL)ableToShowNoData
 {
+    if (self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue])
+    {
+        [self setScrollEnabled:![self.informations[@"NoDataCell"][@"disableScrolling"] boolValue]];
+    }
     return self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue] && ([self totalRows] == 0);
 }
 

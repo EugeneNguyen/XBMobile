@@ -62,6 +62,8 @@
 
 - (void)scrolledToBottom;
 
+- (void)setScrollEnabled:(BOOL)scrollable;
+
 // no data cell
 
 - (void)setEnableNoDataCell:(BOOL)isNoData;

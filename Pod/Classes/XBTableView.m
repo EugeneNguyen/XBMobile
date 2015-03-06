@@ -126,7 +126,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *item = [self cellInfoForPath:indexPath];
-    return [item[@"deletable"] boolValue];
+    return [item[@"deletable"] boolValue] && ![self ableToShowNoData];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
