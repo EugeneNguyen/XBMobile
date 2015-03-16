@@ -9,6 +9,7 @@
 #import "NSObject+XBDataList.h"
 #import "ASIFormDataRequest.h"
 #import "XBExtension.h"
+#import "XBMobile.h"
 
 @implementation NSObject (XBDataList)
 @dynamic informations;
@@ -32,6 +33,11 @@
 - (void)setPlist:(NSString *)plist
 {
     [self loadInformationFromPlist:plist];
+}
+
+- (void)setXBID:(NSString *)xbid
+{
+    [self loadInformations:[NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]]]];
 }
 
 - (void)setPlistData:(NSString *)plistdata

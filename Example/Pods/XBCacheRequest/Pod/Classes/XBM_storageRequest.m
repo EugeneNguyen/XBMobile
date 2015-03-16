@@ -16,7 +16,7 @@
 @dynamic postData;
 @dynamic response;
 
-+ (void)addCache:(NSURL *)url postData:(NSDictionary *)postData response:(NSString *)response
++ (void)addCache:(NSString *)url postData:(NSDictionary *)postData response:(NSString *)response
 {
     XBM_storageRequest *cache = [XBM_storageRequest getCache:url postData:postData];
     
@@ -25,18 +25,18 @@
         cache  = [NSEntityDescription insertNewObjectForEntityForName:@"XBM_storageRequest" inManagedObjectContext:[[XBPostRequestCacheManager sharedInstance] managedObjectContext]];
     }
     
-    cache.url = [url absoluteString];
+    cache.url = url;
     cache.postData = [postData JSONString];
     cache.response = response;
     
     [[XBPostRequestCacheManager sharedInstance] saveContext];
 }
 
-+ (XBM_storageRequest *)getCache:(NSURL *)url postData:(NSDictionary *)postData
++ (XBM_storageRequest *)getCache:(NSString *)url postData:(NSDictionary *)postData
 {
-    NSString *urlString = [url absoluteString];
+    if (!postData) postData = @{};
     NSString *postString = [postData JSONString];
-    NSArray *result = [XBM_storageRequest getFormat:@"url=%@ and postData=%@" argument:@[urlString, postString]];
+    NSArray *result = [XBM_storageRequest getFormat:@"url=%@ and postData=%@" argument:@[url, postString]];
     if ([result count] == 0)
     {
         return nil;

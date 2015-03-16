@@ -57,12 +57,6 @@
     [self requestDataWithMore:YES];
 }
 
-- (void)dealloc
-{
-    [cacheRequest cancel];
-    cacheRequest.delegate = nil;
-}
-
 #pragma mark - ASIHTTPRequestDelegate
 
 - (void)requestData
@@ -72,7 +66,7 @@
 
 - (void)requestDataWithMore:(BOOL)isMore
 {
-    if (isMore && self.isEndOfData && [cacheRequest inProgress])
+    if (isMore && self.isEndOfData && [cacheRequest isRunning])
     {
         return;
     }
@@ -101,6 +95,16 @@
         self.isEndOfData = NO;
     }
     cacheRequest.dataPost = [mutablePostParams mutableCopy];
+    
+    if ([info[@"isXML"] boolValue])
+    {
+        cacheRequest.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    }
+    else
+    {
+        cacheRequest.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
+    
     [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error) {
         
         [self hideHUD];

@@ -28,7 +28,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)settingWithInformation:(NSDictionary *)info;
 - (void)activeLog;
 
-+ (id)sharedInstance;
++ (XBMobile *)sharedInstance;
 + (void)registerPush;
 
 @end

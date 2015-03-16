@@ -11,7 +11,6 @@
 static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
 
 @implementation XBPostRequestCacheManager
-@synthesize url, dataPost, delegate, request;
 
 + (XBPostRequestCacheManager *)sharedInstance
 {
@@ -20,61 +19,6 @@ static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
         __sharedPostRequestCache = [[XBPostRequestCacheManager alloc] init];
     }
     return __sharedPostRequestCache;
-}
-
-- (void)start
-{
-    request = [ASIFormDataRequest requestWithURL:url];
-    [request setDelegate:self];
-    for (NSString *key in [dataPost allKeys])
-    {
-        [request setPostValue:dataPost[key] forKey:key];
-    }
-    [request startAsynchronous];
-    XBM_storageRequest *cache = [XBM_storageRequest getCache:url postData:dataPost];
-    if (cache)
-    {
-        [delegate requestFinishedWithString:cache.response];
-    }
-}
-
-+ (XBPostRequestCacheManager *)startRequest:(NSURL *)_url postData:(NSDictionary *)_dataPost delegate:(id<XBPostRequestCacheManager>)_delegate
-{
-    XBPostRequestCacheManager *cache = [[XBPostRequestCacheManager alloc] init];
-    cache.url = _url;
-    cache.dataPost = _dataPost;
-    cache.delegate = _delegate;
-    [cache start];
-    return cache;
-}
-
-#pragma mark - ASIHTTPRequestDelegate
-
-- (void)requestFinished:(ASIHTTPRequest *)_request
-{
-    [XBM_storageRequest addCache:url postData:dataPost response:_request.responseString];
-    if (delegate && [delegate respondsToSelector:@selector(requestFinished:)])
-    {
-        [delegate requestFinished:_request];
-    }
-    if (delegate && [delegate respondsToSelector:@selector(requestFinishedWithString:)])
-    {
-        [delegate requestFinishedWithString:_request.responseString];
-    }
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)_request
-{
-    if (delegate && [delegate respondsToSelector:@selector(requestFailed:)])
-    {
-        [delegate requestFailed:_request];
-    }
-}
-
-- (void)dealloc
-{
-    [request setDelegate:nil];
-    [request cancel];
 }
 
 #pragma mark - Core Data stack
@@ -93,7 +37,7 @@ static XBPostRequestCacheManager *__sharedPostRequestCache = nil;
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"XBMobile" ofType:@"bundle"]];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"XBCacheRequest" ofType:@"bundle"]];
     NSURL *modelURL = [bundle URLForResource:@"XBMRequestCache" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;

@@ -24,7 +24,7 @@ static XBMobile *__sharedXBMobileInstance = nil;
 @implementation XBMobile
 @synthesize host;
 
-+ (id)sharedInstance
++ (XBMobile *)sharedInstance
 {
     if (!__sharedXBMobileInstance)
     {

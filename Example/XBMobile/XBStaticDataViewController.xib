@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XBStaticDataViewController">
@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="plist" value="XBStaticDataInformation"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="XBID" value="1005"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="plistData" value="XBStaticData"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -35,6 +35,7 @@
                 <constraint firstItem="8rt-fg-UMy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mlj-He-Skn"/>
                 <constraint firstAttribute="bottom" secondItem="8rt-fg-UMy" secondAttribute="bottom" id="e2D-XK-oj3"/>
             </constraints>
+            <point key="canvasLocation" x="514" y="297"/>
         </view>
     </objects>
 </document>

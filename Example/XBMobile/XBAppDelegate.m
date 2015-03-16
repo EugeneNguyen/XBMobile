@@ -15,6 +15,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[XBMobile sharedInstance] activeLog];
+    [[XBMobile sharedInstance] setHost:@"http://linker.beliat.com"];
+    NSDictionary *item = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:@"/servicemanagement/download_service_xml/1005"]];
+    NSLog(@"%@", item);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
