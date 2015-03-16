@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "XBMobile"
-  s.version          = "0.5.0.3"
+  s.version          = "0.5.0.4"
   s.summary          = "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically."
   s.description      = <<-DESC
                        The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Eugene Nguyen" => "xuanbinh91@gmail.com" }
   s.source           = { :git => "https://github.com/EugeneNguyen/XBMobile.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/LIBRETeamStudio'
+  # s.social_media_url = 'https://twitter.com/LIBRETeamStudio'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
