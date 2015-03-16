@@ -11,7 +11,6 @@
 
 @implementation XBCacheRequest
 @synthesize dataPost = _dataPost, cacheDelegate, disableCache, url;
-@synthesize isRunning;
 
 + (XBCacheRequest *)requestWithURL:(NSURL *)url
 {
@@ -46,9 +45,8 @@
         }
     }
     
-    isRunning = YES;
     [[AFHTTPRequestOperationManager manager] POST:self.url parameters:_dataPost success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        isRunning = NO;
+        
         [XBM_storageRequest addCache:url postData:_dataPost response:operation.responseString];
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(requestFinished:)])
         {
@@ -64,7 +62,7 @@
         }
         if (callback) callback(self, operation.responseString, NO, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        isRunning = NO;
+        
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(requestFailed:)])
         {
             [cacheDelegate requestFailed:(XBCacheRequest *)operation];

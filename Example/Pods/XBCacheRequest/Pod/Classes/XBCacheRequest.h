@@ -32,7 +32,6 @@ typedef void (^XBPostRequestCallback)(XBCacheRequest * request, NSString * resul
 @property (nonatomic, retain) NSMutableDictionary *dataPost;
 @property (nonatomic, assign) id <XBCacheRequestDelegate> cacheDelegate;
 @property (nonatomic, assign) BOOL disableCache;
-@property (nonatomic, assign) BOOL isRunning;
 
 + (XBCacheRequest *)requestWithURL:(NSURL *)url;
 

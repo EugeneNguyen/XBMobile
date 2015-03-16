@@ -164,7 +164,7 @@
 // This library does not follow semantic-versioning,
 // so we were not able to define version macros.
 // Please contact the author.
-// Version: 0.1.2.2.
+// Version: 0.1.2.3.
 
 // XBLanguage
 #define COCOAPODS_POD_AVAILABLE_XBLanguage
@@ -174,9 +174,10 @@
 
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
-#define COCOAPODS_VERSION_MAJOR_XBMobile 0
-#define COCOAPODS_VERSION_MINOR_XBMobile 5
-#define COCOAPODS_VERSION_PATCH_XBMobile 0
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.5.0.1.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary
