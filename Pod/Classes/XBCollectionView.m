@@ -34,7 +34,6 @@
 @synthesize pageControl;
 @synthesize requestDelegate;
 @synthesize dataListSource;
-@synthesize XBID;
 
 - (void)setupDelegate
 {

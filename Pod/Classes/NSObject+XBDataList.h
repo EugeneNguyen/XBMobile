@@ -36,8 +36,6 @@
 
 @property (nonatomic, assign) IBOutlet id <XBDataListSource> dataListSource;
 
-@property (nonatomic, assign) NSString *XBID;
-
 - (void)cleanup;
 
 - (void)setPlist:(NSString *)plist;

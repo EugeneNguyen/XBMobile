@@ -98,14 +98,14 @@
     
     if ([info[@"isXML"] boolValue])
     {
-        cacheRequest.responseSerializer = [AFXMLParserResponseSerializer serializer];
+        cacheRequest.responseType = XBCacheRequestTypeXML;
     }
     else
     {
-        cacheRequest.responseSerializer = [AFJSONResponseSerializer serializer];
+        cacheRequest.responseType = XBCacheRequestTypeJSON;
     }
     
-    [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error) {
+    [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         
         [self hideHUD];
         if (error)
@@ -115,20 +115,9 @@
         }
         else
         {
-            DDLogVerbose(@"%@", result);
-            NSDictionary *item;
-            if ([info[@"isXML"] boolValue])
+            if (object)
             {
-                item = [NSDictionary dictionaryWithXMLString:result];
-            }
-            else
-            {
-                item = [result mutableObjectFromJSONString];
-            }
-            DDLogVerbose(@"%@", item);
-            if (item)
-            {
-                if ([item[@"code"] intValue] != 200)
+                if ([object[@"code"] intValue] != 200)
                 {
 //                    [self alert:@"Error" message:item[@"description"]];
                 }
@@ -142,20 +131,20 @@
                         }
                         if (isMultipleSection)
                         {
-                            [(NSMutableArray *)_datalist addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
+                            [(NSMutableArray *)_datalist addObjectsFromArray:[object objectForPath:info[@"pathToContent"]]];
                         }
                         else
                         {
                             NSMutableArray *sections = (NSMutableArray *)_datalist;
                             if ([sections count] == 0)
                             {
-                                NSDictionary *section = @{@"title": @"root", @"items": [[item objectForPath:info[@"pathToContent"]] mutableCopy]};
+                                NSDictionary *section = @{@"title": @"root", @"items": [[object objectForPath:info[@"pathToContent"]] mutableCopy]};
                                 [(NSMutableArray *)_datalist addObject:section];
                             }
                             else
                             {
-                                [[sections lastObject][@"items"] addObjectsFromArray:[item objectForPath:info[@"pathToContent"]]];
-                                if ([[item objectForPath:info[@"pathToContent"]] count] == 0)
+                                [[sections lastObject][@"items"] addObjectsFromArray:[object objectForPath:info[@"pathToContent"]]];
+                                if ([[object objectForPath:info[@"pathToContent"]] count] == 0)
                                 {
                                     self.isEndOfData = YES;
                                 }
@@ -165,7 +154,7 @@
                     else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
                     {
                         [(NSMutableDictionary *)_datalist removeAllObjects];
-                        [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[item objectForPath:info[@"pathToContent"]]];
+                        [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[object objectForPath:info[@"pathToContent"]]];
                     }
                 }
             }

@@ -16,11 +16,6 @@
 {
     [[XBMobile sharedInstance] activeLog];
     [[XBMobile sharedInstance] setHost:@"http://linker.beliat.com"];
-    NSDictionary *item = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:@"/servicemanagement/download_service_xml/1005"]];
-    NSLog(@"%@", item);
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
 
     [[NSUserDefaults standardUserDefaults] setValue:@"http://exmaple.com/service" forKey:@"webhost"];
     XBStaticDataViewController *tableView = [[XBStaticDataViewController alloc] init];

@@ -37,7 +37,9 @@
 
 - (void)setXBID:(NSString *)xbid
 {
-    [self loadInformations:[NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]]]];
+    NSDictionary *item = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]]];
+    NSLog(@"%@", item);
+    [self loadInformations:item];
 }
 
 - (void)setPlistData:(NSString *)plistdata

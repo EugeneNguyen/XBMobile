@@ -51,13 +51,13 @@ PODS:
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.1.2.4):
+  - XBCacheRequest (0.3.1.1):
     - AFNetworking
     - JSONKit-NoWarning
-  - XBLanguage (0.3.3):
+  - XBLanguage (0.4.1):
     - JSONKit-NoWarning
     - XBCacheRequest
-  - XBMobile (0.5.0.3):
+  - XBMobile (0.5.0.4):
     - ASIHTTPRequest
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
@@ -92,9 +92,9 @@ SPEC CHECKSUMS:
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UIActivityIndicator-for-SDWebImage: 8bd92c15280fbe54816448c6b14674145eee05c7
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
-  XBCacheRequest: 961bce213634e51bc2c4e3f3f5b30a8f208c9536
-  XBLanguage: 144cf614d6cb5d65f8cbc16c37da3714c6919efa
-  XBMobile: 2ad00dc2fa2e97a8fe15b1cfc0b931acfec9947a
+  XBCacheRequest: 09700ae7272319ea66b99f7781b8045a8447f6c1
+  XBLanguage: 30ed02e2d68aa3b13ebaae67dd1cb2959cc2cba0
+  XBMobile: 0b491eed1b47ffd3ec1dab85b3ed9631c04f965e
   XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
 
 COCOAPODS: 0.34.4
