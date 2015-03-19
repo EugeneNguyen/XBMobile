@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
 
 @interface NSObject (extension)
 
 - (void)alert:(NSString *)title message:(NSString *)message;
 
-- (void)showHUD:(NSString *)string;
+- (MBProgressHUD *)showHUD:(NSString *)string;
 
 - (void)hideHUD;
 

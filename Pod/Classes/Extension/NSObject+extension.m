@@ -19,11 +19,12 @@
     [alert show];
 }
 
-- (void)showHUD:(NSString *)string
+- (MBProgressHUD *)showHUD:(NSString *)string
 {
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     hud.labelText = string;
+    return hud;
 }
 
 - (void)hideHUD
