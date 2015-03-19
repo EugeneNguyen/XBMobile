@@ -45,7 +45,14 @@
         }
         else if ([obj isKindOfClass:[NSDictionary class]])
         {
-            obj = obj[s];
+            if (obj[s])
+            {
+                obj = obj[s];
+            }
+            else
+            {
+                return @"";
+            }
         }
         else if ([obj isKindOfClass:[NSArray class]])
         {
