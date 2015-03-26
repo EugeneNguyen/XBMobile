@@ -76,11 +76,64 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if ([self ableToShowNoData]) return 1;
+    if ([self.informations[@"staticSection"] boolValue]) return [self.informations[@"sections"] count];
     return [datalist count];
 }
 
+#pragma mark Header
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][section][@"header"])
+    {
+        NSDictionary *sectionInformation = self.informations[@"sections"][section];
+        UIView *header = [UIView viewWithXib:sectionInformation[@"header"][@"xibname"] template:sectionInformation[@"header"][@"elements"] information:(NSDictionary *)self.datalist];
+        return header;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][section][@"header"])
+    {
+        UIView *header = [self tableView:tableView viewForHeaderInSection:section];
+        return header.frame.size.height;
+    }
+    return 0;
+}
+
+#pragma mark Footer
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][section][@"footer"])
+    {
+        NSDictionary *sectionInformation = self.informations[@"sections"][section];
+        UIView *header = [UIView viewWithXib:sectionInformation[@"footer"][@"xibname"] template:sectionInformation[@"footer"][@"elements"] information:(NSDictionary *)self.datalist];
+        return header;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][section][@"footer"])
+    {
+        UIView *header = [self tableView:tableView viewForFooterInSection:section];
+        return header.frame.size.height;
+    }
+    return 0;
+}
+
+#pragma mark other
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self ableToShowNoData]) return self.frame.size.height;
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][indexPath.section][@"cells"][indexPath.row])
+    {
+        return [self tableView:tableView cellForRowAtIndexPath:indexPath].frame.size.height;
+    }
     return [self heightForBasicCellAtIndexPath:indexPath];
 }
 
@@ -116,6 +169,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([self ableToShowNoData]) return 1;
+    
+    if ([self.informations[@"staticSection"] boolValue])
+    {
+        NSDictionary *sectionInformation = self.informations[@"sections"][section];
+        return [sectionInformation[@"cells"] count];
+    }
+    
     long count = [datalist[section][@"items"] count];
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (section == [datalist count] - 1))
     {
@@ -149,6 +209,13 @@
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (indexPath.row == [[datalist lastObject][@"items"] count]) && (indexPath.section == ([datalist count] - 1)))
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_informations[@"loadMore"][@"cellIdentify"] forIndexPath:indexPath];
+        return cell;
+    }
+    
+    if ([self.informations[@"staticSection"] boolValue] && self.informations[@"sections"][indexPath.section][@"cells"][indexPath.row])
+    {
+        NSDictionary *cellInformation = self.informations[@"sections"][indexPath.section][@"cells"][indexPath.row];
+        UITableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:cellInformation[@"xibname"] owner:nil options:nil] firstObject];
         return cell;
     }
     

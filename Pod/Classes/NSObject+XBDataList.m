@@ -38,7 +38,7 @@
 - (void)setXBID:(NSString *)xbid
 {
     NSDictionary *item = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]]];
-    NSLog(@"%@", item);
+    NSLog(@"%@", [NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]);
     [self loadInformations:item];
 }
 
@@ -314,7 +314,11 @@
         }
         return self.informations[@"cells"][[[self.datalist[indexPath.section][@"items"][indexPath.row] objectForPath:path] intValue]];
     }
-    return self.informations[@"cells"][0];
+    if ([self.informations[@"cells"] count] > 0)
+    {
+        return self.informations[@"cells"][0];
+    }
+    return nil;
 }
 
 @end

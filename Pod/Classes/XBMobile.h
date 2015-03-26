@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 #import "XBTableView.h"
 #import "XBCollectionView.h"
 #import "XBExtension.h"
@@ -15,6 +16,10 @@
 #import "XBForm.h"
 #import "XBTagView.h"
 #import "XBLanguage.h"
+
+#import "NSObject+XBDataList.h"
+#import "UINib+load.h"
+#import "NSObject+extension.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
