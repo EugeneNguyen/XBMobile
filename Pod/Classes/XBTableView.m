@@ -12,6 +12,7 @@
 #import "JSONKit.h"
 #import "UIImageView+WebCache.h"
 #import "XBDataFetching.h"
+#import "XBMobile.h"
 
 @interface XBTableView() <UITableViewDelegate, UITableViewDataSource, XBDataFetchingDelegate>
 {

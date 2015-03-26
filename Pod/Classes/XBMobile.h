@@ -20,6 +20,8 @@
 #import "NSObject+XBDataList.h"
 #import "UINib+load.h"
 #import "NSObject+extension.h"
+#import "UIView+extension.h"
+#import "NSString+extension.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 

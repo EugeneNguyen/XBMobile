@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "XBDataFetching.h"
 #import "CHTCollectionViewWaterfallLayout.h"
+#import "XBMobile.h"
 
 @interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate, CHTCollectionViewDelegateWaterfallLayout>
 {
