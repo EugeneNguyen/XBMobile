@@ -19,6 +19,7 @@
     NSMutableArray *datalist;
     UITableViewController *tableViewController;
     BOOL isMultipleSection;
+    IBOutlet UITextField *searchField;
 }
 
 @end
@@ -34,6 +35,7 @@
 @synthesize backupWhenSearch;
 @synthesize requestDelegate;
 @synthesize dataListSource;
+@synthesize searchField;
 
 - (void)setupDelegate
 {

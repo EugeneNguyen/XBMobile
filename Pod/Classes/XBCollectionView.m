@@ -18,6 +18,7 @@
 @interface XBCollectionView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, XBDataFetchingDelegate, CHTCollectionViewDelegateWaterfallLayout>
 {
     
+    IBOutlet UITextField *searchField;
 }
 
 @end
@@ -35,6 +36,7 @@
 @synthesize pageControl;
 @synthesize requestDelegate;
 @synthesize dataListSource;
+@synthesize searchField;
 
 - (void)setupDelegate
 {

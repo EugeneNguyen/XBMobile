@@ -57,4 +57,11 @@
     return  [self niceFormatSince:[NSDate date]];
 }
 
+- (NSString *)stringWithFormat:(NSString *)format
+{
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setDateFormat:format];
+    return [df stringFromDate:self];
+}
+
 @end

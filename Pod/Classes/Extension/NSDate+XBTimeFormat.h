@@ -12,5 +12,6 @@
 
 - (NSString *)niceFormatSince:(NSDate *)date;
 - (NSString *)niceFormatSinceNow;
+- (NSString *)stringWithFormat:(NSString *)format;
 
 @end

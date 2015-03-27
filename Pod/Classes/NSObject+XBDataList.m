@@ -37,9 +37,18 @@
 
 - (void)setXBID:(NSString *)xbid
 {
-    NSDictionary *item = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]]];
-    NSLog(@"%@", [NSString stringWithFormat:@"%@/servicemanagement/download_service_xml/%@", [XBMobile sharedInstance].host, xbid]);
-    [self loadInformations:item];
+    NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml/%@", xbid];
+    XBCacheRequest *request = XBCacheRequest(path);
+    [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
+        NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                                              format:nil
+                                                                    errorDescription:nil];
+        if (item)
+        {
+            [self loadInformations:item];
+        }
+    }];
 }
 
 - (void)setPlistData:(NSString *)plistdata
@@ -271,7 +280,7 @@
                 for (NSString *field in self.informations[@"searchOptions"][@"fields"])
                 {
                     [predicateFormat appendFormat:@"%@ ", field];
-                    [predicateFormat appendString:@"CONTAINS %@"];
+                    [predicateFormat appendString:@"CONTAINS[cd] %@"];
                     if ([self.informations[@"searchOptions"][@"fields"] indexOfObject:field] != [self.informations[@"searchOptions"][@"fields"] count] - 1)
                     {
                         [predicateFormat appendString:@" OR "];
@@ -319,6 +328,13 @@
         return self.informations[@"cells"][0];
     }
     return nil;
+}
+
+#pragma mark - SearchField
+
+- (IBAction)searchFieldDidChange:(UITextField *)_searchField
+{
+    [self applySearch:_searchField.text];
 }
 
 @end

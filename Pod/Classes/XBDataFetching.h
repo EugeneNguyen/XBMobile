@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XBExtension.h"
+#import "XBCacheRequest.h"
 
 @class XBDataFetching;
 @class ASIFormDataRequest;
