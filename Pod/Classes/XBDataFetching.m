@@ -81,7 +81,7 @@
         _postParams = @{};
     }
     [cacheRequest cancel];
-    cacheRequest = [XBCacheRequest requestWithURL:[NSURL URLWithString:url]];
+    cacheRequest = XBCacheRequest(url);
     cacheRequest.disableCache = self.disableCache;
     
     NSMutableDictionary * mutablePostParams = [_postParams mutableCopy];
@@ -117,12 +117,12 @@
         {
             if (object)
             {
-                if ([object[@"code"] intValue] != 200)
-                {
+//                if ([object[@"code"] intValue] != 200)
+//                {
 //                    [self alert:@"Error" message:item[@"description"]];
-                }
-                else
-                {
+//                }
+//                else
+//                {
                     if ([_datalist isKindOfClass:[NSMutableArray class]])
                     {
                         if (!request.dataPost[@"count"] || (request.dataPost[@"offset"] && ([request.dataPost[@"offset"] intValue] == 0)))
@@ -156,7 +156,7 @@
                         [(NSMutableDictionary *)_datalist removeAllObjects];
                         [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[object objectForPath:info[@"pathToContent"]]];
                     }
-                }
+//                }
             }
             else
             {

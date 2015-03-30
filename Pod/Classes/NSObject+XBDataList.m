@@ -37,7 +37,7 @@
 
 - (void)setXBID:(NSString *)xbid
 {
-    NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml/%@", xbid];
+    NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml?table=%@", xbid];
     XBCacheRequest *request = XBCacheRequest(path);
     [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
