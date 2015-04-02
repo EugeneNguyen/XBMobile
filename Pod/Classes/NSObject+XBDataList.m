@@ -39,6 +39,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml?table=%@", xbid];
     XBCacheRequest *request = XBCacheRequest(path);
+    request.responseType = XBCacheRequestTypePlain;
     [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
                                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
@@ -115,6 +116,7 @@
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"NoDataCell"][@"xibname"] bundle:nil] forCellReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"]];
     }
+    [self reloadData];
 }
 
 - (void)initRefreshControl
