@@ -88,19 +88,29 @@
 {
     if ([self.informations[@"isFullTable"] boolValue])
     {
-        self.translatesAutoresizingMaskIntoConstraints = YES;
-        CGRect f = self.frame;
-        if ([(UICollectionViewFlowLayout *)self.collectionViewLayout scrollDirection] == UICollectionViewScrollDirectionVertical)
+        for (NSLayoutConstraint *constraint in self.constraints)
         {
-            CGSize s = self.contentSize;
-            f.size.height = s.height;
+            if (constraint.firstAttribute == NSLayoutAttributeHeight)
+            {
+                [self removeConstraint:constraint];
+            }
         }
-        else if ([self.datalist count] == 0)
+        float height = self.contentSize.height;
+        if ([(UICollectionViewFlowLayout *)self.collectionViewLayout scrollDirection] == UICollectionViewScrollDirectionHorizontal && [self totalRows] == 0)
         {
-            f.size.height = 0;
+            height = 0;
         }
-        self.frame = f;
-        [self.superview setNeedsUpdateConstraints];
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeHeight
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:NSLayoutAttributeNotAnAttribute
+                                                        multiplier:1.0
+                                                          constant:height]];
+        
+        [self.superview layoutSubviews];
+        [self.superview setNeedsDisplay];
     }
 }
 
@@ -236,7 +246,7 @@
     }
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:self];
+    [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:xbDelegate];
     
     if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {

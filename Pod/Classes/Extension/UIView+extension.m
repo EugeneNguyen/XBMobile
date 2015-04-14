@@ -232,6 +232,10 @@
             [tableview loadData:data];
             [tableview loadInformations:element withReload:YES];
         }
+        else if (element[@"setter"])
+        {
+            [v performSelector:NSSelectorFromString(element[@"setter"]) withObject:data];
+        }
     }
     
     [self layoutSubviews];
