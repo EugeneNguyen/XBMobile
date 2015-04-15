@@ -117,12 +117,12 @@
         {
             if (object)
             {
-//                if ([object[@"code"] intValue] != 200)
-//                {
-//                    [self alert:@"Error" message:item[@"description"]];
-//                }
-//                else
-//                {
+                if ([object[@"code"] intValue] != 200)
+                {
+                    if ([info[@"isUsingAlert"] boolValue]) [self alert:@"Error" message:object[@"description"]];
+                }
+                else
+                {
                     if ([_datalist isKindOfClass:[NSMutableArray class]])
                     {
                         if (!request.dataPost[@"count"] || (request.dataPost[@"offset"] && ([request.dataPost[@"offset"] intValue] == 0)))
@@ -156,11 +156,11 @@
                         [(NSMutableDictionary *)_datalist removeAllObjects];
                         [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[object objectForPath:info[@"pathToContent"]]];
                     }
-//                }
+                }
             }
             else
             {
-                [self alert:@"Error" message:@"Error when pasing result"];
+                if ([info[@"isUsingAlert"] boolValue]) [self alert:@"Error" message:@"Error when pasing result"];
             }
             [self finishRequest];
         }
