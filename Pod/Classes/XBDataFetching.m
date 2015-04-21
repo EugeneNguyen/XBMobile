@@ -28,6 +28,7 @@
 @synthesize cacheRequest;
 @synthesize disableCache;
 @synthesize resultCount;
+@synthesize startDate;
 
 - (id)init
 {
@@ -87,6 +88,14 @@
     NSMutableDictionary * mutablePostParams = [_postParams mutableCopy];
     if (isMore)
     {
+        if (startDate)
+        {
+            mutablePostParams[@"time"] = [@([[NSDate date] timeIntervalSinceDate:startDate]) stringValue];
+        }
+        else
+        {
+            startDate = [NSDate date];
+        }
         mutablePostParams[@"offset"] = @([[self.datalist firstObject][@"items"] count]);
         mutablePostParams[@"count"] = @(self.resultCount);
     }

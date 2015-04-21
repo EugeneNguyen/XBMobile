@@ -22,7 +22,7 @@
 
 @interface XBDataFetching : NSObject
 {
-
+    
 }
 
 @property (nonatomic, retain) id datalist;
@@ -42,6 +42,8 @@
 @property (nonatomic, assign) int resultCount;
 
 @property (nonatomic, assign) BOOL isEndOfData;
+
+@property (nonatomic, retain) NSDate *startDate;
 
 - (void)startFetchingData;
 - (void)fetchMore;

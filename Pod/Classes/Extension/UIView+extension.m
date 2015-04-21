@@ -179,7 +179,7 @@
                     }
                     else
                     {
-                        imgView.image = image;
+                        [imgView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
                     }
                     
                     if ([element[@"autoHeight"] boolValue] && !(element[@"widthPath"] && element[@"heightPath"]))
@@ -206,6 +206,11 @@
                 {
                     [btn setTitle:data forState:UIControlStateNormal];
                 }
+            }
+            
+            if (btn.tag == 12)
+            {
+                
             }
             
             if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
