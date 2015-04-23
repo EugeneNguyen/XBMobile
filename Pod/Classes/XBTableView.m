@@ -45,13 +45,27 @@
 
 - (void)configHeightAfterFillData
 {
-    if ([_informations[@"isFullTable"] boolValue])
+    if ([self.informations[@"isFullTable"] boolValue])
     {
-        CGSize s = self.contentSize;
-        CGRect f = self.frame;
-        f.size.height = s.height;
-        self.frame = f;
-        [self.superview setNeedsLayout];
+        for (NSLayoutConstraint *constraint in self.constraints)
+        {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight)
+            {
+                [self removeConstraint:constraint];
+            }
+        }
+        float height = self.contentSize.height;
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeHeight
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:NSLayoutAttributeNotAnAttribute
+                                                        multiplier:1.0
+                                                          constant:height]];
+        
+        [self.superview layoutSubviews];
+        [self.superview setNeedsDisplay];
     }
 }
 
@@ -224,7 +238,7 @@
     
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row] withTarget:self];
+    [cell applyTemplate:item[@"elements"] andInformation:datalist[indexPath.section][@"items"][indexPath.row] withTarget:xbDelegate listTarget:self];
     
     if ([xbDelegate respondsToSelector:@selector(xbTableView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {

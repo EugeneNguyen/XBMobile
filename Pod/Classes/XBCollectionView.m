@@ -37,6 +37,7 @@
 @synthesize requestDelegate;
 @synthesize dataListSource;
 @synthesize searchField;
+@synthesize xbTarget;
 
 - (void)setupDelegate
 {
@@ -246,7 +247,7 @@
     }
     NSDictionary *item = [self cellInfoForPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:item[@"cellIdentify"] forIndexPath:indexPath];
-    [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:xbDelegate];
+    [cell applyTemplate:item[@"elements"] andInformation:self.datalist[indexPath.section][@"items"][indexPath.row] withTarget:xbDelegate listTarget:self];
     
     if ([xbDelegate respondsToSelector:@selector(xbCollectionView:cellForRowAtIndexPath:withPreparedCell:withItem:)])
     {

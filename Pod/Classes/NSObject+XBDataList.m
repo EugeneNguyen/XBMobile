@@ -208,6 +208,7 @@
     }
     else
     {
+        [self reloadData];
         [self configHeightAfterFillData];
     }
 }
@@ -219,6 +220,7 @@
     {
         self.datalist = [self.dataListSource modifiedDataFor:self andSource:self.datalist];
     }
+    [self reloadData];
     [self configHeightAfterFillData];
     if ([self.informations[@"isUsingRefreshControl"] boolValue])
     {

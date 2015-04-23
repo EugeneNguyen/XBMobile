@@ -27,6 +27,11 @@
 
 - (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target
 {
+    [self applyTemplate:temp andInformation:info withTarget:target listTarget:nil];
+}
+
+- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target listTarget:(id)listTarget
+{
     if ([self isKindOfClass:[UITableViewCell class]])
     {
         [(UITableViewCell *)self contentView].bounds = CGRectMake(0, 0, 99999, 99999);
@@ -208,21 +213,16 @@
                 }
             }
             
-            if (btn.tag == 12)
-            {
-                
-            }
-            
             if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
             {
                 [btn removeTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
                 [btn addTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
             }
             
-            if ([target respondsToSelector:NSSelectorFromString(@"didPressButton:")])
+            if ([listTarget respondsToSelector:NSSelectorFromString(@"didPressButton:")])
             {
-                [btn removeTarget:target action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
-                [btn addTarget:target action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
+                [btn removeTarget:listTarget action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
+                [btn addTarget:listTarget action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
             }
         }
         else if ([v isKindOfClass:[XBTableView class]])
