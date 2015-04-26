@@ -188,6 +188,7 @@
 		B416C2622631B439EAD3878E /* UIImageView+UIActivityIndicatorForSDWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = F64B129A4966CAB075351411 /* UIImageView+UIActivityIndicatorForSDWebImage.h */; };
 		B5527EB909DD65D7F192B3DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19051AFBCA750E30A364C2C /* SystemConfiguration.framework */; };
 		B5EB847C6EDF9E71C7E28519 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A6D551B403024A11DDAC98 /* UIButton+AFNetworking.h */; };
+		B6BC133B1AECCA8A00A035D2 /* UIColor+XBMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BC133A1AECCA8A00A035D2 /* UIColor+XBMobile.m */; };
 		B713F362CCB5306E1EF780CD /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 843A8D76FB0BC020719BCFD5 /* DDLog+LOGV.h */; };
 		B72345692A047A946EC8B17D /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D76D5D3A66119DD5CD5612 /* ASICloudFilesContainerXMLParserDelegate.m */; };
 		B7BA159C55742DEF7B0CFD0F /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DF9B3197BD7C184AA5DE61 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
@@ -791,6 +792,8 @@
 		B4BB70E1BE69E9BB36A20543 /* ASINetworkQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = Classes/ASINetworkQueue.m; sourceTree = "<group>"; };
 		B5BB09E85F932BCC449D9A3E /* Pods-XBMobile-CHTCollectionViewWaterfallLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XBMobile-CHTCollectionViewWaterfallLayout-dummy.m"; sourceTree = "<group>"; };
 		B6637A8524166F9D6FA96320 /* XBCacheRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XBCacheRequestManager.h; path = Pod/Classes/XBCacheRequestManager.h; sourceTree = "<group>"; };
+		B6BC13391AECCA8A00A035D2 /* UIColor+XBMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+XBMobile.h"; path = "Pod/Classes/Extension/UIColor+XBMobile.h"; sourceTree = "<group>"; };
+		B6BC133A1AECCA8A00A035D2 /* UIColor+XBMobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+XBMobile.m"; path = "Pod/Classes/Extension/UIColor+XBMobile.m"; sourceTree = "<group>"; };
 		B75B59A6956F82178627CF5E /* UIImage+Blur.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Blur.h"; path = "UIImage-Helpers/UIImage+Blur.h"; sourceTree = "<group>"; };
 		B940F56A4B7290F9D92B8174 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		BC3478F2C1F095C034A73F96 /* Pods-XBMobile-CocoaLumberjack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XBMobile-CocoaLumberjack-prefix.pch"; sourceTree = "<group>"; };
@@ -1477,6 +1480,8 @@
 				AB413A01EC7F25E2EFE0B215 /* ASIHTTPRequest+extension.h */,
 				2C976037C7B9539150496BD1 /* ASIHTTPRequest+extension.m */,
 				CBF09E4B7553545ABF6DB47F /* CALayer+XibConfiguration.h */,
+				B6BC13391AECCA8A00A035D2 /* UIColor+XBMobile.h */,
+				B6BC133A1AECCA8A00A035D2 /* UIColor+XBMobile.m */,
 				7CB05F88756FAA1B8187AB3A /* CALayer+XibConfiguration.m */,
 				A37AC82D6A7A99288BA9B403 /* NSDate+XBTimeFormat.h */,
 				7894DE163F933BE88A67CF41 /* NSDate+XBTimeFormat.m */,
@@ -2671,6 +2676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91D12C2A0BD00B03D530E97 /* Pods-XBMobile-dummy.m in Sources */,
+				B6BC133B1AECCA8A00A035D2 /* UIColor+XBMobile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
