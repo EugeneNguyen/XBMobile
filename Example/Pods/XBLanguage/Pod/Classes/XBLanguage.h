@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-NSString *const XBLanguageUpdatedLanguage;
+static NSString * XBLanguageUpdatedLanguage;
 
 #define XBText(X, Y) [[XBLanguage sharedInstance] stringForKey:X andScreen:Y]
 
@@ -33,6 +33,7 @@ NSString *const XBLanguageUpdatedLanguage;
 - (void)initialWithHost:(NSString *)_host;
 - (void)initial;
 - (void)updateText;
+- (void)selectLanguage:(NSString *)language;
 - (NSString *)stringForKey:(NSString *)key andScreen:(NSString *)screen;
 
 @end

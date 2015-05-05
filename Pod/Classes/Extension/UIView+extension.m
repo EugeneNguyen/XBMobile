@@ -34,7 +34,7 @@
 {
     if ([self isKindOfClass:[UITableViewCell class]])
     {
-        [(UITableViewCell *)self contentView].bounds = CGRectMake(0, 0, 99999, 99999);
+//        [(UITableViewCell *)self contentView].bounds = CGRectMake(0, 0, 99999, 99999);
     }
     for (NSDictionary *element in temp)
     {

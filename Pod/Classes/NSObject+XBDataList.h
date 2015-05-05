@@ -39,13 +39,15 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *searchField;
 
+@property (nonatomic, retain) NSString * XBID;
+
+- (void)loadFromXBID;
+
 - (void)cleanup;
 
 - (void)setPlist:(NSString *)plist;
 
 - (void)setPlistData:(NSString *)plistdata;
-
-- (void)setXBID:(NSString *)xbid;
 
 - (void)loadInformationFromPlist:(NSString *)plist;
 

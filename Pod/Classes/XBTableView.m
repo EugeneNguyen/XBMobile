@@ -36,6 +36,13 @@
 @synthesize requestDelegate;
 @synthesize dataListSource;
 @synthesize searchField;
+@synthesize XBID;
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self loadFromXBID];
+}
 
 - (void)setupDelegate
 {
@@ -180,7 +187,7 @@
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + 1.0f;
+    return size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

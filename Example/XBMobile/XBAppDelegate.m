@@ -14,6 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[XBCacheRequestManager sharedInstance] setHost:@"http://ciplustest.libre.com.vn"];
+    
     [[XBMobile sharedInstance] activeLog];
     [[XBMobile sharedInstance] setHost:@"http://linker.beliat.com"];
 
@@ -27,6 +29,8 @@
     [self.window setRootViewController:navigationController];
 
     [self.window makeKeyAndVisible];
+    
+    [XBDatabase_plist updatePlist];
     return YES;
 }
 							

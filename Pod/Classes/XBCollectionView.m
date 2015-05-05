@@ -38,6 +38,13 @@
 @synthesize dataListSource;
 @synthesize searchField;
 @synthesize xbTarget;
+@synthesize XBID;
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self loadFromXBID];
+}
 
 - (void)setupDelegate
 {

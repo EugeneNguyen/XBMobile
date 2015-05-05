@@ -16,6 +16,7 @@
 #import "XBForm.h"
 #import "XBTagView.h"
 #import "XBLanguage.h"
+#import "XBDatabase_plist.h"
 
 #import "NSObject+XBDataList.h"
 #import "UINib+load.h"
@@ -23,6 +24,8 @@
 #import "UIView+extension.h"
 #import "NSString+extension.h"
 #import "UIColor+XBMobile.h"
+
+#import <AVHexColor.h>
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 

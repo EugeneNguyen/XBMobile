@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.5.1):
+  - AFNetworking (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.5.1):
+  - AFNetworking/NSURLConnection (2.5.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.1):
+  - AFNetworking/NSURLSession (2.5.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.1)
-  - AFNetworking/Security (2.5.1)
-  - AFNetworking/Serialization (2.5.1)
-  - AFNetworking/UIKit (2.5.1):
+  - AFNetworking/Reachability (2.5.3)
+  - AFNetworking/Security (2.5.3)
+  - AFNetworking/Serialization (2.5.3)
+  - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - ASIHTTPRequest (1.8.2):
@@ -45,19 +45,20 @@ PODS:
   - MBProgressHUD (0.9.1)
   - NSDate+TimeAgo (1.0.3)
   - Reachability (3.2)
-  - SDWebImage (3.7.1):
+  - SDWebImage (3.7.2):
     - SDWebImage/Core
-  - SDWebImage/Core (3.7.1)
+  - SDWebImage/Core (3.7.2)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.3.1.1):
+  - XBCacheRequest (0.5.1.2):
     - AFNetworking
     - JSONKit-NoWarning
-  - XBLanguage (0.4.1):
+    - MBProgressHUD
+  - XBLanguage (0.5.1.1):
     - JSONKit-NoWarning
     - XBCacheRequest
-  - XBMobile (0.5.0.4):
+  - XBMobile (0.6.3):
     - ASIHTTPRequest
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
@@ -80,21 +81,21 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
-  AVHexColor: b47099552819a98dc58d7931f0f43eb6e2308342
-  CHTCollectionViewWaterfallLayout: 14b7950cbe45ae9297e7759148d69b022bac047d
-  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
-  JSONKit-NoWarning: fc8d6dd8ec65e303867d1bd274632fc60a4a8ab9
-  MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
-  NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
-  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  UIActivityIndicator-for-SDWebImage: 8bd92c15280fbe54816448c6b14674145eee05c7
-  UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
-  XBCacheRequest: 09700ae7272319ea66b99f7781b8045a8447f6c1
-  XBLanguage: 30ed02e2d68aa3b13ebaae67dd1cb2959cc2cba0
-  XBMobile: 0b491eed1b47ffd3ec1dab85b3ed9631c04f965e
-  XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
+  AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
+  AVHexColor: e78a36a48e58d26b3a5326d9d0daf8ccde8d694c
+  CHTCollectionViewWaterfallLayout: 058823cc65c9d84e059b0a85eede517550da0334
+  CocoaLumberjack: 5e26ebef5a48962d1713ae6cb01da30384f3f14e
+  JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
+  UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
+  XBCacheRequest: 8fafe49f434c367bf7bb0c40112cad03ebe2e827
+  XBLanguage: c8e16472e267593e491ef656cd7931ea3a538d87
+  XBMobile: 8075959e2f8a761df21d5dcaeb4a3d07b78dc4d6
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.34.4

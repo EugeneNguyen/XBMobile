@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "XBMobile.h"
+#import "XBDatabase_plist.h"
 
 @implementation NSObject (XBDataList)
 @dynamic informations;
@@ -20,6 +21,7 @@
 @dynamic refreshControl;
 @dynamic requestDelegate;
 @dynamic dataListSource;
+@dynamic XBID;
 
 #pragma mark - Loading Information
 
@@ -35,21 +37,33 @@
     [self loadInformationFromPlist:plist];
 }
 
-- (void)setXBID:(NSString *)xbid
+- (void)loadFromXBID
 {
-    NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml?table=%@", xbid];
-    XBCacheRequest *request = XBCacheRequest(path);
-    request.responseType = XBCacheRequestTypePlain;
-    [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
-        NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                                              format:nil
-                                                                    errorDescription:nil];
-        if (item)
-        {
-            [self loadInformations:item];
-        }
-    }];
+    if (!self.XBID || self.informations)
+    {
+        return;
+    }
+    NSDictionary *item = [XBDatabase_plist plistForKey:self.XBID];
+    if (item)
+    {
+        [self loadInformations:item];
+    }
+    else
+    {
+        NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml?table=%@", self.XBID];
+        XBCacheRequest *request = XBCacheRequest(path);
+        request.responseType = XBCacheRequestTypePlain;
+        [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
+            NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                        mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                                                  format:nil
+                                                                        errorDescription:nil];
+            if (item)
+            {
+                [self loadInformations:item];
+            }
+        }];
+    }
 }
 
 - (void)setPlistData:(NSString *)plistdata
@@ -94,7 +108,6 @@
     {
         [self setupWaterFall];
     }
-    
     [self requestDataWithReload:withReload];
     for (NSDictionary *item in self.informations[@"cells"])
     {
