@@ -117,6 +117,10 @@
     [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         
         [self hideHUD];
+        if (!isMore)
+        {
+            [_datalist removeAllObjects];
+        }
         if (error)
         {
             DDLogVerbose(@"%@", error);

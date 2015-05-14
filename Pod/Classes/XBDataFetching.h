@@ -49,4 +49,7 @@
 - (void)fetchMore;
 - (void)requestDataWithMore:(BOOL)isMore;
 
+- (void)reloadData;
+- (void)loadMore;
+
 @end
