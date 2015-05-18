@@ -366,15 +366,4 @@
     }
 }
 
-- (void)didChangeValueForKey:(NSString *)key
-{
-    NSLog(@"____ %@", key);
-    if ([key isEqualToString:@"frame"])
-    {
-        float width = self.frame.size.width;
-        self.layer.cornerRadius = width / 2;
-    }
-}
-
-
 @end
