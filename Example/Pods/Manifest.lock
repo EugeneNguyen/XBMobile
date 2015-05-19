@@ -20,19 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - ASIHTTPRequest (1.8.2):
-    - ASIHTTPRequest/ASIWebPageRequest
-    - ASIHTTPRequest/CloudFiles
-    - ASIHTTPRequest/Core
-    - ASIHTTPRequest/S3
-  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
-    - ASIHTTPRequest/Core
-  - ASIHTTPRequest/CloudFiles (1.8.2):
-    - ASIHTTPRequest/Core
-  - ASIHTTPRequest/Core (1.8.2):
-    - Reachability
-  - ASIHTTPRequest/S3 (1.8.2):
-    - ASIHTTPRequest/Core
   - AVHexColor (2.0.0)
   - CHTCollectionViewWaterfallLayout (0.9.1)
   - CocoaLumberjack (1.6.5.1):
@@ -44,7 +31,6 @@ PODS:
   - JSONKit-NoWarning (1.2)
   - MBProgressHUD (0.9.1)
   - NSDate+TimeAgo (1.0.3)
-  - Reachability (3.2)
   - SDWebImage (3.7.2):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.2)
@@ -55,13 +41,13 @@ PODS:
     - AFNetworking
     - JSONKit-NoWarning
     - MBProgressHUD
-  - XBExtension (0.2):
+  - XBExtension (0.2.2):
     - AVHexColor
+    - MBProgressHUD
   - XBLanguage (0.5.1.1):
     - JSONKit-NoWarning
     - XBCacheRequest
-  - XBMobile (0.6.4.2):
-    - ASIHTTPRequest
+  - XBMobile (0.6.5.1):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
@@ -85,21 +71,19 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   AVHexColor: 33e5e102f3b6f3acd002779183ee226e21870c28
   CHTCollectionViewWaterfallLayout: 1a8da4fc662702cbddda8926ced266036a829f84
   CocoaLumberjack: 5e26ebef5a48962d1713ae6cb01da30384f3f14e
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
   XBCacheRequest: 66a9da85583a4ce9cf3f5c44aab67685690364d3
-  XBExtension: b46225831a1dfe284c93b4a39256c25aef398ba8
+  XBExtension: 9d28c62dbfd425abaae4ffcb0ca92fb461acc89f
   XBLanguage: c8e16472e267593e491ef656cd7931ea3a538d87
-  XBMobile: b5e9adbeefcd4ec38a9a8e0e591ac1d422c01be2
+  XBMobile: 240b94c7deb7ca5375c42ee1c8d99a3cc8c03e33
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.34.4

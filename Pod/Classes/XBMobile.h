@@ -25,6 +25,10 @@
 #import "NSString+extension.h"
 #import "XBExtension.h"
 
+#import "UINib+load.h"
+#import "CALayer+XibConfiguration.h"
+#import "XBCacheRequest.h"
+
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface XBMobile : UIWindow

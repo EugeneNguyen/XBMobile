@@ -48,36 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
-// ASIHTTPRequest
-#define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest
-#define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest 1
-#define COCOAPODS_VERSION_MINOR_ASIHTTPRequest 8
-#define COCOAPODS_VERSION_PATCH_ASIHTTPRequest 2
-
-// ASIHTTPRequest/ASIWebPageRequest
-#define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest_ASIWebPageRequest
-#define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest_ASIWebPageRequest 1
-#define COCOAPODS_VERSION_MINOR_ASIHTTPRequest_ASIWebPageRequest 8
-#define COCOAPODS_VERSION_PATCH_ASIHTTPRequest_ASIWebPageRequest 2
-
-// ASIHTTPRequest/CloudFiles
-#define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest_CloudFiles
-#define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest_CloudFiles 1
-#define COCOAPODS_VERSION_MINOR_ASIHTTPRequest_CloudFiles 8
-#define COCOAPODS_VERSION_PATCH_ASIHTTPRequest_CloudFiles 2
-
-// ASIHTTPRequest/Core
-#define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest_Core
-#define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest_Core 1
-#define COCOAPODS_VERSION_MINOR_ASIHTTPRequest_Core 8
-#define COCOAPODS_VERSION_PATCH_ASIHTTPRequest_Core 2
-
-// ASIHTTPRequest/S3
-#define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest_S3
-#define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest_S3 1
-#define COCOAPODS_VERSION_MINOR_ASIHTTPRequest_S3 8
-#define COCOAPODS_VERSION_PATCH_ASIHTTPRequest_S3 2
-
 // AVHexColor
 #define COCOAPODS_POD_AVAILABLE_AVHexColor
 #define COCOAPODS_VERSION_MAJOR_AVHexColor 2
@@ -129,12 +99,6 @@
 #define COCOAPODS_VERSION_MINOR_NSDate_TimeAgo 0
 #define COCOAPODS_VERSION_PATCH_NSDate_TimeAgo 3
 
-// Reachability
-#define COCOAPODS_POD_AVAILABLE_Reachability
-#define COCOAPODS_VERSION_MAJOR_Reachability 3
-#define COCOAPODS_VERSION_MINOR_Reachability 2
-#define COCOAPODS_VERSION_PATCH_Reachability 0
-
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
@@ -169,7 +133,7 @@
 #define COCOAPODS_POD_AVAILABLE_XBExtension
 #define COCOAPODS_VERSION_MAJOR_XBExtension 0
 #define COCOAPODS_VERSION_MINOR_XBExtension 2
-#define COCOAPODS_VERSION_PATCH_XBExtension 0
+#define COCOAPODS_VERSION_PATCH_XBExtension 2
 
 // XBLanguage
 #define COCOAPODS_POD_AVAILABLE_XBLanguage
@@ -183,7 +147,7 @@
 // This library does not follow semantic-versioning,
 // so we were not able to define version macros.
 // Please contact the author.
-// Version: 0.6.4.2.
+// Version: 0.6.5.1.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

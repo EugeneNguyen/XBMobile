@@ -7,30 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MBProgressHUD.h"
 
 @interface NSObject (extension)
 
-- (void)alert:(NSString *)title message:(NSString *)message;
-
-- (MBProgressHUD *)showHUD:(NSString *)string;
-
-- (void)hideHUD;
-
 - (id)objectForPath:(NSString *)string;
-
-@end
-
-@interface NSArray (loadPlist)
-
-+ (NSArray *)arrayWithContentsOfPlist:(NSString *)plistname;
-+ (NSArray *)arrayWithContentsOfPlist:(NSString *)plistname bundleName:(NSString *)name;
-
-@end
-
-@interface NSDictionary (loadPlist)
-
-+ (NSDictionary *)dictionaryWithContentsOfPlist:(NSString *)plistname;
-+ (NSDictionary *)dictionaryWithContentsOfPlist:(NSString *)plistname bundleName:(NSString *)name;
 
 @end

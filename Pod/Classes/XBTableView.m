@@ -7,7 +7,6 @@
 //
 
 #import "XBTableView.h"
-#import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "JSONKit.h"
 #import "UIImageView+WebCache.h"
@@ -33,7 +32,6 @@
 @synthesize dataFetching;
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
-@synthesize requestDelegate;
 @synthesize dataListSource;
 @synthesize searchField;
 @synthesize XBID;

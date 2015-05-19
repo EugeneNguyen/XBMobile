@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "XBDataFetching.h"
-#import "ASIHTTPRequest.h"
 
 @protocol XBDataList;
 
@@ -32,8 +31,6 @@
 @property (nonatomic, retain) XBDataFetching *dataFetching;
 
 @property (nonatomic, retain) UIRefreshControl *refreshControl;
-
-@property (nonatomic, assign) IBOutlet id <ASIHTTPRequestDelegate> requestDelegate;
 
 @property (nonatomic, assign) IBOutlet id <XBDataListSource> dataListSource;
 

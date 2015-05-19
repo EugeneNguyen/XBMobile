@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+XBDataList.h"
-#import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "XBMobile.h"
 #import "XBDatabase_plist.h"
@@ -19,7 +18,6 @@
 @dynamic isMultipleSection;
 @dynamic dataFetching;
 @dynamic refreshControl;
-@dynamic requestDelegate;
 @dynamic dataListSource;
 @dynamic XBID;
 
@@ -239,10 +237,6 @@
     {
         [self.refreshControl endRefreshing];
     }
-    if ([self.requestDelegate respondsToSelector:@selector(requestFinished:)])
-    {
-        [self.requestDelegate requestFinished:_dataFetching.cacheRequest];
-    }
 }
 
 - (void)requestDidFailed:(XBDataFetching *)_dataFetching
@@ -256,10 +250,6 @@
     if ([self.informations[@"isUsingRefreshControl"] boolValue])
     {
         [self.refreshControl endRefreshing];
-    }
-    if ([self.requestDelegate respondsToSelector:@selector(requestFailed:)])
-    {
-        [self.requestDelegate requestFailed:_dataFetching.cacheRequest];
     }
 }
 

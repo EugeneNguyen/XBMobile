@@ -7,7 +7,6 @@
 //
 
 #import "XBCollectionView.h"
-#import "ASIFormDataRequest.h"
 #import "XBExtension.h"
 #import "JSONKit.h"
 #import "UIImageView+WebCache.h"
@@ -34,7 +33,6 @@
 @synthesize refreshControl;
 @synthesize backupWhenSearch;
 @synthesize pageControl;
-@synthesize requestDelegate;
 @synthesize dataListSource;
 @synthesize searchField;
 @synthesize xbTarget;
