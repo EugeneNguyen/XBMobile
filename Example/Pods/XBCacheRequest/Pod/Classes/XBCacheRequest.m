@@ -26,6 +26,7 @@
     request.url = [url absoluteString];
     request.responseType = XBCacheRequestTypeJSON;
     request.files = [@{} mutableCopy];
+    request.dataPost = [@{} mutableCopy];
     return request;
 }
 
@@ -107,7 +108,6 @@
         _responseString = operation.responseString;
         
         isRunning = NO;
-        [XBM_storageRequest addCache:url postData:_dataPost response:operation.responseString];
         if (cacheDelegate && [cacheDelegate respondsToSelector:@selector(requestFinished:)])
         {
             [cacheDelegate requestFinished:(XBCacheRequest *)operation];
@@ -124,6 +124,7 @@
         if (responseObject)
         {
             responseObject = [responseObject deepMutableCopy];
+            [XBM_storageRequest addCache:url postData:_dataPost response:operation.responseString];
         }
         
         if ([XBCacheRequestManager sharedInstance].callback)
@@ -150,14 +151,14 @@
         if ([XBCacheRequestManager sharedInstance].callback)
         {
             XBCacheRequestPreProcessor preprocessor = [XBCacheRequestManager sharedInstance].callback;
-            if (preprocessor(self, nil, NO, error, nil))
+            if (preprocessor(self, operation.responseString, NO, error, nil))
             {
-                if (callback) callback(self, nil, NO, error, nil);
+                if (callback) callback(self, operation.responseString, NO, error, nil);
             }
         }
         else
         {
-            if (callback) callback(self, nil, NO, error, nil);
+            if (callback) callback(self, operation.responseString, NO, error, nil);
         }
     }];
     switch (responseType) {

@@ -1,1 +1,0 @@
-../../../../../Pod/Classes/Extension/UIColor+XBMobile.h

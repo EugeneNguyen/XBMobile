@@ -15,6 +15,7 @@
 #import <UIImage-Helpers.h>
 #import "XBMobile.h"
 #import <NSDate+TimeAgo.h>
+#import <XBExtension.h>
 
 @implementation UIView (extension)
 @dynamic bottomMargin;
@@ -45,7 +46,7 @@
             NSString *backgroundColorString = [info objectForPath:element[@"backgroundColor"]];
             if (backgroundColorString && [backgroundColorString length] >= 6)
             {
-                v.backgroundColor = [AVHexColor colorWithHexString:backgroundColorString];
+                v.backgroundColor = (backgroundColorString);
             }
         }
         

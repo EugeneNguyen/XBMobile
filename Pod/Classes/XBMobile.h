@@ -23,9 +23,7 @@
 #import "NSObject+extension.h"
 #import "UIView+extension.h"
 #import "NSString+extension.h"
-#import "UIColor+XBMobile.h"
-
-#import <AVHexColor.h>
+#import "XBExtension.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
