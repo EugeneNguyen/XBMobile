@@ -20,6 +20,8 @@
 @dynamic refreshControl;
 @dynamic dataListSource;
 @dynamic XBID;
+@dynamic plist;
+@dynamic plistData;
 
 #pragma mark - Loading Information
 
@@ -28,11 +30,6 @@
     [self loadData:@[]];
     [self loadInformations:@{}];
     [self reloadData];
-}
-
-- (void)setPlist:(NSString *)plist
-{
-    [self loadInformationFromPlist:plist];
 }
 
 - (void)loadFromXBID
@@ -71,6 +68,10 @@
 
 - (void)loadInformationFromPlist:(NSString *)plist
 {
+    if (!plist || self.informations)
+    {
+        return;
+    }
     NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     [self loadInformations:info];
@@ -219,6 +220,10 @@
     }
     else
     {
+        if (self.dataListSource && [self.dataListSource respondsToSelector:@selector(requestData)])
+        {
+            [self.dataListSource xbDataListRequestData];
+        }
         [self reloadData];
         [self configHeightAfterFillData];
     }

@@ -15,6 +15,7 @@
 @protocol XBDataListSource <NSObject>
 
 - (id)modifiedDataFor:(id <XBDataList>)view andSource:(id)data;
+- (void)xbDataListRequestData;
 
 @end
 
@@ -38,13 +39,12 @@
 
 @property (nonatomic, retain) NSString * XBID;
 
+@property (nonatomic, retain) NSString *plist;
+@property (nonatomic, retain) NSString *plistData;
+
 - (void)loadFromXBID;
 
 - (void)cleanup;
-
-- (void)setPlist:(NSString *)plist;
-
-- (void)setPlistData:(NSString *)plistdata;
 
 - (void)loadInformationFromPlist:(NSString *)plist;
 

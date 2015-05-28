@@ -30,6 +30,8 @@
 
 @property (nonatomic, assign) IBOutlet id <XBTableViewDelegate> xbDelegate;
 
+@property (nonatomic, assign) IBOutlet id <XBDataListSource> dataListSource;
+
 - (void)didPressButton:(UIButton *)btn;
 
 @end

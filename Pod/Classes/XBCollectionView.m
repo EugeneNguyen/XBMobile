@@ -37,10 +37,13 @@
 @synthesize searchField;
 @synthesize xbTarget;
 @synthesize XBID;
+@synthesize plist;
+@synthesize plistData;
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    [self loadInformationFromPlist:self.plist];
     [self loadFromXBID];
 }
 
