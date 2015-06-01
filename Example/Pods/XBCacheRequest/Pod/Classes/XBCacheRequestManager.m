@@ -27,6 +27,11 @@ static XBCacheRequestManager *__sharedCacheRequestManager = nil;
     return __sharedCacheRequestManager;
 }
 
++ (void)setCallback:(XBCacheRequestPreProcessor)_callback
+{
+    [[XBCacheRequestManager sharedInstance] setCallback:_callback];
+}
+
 - (XBCacheRequest *)requestWithPath:(NSString *)path
 {
     NSURL *hostUrl = [NSURL URLWithString:host];

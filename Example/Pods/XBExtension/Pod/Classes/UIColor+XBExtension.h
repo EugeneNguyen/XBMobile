@@ -14,6 +14,6 @@
 
 @interface UIColor (XBExtension)
 
-- (UIColor *)colorWithR:(float)r G:(float)g B:(float)b;
++ (UIColor *)colorWithR:(float)r G:(float)g B:(float)b;
 
 @end

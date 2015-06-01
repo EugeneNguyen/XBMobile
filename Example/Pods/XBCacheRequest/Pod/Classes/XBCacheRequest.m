@@ -140,6 +140,7 @@
             if (callback) callback(self, operation.responseString, NO, nil, responseObject);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (!disableIndicator) [XBCacheRequestManager hideIndicator];
         if (hud) [hud hide:YES];
         isRunning = NO;
         _responseString = operation.responseString;

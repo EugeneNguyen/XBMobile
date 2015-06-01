@@ -14,6 +14,7 @@
 
 @protocol XBDataListSource <NSObject>
 
+@optional
 - (id)modifiedDataFor:(id <XBDataList>)view andSource:(id)data;
 - (void)xbDataListRequestData;
 

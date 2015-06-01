@@ -40,7 +40,7 @@
     _informations = info;
     if (datalist)
     {
-        [self applyTemplate:info andInformation:datalist];
+        [self applyTemplate:datalist andInformation:info];
     }
 }
 

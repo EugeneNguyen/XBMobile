@@ -25,6 +25,7 @@ typedef BOOL (^XBCacheRequestPreProcessor)(XBCacheRequest * request, NSString * 
 @property (nonatomic, assign) int numberOfRequest;
 
 + (XBCacheRequestManager *)sharedInstance;
++ (void)setCallback:(XBCacheRequestPreProcessor)callback;
 - (XBCacheRequest *)requestWithPath:(NSString *)path;
 
 + (void)showIndicator;

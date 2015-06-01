@@ -101,7 +101,12 @@
                 data = [df stringFromDate:date];
             }
         }
-        if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
+        
+        if (element[@"setter"])
+        {
+            [v performSelector:NSSelectorFromString(element[@"setter"]) withObject:data];
+        }
+        else if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
         {
             [(UILabel *)v setText:data];
         }
@@ -237,10 +242,6 @@
             XBCollectionView *tableview = (XBCollectionView *)v;
             [tableview loadData:data];
             [tableview loadInformations:element withReload:YES];
-        }
-        else if (element[@"setter"])
-        {
-            [v performSelector:NSSelectorFromString(element[@"setter"]) withObject:data];
         }
     }
     

@@ -10,7 +10,7 @@
 
 @implementation UIColor (XBExtension)
 
-- (UIColor *)colorWithR:(float)r G:(float)g B:(float)b
++ (UIColor *)colorWithR:(float)r G:(float)g B:(float)b
 {
     return [UIColor colorWithRed:(float)r / 255.0f green:(float)g / 255.0f blue:(float) b / 255.0f alpha:1];
 }

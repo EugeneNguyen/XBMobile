@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
   - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -23,8 +23,8 @@ PODS:
   - AVHexColor (2.0.0)
   - CHTCollectionViewWaterfallLayout (0.9.1)
   - CocoaLumberjack (1.6.5.1):
-    - CocoaLumberjack/Core
-    - CocoaLumberjack/Extensions
+    - CocoaLumberjack/Core (= 1.6.5.1)
+    - CocoaLumberjack/Extensions (= 1.6.5.1)
   - CocoaLumberjack/Core (1.6.5.1)
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
@@ -32,28 +32,31 @@ PODS:
   - MBProgressHUD (0.9.1)
   - NSDate+TimeAgo (1.0.3)
   - SDWebImage (3.7.2):
-    - SDWebImage/Core
+    - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
+  - TPKeyboardAvoiding (1.2.6)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.5.3):
+  - XBCacheRequest (0.5.3.1):
     - AFNetworking
     - JSONKit-NoWarning
     - MBProgressHUD
-  - XBExtension (0.2.2):
+  - XBExtension (0.2.2.1):
     - AVHexColor
     - MBProgressHUD
-  - XBLanguage (0.5.1.1):
+  - XBLanguage (1.0):
     - JSONKit-NoWarning
     - XBCacheRequest
-  - XBMobile (0.6.5.1):
+    - XBExtension
+  - XBMobile (0.6.5.3):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
     - JSONKit-NoWarning
     - MBProgressHUD
     - NSDate+TimeAgo
+    - TPKeyboardAvoiding
     - UIActivityIndicator-for-SDWebImage
     - UIImage-Helpers
     - XBCacheRequest
@@ -78,12 +81,13 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
-  XBCacheRequest: 66a9da85583a4ce9cf3f5c44aab67685690364d3
-  XBExtension: 9d28c62dbfd425abaae4ffcb0ca92fb461acc89f
-  XBLanguage: c8e16472e267593e491ef656cd7931ea3a538d87
-  XBMobile: 240b94c7deb7ca5375c42ee1c8d99a3cc8c03e33
+  XBCacheRequest: fb1ecb0544375944ef306da24340c5b95fe9b92a
+  XBExtension: 9e0130945c51ddb09762c142256d268aa1c67d16
+  XBLanguage: 3de1d7ddbaa57cfea8468eb980566a4adddcb13e
+  XBMobile: ddbce239c3d2325ac8f5e695bab49a55c846a448
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.37.1

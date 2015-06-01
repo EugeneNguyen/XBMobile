@@ -111,6 +111,12 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
+// TPKeyboardAvoiding
+#define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
+#define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
+#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
+#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 6
+
 // UIActivityIndicator-for-SDWebImage
 #define COCOAPODS_POD_AVAILABLE_UIActivityIndicator_for_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_UIActivityIndicator_for_SDWebImage 1
@@ -125,29 +131,30 @@
 
 // XBCacheRequest
 #define COCOAPODS_POD_AVAILABLE_XBCacheRequest
-#define COCOAPODS_VERSION_MAJOR_XBCacheRequest 0
-#define COCOAPODS_VERSION_MINOR_XBCacheRequest 5
-#define COCOAPODS_VERSION_PATCH_XBCacheRequest 3
-
-// XBExtension
-#define COCOAPODS_POD_AVAILABLE_XBExtension
-#define COCOAPODS_VERSION_MAJOR_XBExtension 0
-#define COCOAPODS_VERSION_MINOR_XBExtension 2
-#define COCOAPODS_VERSION_PATCH_XBExtension 2
-
-// XBLanguage
-#define COCOAPODS_POD_AVAILABLE_XBLanguage
 // This library does not follow semantic-versioning,
 // so we were not able to define version macros.
 // Please contact the author.
-// Version: 0.5.1.1.
+// Version: 0.5.3.1.
+
+// XBExtension
+#define COCOAPODS_POD_AVAILABLE_XBExtension
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.2.2.1.
+
+// XBLanguage
+#define COCOAPODS_POD_AVAILABLE_XBLanguage
+#define COCOAPODS_VERSION_MAJOR_XBLanguage 1
+#define COCOAPODS_VERSION_MINOR_XBLanguage 0
+#define COCOAPODS_VERSION_PATCH_XBLanguage 0
 
 // XBMobile
 #define COCOAPODS_POD_AVAILABLE_XBMobile
 // This library does not follow semantic-versioning,
 // so we were not able to define version macros.
 // Please contact the author.
-// Version: 0.6.5.1.
+// Version: 0.6.5.3.
 
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary

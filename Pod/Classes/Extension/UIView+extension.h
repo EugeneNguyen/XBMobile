@@ -31,6 +31,4 @@
 - (UITableViewCell *)firstAvailabelTableViewCell;
 - (UICollectionViewCell *)firstAvailabelCollectionViewCell;
 
-- (void)roundCircle:(BOOL)isRoundCircle;
-
 @end

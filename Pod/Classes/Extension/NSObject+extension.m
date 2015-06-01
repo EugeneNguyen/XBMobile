@@ -18,6 +18,7 @@
     id obj = self;
     for (NSString *s in array)
     {
+        SEL selector = NSSelectorFromString(s);
         if ([s length] == 0)
         {
             obj = obj;
@@ -55,18 +56,18 @@
             {
                 obj = [(NSManagedObject *)obj valueForKey:s];
             }
-            else if ([obj respondsToSelector:NSSelectorFromString(s)])
+            else if ([obj respondsToSelector:selector])
             {
-                obj = [obj performSelector:NSSelectorFromString(s)];
+                obj = [obj performSelector:selector];
             }
             else
             {
                 return @"";
             }
         }
-        else if ([obj respondsToSelector:NSSelectorFromString(s)])
+        else if ([obj respondsToSelector:selector])
         {
-            obj = [obj performSelector:NSSelectorFromString(s)];
+            obj = [obj performSelector:selector];
         }
     }
     return obj;

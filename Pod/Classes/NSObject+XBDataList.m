@@ -22,6 +22,7 @@
 @dynamic XBID;
 @dynamic plist;
 @dynamic plistData;
+@dynamic searchField;
 
 #pragma mark - Loading Information
 

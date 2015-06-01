@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+XBDataList.h"
+#import "TPKeyboardAvoidingCollectionView.h"
 
 @class XBCollectionView;
 @class XBDataFetching;
@@ -22,7 +23,7 @@
 
 @end
 
-@interface XBCollectionView : UICollectionView <XBDataList>
+@interface XBCollectionView : TPKeyboardAvoidingCollectionView <XBDataList>
 {
 
 }

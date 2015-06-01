@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+XBDataList.h"
+#import "TPKeyboardAvoidingTableView.h"
 
 @class XBTableView;
 @class XBDataFetching;
@@ -23,7 +24,7 @@
 
 @end
 
-@interface XBTableView : UITableView <XBDataList>
+@interface XBTableView : TPKeyboardAvoidingTableView <XBDataList>
 {
     
 }
