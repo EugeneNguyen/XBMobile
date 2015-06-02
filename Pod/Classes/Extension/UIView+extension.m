@@ -46,7 +46,7 @@
             NSString *backgroundColorString = [info objectForPath:element[@"backgroundColor"]];
             if (backgroundColorString && [backgroundColorString length] >= 6)
             {
-                v.backgroundColor = (backgroundColorString);
+                v.backgroundColor = XBHexColor(backgroundColorString);
             }
         }
         
