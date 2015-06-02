@@ -40,7 +40,6 @@
     for (NSDictionary *element in temp)
     {
         UIView *v = [self viewWithTag:[element[@"tag"] intValue]];
-        
         if (element[@"backgroundColor"])
         {
             NSString *backgroundColorString = [info objectForPath:element[@"backgroundColor"]];

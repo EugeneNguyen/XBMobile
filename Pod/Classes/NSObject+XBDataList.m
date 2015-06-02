@@ -28,8 +28,8 @@
 
 - (void)cleanup
 {
-    [self loadData:@[]];
-    [self loadInformations:@{}];
+    [self loadData:nil];
+    [self loadInformations:nil];
     [self reloadData];
 }
 
@@ -80,6 +80,11 @@
 
 - (void)loadData:(NSArray *)data
 {
+    if (!data)
+    {
+        self.datalist = [@[] mutableCopy];
+        return;
+    }
     if (self.isMultipleSection)
     {
         self.datalist = [data mutableCopy];
@@ -98,9 +103,13 @@
 
 - (void)loadInformations:(NSDictionary *)info withReload:(BOOL)withReload
 {
-    [self setupDelegate];
-    
     self.informations = info;
+    
+    if (!info)
+    {
+        return;
+    }
+    [self setupDelegate];
     
     self.isMultipleSection = [info[@"section"] boolValue];
     
@@ -221,7 +230,7 @@
     }
     else
     {
-        if (self.dataListSource && [self.dataListSource respondsToSelector:@selector(requestData)])
+        if (self.dataListSource && [self.dataListSource respondsToSelector:@selector(xbDataListRequestData)])
         {
             [self.dataListSource xbDataListRequestData];
         }
