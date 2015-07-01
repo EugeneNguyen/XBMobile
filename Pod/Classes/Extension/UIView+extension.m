@@ -107,7 +107,14 @@
         }
         else if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
         {
-            [(UILabel *)v setText:data];
+            if ([data respondsToSelector:@selector(stringValue)])
+            {
+                [(UILabel *)v setText:[data stringValue]];
+            }
+            else if ([data isKindOfClass:[NSString class]])
+            {
+                [(UILabel *)v setText:data];
+            }
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {
@@ -218,12 +225,6 @@
                 }
             }
             
-            if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
-            {
-                [btn removeTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
-                [btn addTarget:target action:NSSelectorFromString(element[@"selector"]) forControlEvents:UIControlEventTouchUpInside];
-            }
-            
             if ([listTarget respondsToSelector:NSSelectorFromString(@"didPressButton:")])
             {
                 [btn removeTarget:listTarget action:NSSelectorFromString(@"didPressButton:") forControlEvents:UIControlEventTouchUpInside];
@@ -242,6 +243,11 @@
             [tableview loadData:data];
             [tableview loadInformations:element withReload:YES];
         }
+        
+//        if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
+//        {
+//            [v addTapTarget:target action:NSSelectorFromString(element[@"selector"])];
+//        }
     }
     
     [self layoutSubviews];

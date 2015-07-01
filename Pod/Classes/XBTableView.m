@@ -184,7 +184,16 @@
 }
 
 - (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    NSLog(@"%@", sizingCell.contentView.constraints);
+    for (NSLayoutConstraint *constraint in sizingCell.contentView.constraints)
+    {
+        if (constraint.firstAttribute == NSLayoutAttributeWidth || constraint.secondAttribute == NSLayoutAttributeWidth)
+        {
+            [sizingCell.contentView removeConstraint:constraint];
+        }
+    }
     [sizingCell.contentView addConstraint:[NSLayoutConstraint constraintWithItem:sizingCell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.contentSize.width]];
+    
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
     

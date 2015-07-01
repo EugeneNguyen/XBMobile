@@ -31,7 +31,7 @@
             }
             else
             {
-                return @"";
+                return nil;
             }
         }
         else if ([obj isKindOfClass:[NSArray class]])
@@ -39,7 +39,7 @@
             NSArray *array = (NSArray *)obj;
             if ([s intValue] < 0 || [s intValue] >= [array count])
             {
-                return @"";
+                return nil;
             }
             else
             {
@@ -62,7 +62,7 @@
             }
             else
             {
-                return @"";
+                return nil;
             }
         }
         else if ([obj respondsToSelector:selector])

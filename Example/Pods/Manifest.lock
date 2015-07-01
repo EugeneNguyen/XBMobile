@@ -34,22 +34,22 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - TPKeyboardAvoiding (1.2.6)
+  - TPKeyboardAvoiding (1.2.8)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.5.3.1):
+  - XBCacheRequest (0.5.3.2):
     - AFNetworking
     - JSONKit-NoWarning
     - MBProgressHUD
-  - XBExtension (0.2.2.1):
+  - XBExtension (0.2.3):
     - AVHexColor
     - MBProgressHUD
   - XBLanguage (1.0):
     - JSONKit-NoWarning
     - XBCacheRequest
     - XBExtension
-  - XBMobile (0.6.5.3):
+  - XBMobile (0.6.5.5):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
@@ -81,13 +81,13 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+  TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
-  XBCacheRequest: fb1ecb0544375944ef306da24340c5b95fe9b92a
-  XBExtension: 9e0130945c51ddb09762c142256d268aa1c67d16
+  XBCacheRequest: 3286896ee72d8812cbb82aa21f87805dde263d56
+  XBExtension: 9037f0c5b79d57b98cefb140b56e3dfc8e2f5af8
   XBLanguage: 3de1d7ddbaa57cfea8468eb980566a4adddcb13e
-  XBMobile: ddbce239c3d2325ac8f5e695bab49a55c846a448
+  XBMobile: c4ea30d25d6906d0e98e3508eaaee2001515a0e7
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.35.0

@@ -135,6 +135,12 @@
                 }
                 else
                 {
+                    NSString *path = info[@"pathToContent"];
+                    if (!path)
+                    {
+                        path = @"data";
+                    }
+                    id content = [[object objectForPath:path] mutableCopy];
                     if ([_datalist isKindOfClass:[NSMutableArray class]])
                     {
                         if (!request.dataPost[@"count"] || (request.dataPost[@"offset"] && ([request.dataPost[@"offset"] intValue] == 0)))
@@ -143,19 +149,19 @@
                         }
                         if (isMultipleSection)
                         {
-                            [(NSMutableArray *)_datalist addObjectsFromArray:[object objectForPath:info[@"pathToContent"]]];
+                            [(NSMutableArray *)_datalist addObjectsFromArray:content];
                         }
                         else
                         {
                             NSMutableArray *sections = (NSMutableArray *)_datalist;
                             if ([sections count] == 0)
                             {
-                                NSDictionary *section = @{@"title": @"root", @"items": [[object objectForPath:info[@"pathToContent"]] mutableCopy]};
+                                NSDictionary *section = @{@"title": @"root", @"items": content};
                                 [(NSMutableArray *)_datalist addObject:section];
                             }
                             else
                             {
-                                [[sections lastObject][@"items"] addObjectsFromArray:[object objectForPath:info[@"pathToContent"]]];
+                                [[sections lastObject][@"items"] addObjectsFromArray:content];
                                 if ([[object objectForPath:info[@"pathToContent"]] count] == 0)
                                 {
                                     self.isEndOfData = YES;
@@ -166,7 +172,7 @@
                     else if ([_datalist isKindOfClass:[NSMutableDictionary class]])
                     {
                         [(NSMutableDictionary *)_datalist removeAllObjects];
-                        [(NSMutableDictionary *)_datalist addEntriesFromDictionary:[object objectForPath:info[@"pathToContent"]]];
+                        [(NSMutableDictionary *)_datalist addEntriesFromDictionary:content];
                     }
                 }
             }

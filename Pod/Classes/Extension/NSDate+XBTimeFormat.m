@@ -49,7 +49,7 @@
             }
         }
     }
-    
+    return nil;
 }
 
 - (NSString *)niceFormatSinceNow

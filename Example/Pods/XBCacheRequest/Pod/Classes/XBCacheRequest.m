@@ -19,6 +19,7 @@
 @synthesize hud;
 @synthesize responseString = _responseString;
 @synthesize files;
+@synthesize request;
 
 + (XBCacheRequest *)requestWithURL:(NSURL *)url
 {
@@ -89,7 +90,7 @@
     
     isRunning = YES;
     if (!disableIndicator) [XBCacheRequestManager showIndicator];
-    AFHTTPRequestOperation *request = [[AFHTTPRequestOperationManager manager] POST:self.url parameters:_dataPost constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    request = [[AFHTTPRequestOperationManager manager] POST:self.url parameters:_dataPost constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         for (NSString *key in [self.files allKeys])
         {
             id item = self.files[key];
@@ -175,6 +176,12 @@
             [request setResponseSerializer:[AFCompoundResponseSerializer serializer]];
             break;
     }
+    [request setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        
+    }];
+    [request setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        NSLog(@"%f", totalBytesWritten / totalBytesExpectedToWrite);
+    }];
     request.responseSerializer.acceptableContentTypes = [request.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/json", @"text/javascript", @"application/json", @"text/html"]];
 }
 

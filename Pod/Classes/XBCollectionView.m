@@ -68,13 +68,16 @@
     if ([informations[@"waterfall"][@"enable"] boolValue])
     {
         CHTCollectionViewWaterfallLayout *waterfallLayout = (CHTCollectionViewWaterfallLayout *)self.collectionViewLayout;
-        if ([self ableToShowNoData])
+        if ([waterfallLayout isKindOfClass:[CHTCollectionViewWaterfallLayout class]])
         {
-            waterfallLayout.columnCount = 1;
-        }
-        else
-        {
-            waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
+            if ([self ableToShowNoData])
+            {
+                waterfallLayout.columnCount = 1;
+            }
+            else
+            {
+                waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
+            }
         }
     }
     [super reloadData];

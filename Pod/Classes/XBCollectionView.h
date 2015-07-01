@@ -23,7 +23,7 @@
 
 @end
 
-@interface XBCollectionView : TPKeyboardAvoidingCollectionView <XBDataList>
+@interface XBCollectionView : UICollectionView <XBDataList>
 {
 
 }

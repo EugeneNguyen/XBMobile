@@ -9,6 +9,7 @@
 #import "XBAppDelegate.h"
 #import "XBStaticDataViewController.h"
 #import <XBMobile.h>
+#import "XBTestViewController.h"
 
 @implementation XBAppDelegate
 
@@ -20,13 +21,13 @@
     [[XBMobile sharedInstance] setHost:@"http://linker.beliat.com"];
 
     [[NSUserDefaults standardUserDefaults] setValue:@"http://exmaple.com/service" forKey:@"webhost"];
-    XBStaticDataViewController *tableView = [[XBStaticDataViewController alloc] init];
+    XBTestViewController *tableView = [[XBTestViewController alloc] init];
     
     [XBForm loadErrorList:@"FormErrorList"];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableView];
     navigationController.navigationBar.translucent = NO;
-    [self.window setRootViewController:navigationController];
+    [self.window setRootViewController:tableView];
 
     [self.window makeKeyAndVisible];
     
