@@ -10,6 +10,4 @@
 
 @interface UILabel (XBMobile)
 
-- (void)process:(NSDictionary *)information;
-
 @end

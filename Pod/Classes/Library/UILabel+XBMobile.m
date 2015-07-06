@@ -12,21 +12,21 @@
 
 @implementation UILabel (XBMobile)
 
-- (void)process:(NSDictionary *)information
+- (void)setAttributeText:(NSString *)text
 {
-    [super process:information];
-    if (information[@"text"])
-    {
-        self.text = information[@"text"];
-    }
-    if (information[@"text-color"])
-    {
-        self.textColor = XBHexColor(information[@"text-color"]);
-    }
-    if (information[@"text-font"])
-    {
-        [self setFont:[UIFont fontWithName:information[@"text-font"] size:[information[@"text-size"] floatValue]]];
-    }
+    self.text = text;
 }
+
+- (void)setAttributeTextFont
+{
+    [self setFont:[UIFont fontWithName:self.viewInformation[@"text-font"]
+                                  size:[self.viewInformation[@"text-size"] floatValue]]];
+}
+
+- (void)setAttributeTextColor:(NSString *)hexString
+{
+    self.textColor = XBHexColor(hexString);
+}
+
 
 @end

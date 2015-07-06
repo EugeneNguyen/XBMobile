@@ -1,3 +1,4 @@
+
 //
 //  XBCollectionView.m
 //  XBMobile
@@ -88,7 +89,7 @@
 {
     CHTCollectionViewWaterfallLayout *waterfallLayout = [[CHTCollectionViewWaterfallLayout alloc] init];
     waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
-    self.collectionViewLayout = waterfallLayout;
+    [self setCollectionViewLayout:waterfallLayout];
 }
 
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier
@@ -254,6 +255,10 @@
     if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (indexPath.row == [[self.datalist lastObject][@"items"] count]) && (indexPath.section == ([self.datalist count] - 1)))
     {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"loadMore"][@"cellIdentify"] forIndexPath:indexPath];
+        if ([self ableToShowNoData])
+        {
+            [self requestData];
+        }
         return cell;
     }
     NSDictionary *item = [self cellInfoForPath:indexPath];

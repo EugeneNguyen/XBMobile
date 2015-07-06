@@ -10,6 +10,4 @@
 
 @interface UIImageView (XBMobile)
 
-- (void)process:(NSDictionary *)information;
-
 @end

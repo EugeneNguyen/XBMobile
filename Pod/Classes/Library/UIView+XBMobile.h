@@ -10,8 +10,10 @@
 #import <Foundation/Foundation.h>
 
 @interface UIView (XBMobile)
+@property (nonatomic, retain) NSMutableDictionary *viewInformation;
+@property (nonatomic, assign) id owner;
 
 - (void)load:(NSDictionary *)viewInformation;
-- (void)process:(NSDictionary *)information;
+- (void)process;
 
 @end

@@ -10,6 +10,4 @@
 
 @interface UIButton (XBMobile)
 
-- (void)process:(NSDictionary *)information;
-
 @end

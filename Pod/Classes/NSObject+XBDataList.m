@@ -112,12 +112,6 @@
     [self setupDelegate];
     
     self.isMultipleSection = [info[@"section"] boolValue];
-    
-    if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
-    {
-        [self setupWaterFall];
-    }
-    [self requestDataWithReload:withReload];
     for (NSDictionary *item in self.informations[@"cells"])
     {
         UINib *nib = [UINib loadResourceWithInformation:item];
@@ -138,7 +132,13 @@
     {
         [self registerNib:[UINib nibWithNibName:self.informations[@"NoDataCell"][@"xibname"] bundle:nil] forCellReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"]];
     }
+    
+    if ([self respondsToSelector:@selector(setupWaterFall)] && [self.informations[@"waterfall"][@"enable"] boolValue])
+    {
+        [self setupWaterFall];
+    }
     [self reloadData];
+    [self requestDataWithReload:withReload];
 }
 
 - (void)initRefreshControl

@@ -12,31 +12,48 @@
 
 @implementation UIButton (XBMobile)
 
-- (void)process:(NSDictionary *)information
+- (void)setAttributeText:(NSString *)text
 {
-    [super process:information];
-    if (information[@"background-image"])
+    [self setTitle:text forState:UIControlStateNormal];
+}
+
+- (void)setAttributeImage:(NSString *)imageString
+{
+    UIImage *image = [UIImage imageNamed:imageString];
+    if (image)
     {
-        UIImage *image = [UIImage imageNamed:information[@"background-image"]];
-        if (image)
-        {
-            CGSize s = image.size;
-            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, s.width, s.height);
-            [self setBackgroundImage:image forState:UIControlStateNormal];
-        }
+        CGSize s = image.size;
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, s.width, s.height);
+        [self setImage:image forState:UIControlStateNormal];
     }
-    if (information[@"text"])
+}
+
+- (void)setAttributeBackgroundImage:(NSString *)imageString
+{
+    UIImage *image = [UIImage imageNamed:imageString];
+    if (image)
     {
-        [self setTitle:information[@"text"] forState:UIControlStateNormal];
+        CGSize s = image.size;
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, s.width, s.height);
+        [self setBackgroundImage:image forState:UIControlStateNormal];
     }
-    if (information[@"text-color"])
-    {
-        [self setTitleColor:XBHexColor(information[@"text-color"]) forState:UIControlStateNormal];
-    }
-    if (information[@"text-font"])
-    {
-        [self.titleLabel setFont:[UIFont fontWithName:information[@"text-font"] size:[information[@"text-size"] floatValue]]];
-    }
+}
+
+- (void)setAttributeTextFont
+{
+    [self.titleLabel setFont:[UIFont fontWithName:self.viewInformation[@"text-font"]
+                                             size:[self.viewInformation[@"text-size"] floatValue]]];
+}
+
+- (void)setAttributeTextColor:(NSString *)hexString
+{
+    self.titleLabel.textColor = XBHexColor(hexString);
+}
+
+- (void)setAttributeAction:(NSString *)action
+{
+    SEL selector = NSSelectorFromString(action);
+    [self addTarget:self.owner action:selector forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end
