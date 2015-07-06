@@ -7,7 +7,39 @@
 //
 
 #import "XBDataController.h"
+#import "XBMobile.h"
 
 @implementation XBDataController
+@synthesize information = _information;
+@synthesize data;
+@synthesize completedCallback;
+@synthesize postParams;
+
+- (void)load
+{
+    NSString *urlPath = self.information[@"request"][@"url"];
+    XBCacheRequest *request = XBCacheRequest(urlPath);
+    if (postParams)
+    {
+        [request setDataPost:postParams];
+    }
+    [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
+        
+        NSString *codePath = self.information[@"request"][@"code-path"];
+        if (!codePath)
+        {
+            codePath = @"code";
+        }
+        
+        NSString *dataPath = self.information[@"request"][@"data-path"];
+        if (!dataPath)
+        {
+            dataPath = @"data";
+        }
+        
+        self.data = [object objectForPath:dataPath];
+        completedCallback();
+    }];
+}
 
 @end

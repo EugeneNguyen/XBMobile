@@ -89,6 +89,10 @@
 {
     CHTCollectionViewWaterfallLayout *waterfallLayout = [[CHTCollectionViewWaterfallLayout alloc] init];
     waterfallLayout.columnCount = [self.informations[@"waterfall"][@"numberOfColumns"] intValue];
+    waterfallLayout.minimumColumnSpacing = 6;
+    waterfallLayout.minimumInteritemSpacing = 6;
+    waterfallLayout.sectionInset = UIEdgeInsetsMake(6, 6, 6, 6);
+    waterfallLayout.itemRenderDirection = CHTCollectionViewWaterfallLayoutItemRenderDirectionLeftToRight;
     [self setCollectionViewLayout:waterfallLayout];
 }
 

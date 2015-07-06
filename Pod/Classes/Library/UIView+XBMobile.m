@@ -11,11 +11,37 @@
 #import <objc/runtime.h>
 
 NSString * const kViewInformationKey = @"kViewInformationKey";
+NSString * const kDataController = @"kDataController";
 NSString * const kOwner = @"kOwner";
+NSString * const kPostParams = @"kPostParams";
+NSString * const kCallback = @"kCallback";
 
 @implementation UIView (XBMobile)
 @dynamic viewInformation;
 @dynamic owner;
+@dynamic dataController;
+@dynamic postParams;
+@dynamic callback;
+
+- (void)setCallback:(XBMobileDidLoadRemoteInformation)callback
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kCallback), callback, OBJC_ASSOCIATION_COPY);
+}
+
+- (XBMobileDidLoadRemoteInformation)callback
+{
+    return objc_getAssociatedObject(self, (__bridge const void *)(kCallback));
+}
+
+- (void)setPostParams:(NSMutableDictionary *)postParams
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kPostParams), postParams, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (NSMutableDictionary *)postParams
+{
+    return objc_getAssociatedObject(self, (__bridge const void *)(kPostParams));
+}
 
 - (void)setOwner:(id)owner
 {
@@ -37,6 +63,22 @@ NSString * const kOwner = @"kOwner";
     return objc_getAssociatedObject(self, (__bridge const void *)(kViewInformationKey));
 }
 
+- (void)setDataController:(XBDataController *)dataController
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kDataController), dataController, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (XBDataController *)dataController
+{
+    return objc_getAssociatedObject(self, (__bridge const void *)(kDataController));
+}
+
+- (void)loadPlist:(NSString *)plist
+{
+    NSDictionary *information = [NSDictionary dictionaryWithContentsOfPlist:plist];
+    [self load:information];
+}
+
 - (void)load:(NSDictionary *)viewInformation
 {
     self.viewInformation = [viewInformation mutableCopy];
@@ -53,15 +95,27 @@ NSString * const kOwner = @"kOwner";
     for (NSDictionary *subviewInformation in subviews)
     {
         UIView *view;
-        if (subviewInformation[@"tag"])
+        if (subviewInformation[@"variable"] && [self.owner valueForKey:subviewInformation[@"variable"]]);
+        {
+            view = [self.owner valueForKey:subviewInformation[@"variable"]];
+        }
+        if (!view && subviewInformation[@"tag"])
         {
             view = [self viewWithTag:[subviewInformation[@"tag"] intValue]];
-            [view load:subviewInformation];
         }
         if (!view)
         {
             view = [self initView:subviewInformation];
             [self addSubview:view];
+        }
+        [view load:subviewInformation];
+        if (subviewInformation[@"variable"])
+        {
+            [self.owner setValue:view forKey:subviewInformation[@"variable"]];
+        }
+        if (subviewInformation[@"tag"])
+        {
+            view.tag = [subviewInformation[@"tag"] intValue];
         }
     }
 }
@@ -81,11 +135,19 @@ NSString * const kOwner = @"kOwner";
     {
         return [[UILabel alloc] init];
     }
+    if ([type isEqualToString:@"textfield"])
+    {
+        return [[UITextField alloc] init];
+    }
     return [[UIView alloc] init];
 }
 
 - (void)position
 {
+    if ([self.viewInformation[@"ignore-possition"] boolValue])
+    {
+        return;
+    }
     float x = [self.viewInformation[@"x"] floatValue];
     float y = [self.viewInformation[@"y"] floatValue];
     CGSize s = self.frame.size;
@@ -98,7 +160,66 @@ NSString * const kOwner = @"kOwner";
 
 - (void)loadRemoteInformation
 {
-    
+    self.dataController = [[XBDataController alloc] init];
+    NSLog(@"%@", self.viewInformation);
+    if (self.viewInformation[@"data-controller"] && [self.viewInformation[@"data-controller"][@"type"] isEqualToString:@"remote"])
+    {
+        self.dataController.information = self.viewInformation[@"data-controller"];
+        self.dataController.postParams = self.postParams;
+        self.dataController.completedCallback = ^(){
+            [self reloadFromRemoteData];
+            if (self.callback)
+            {
+                self.callback();
+            }
+        };
+        [self.dataController load];
+    }
+}
+
+- (void)reloadFromRemoteData
+{
+    NSArray *subviews = self.viewInformation[@"subviews"];
+    for (NSDictionary *subviewInformation in subviews)
+    {
+        UIView *view;
+        if (subviewInformation[@"variable"] && [self.owner valueForKey:subviewInformation[@"variable"]]);
+        {
+            view = [self.owner valueForKey:subviewInformation[@"variable"]];
+        }
+        if (!view && subviewInformation[@"tag"])
+        {
+            view = [self viewWithTag:[subviewInformation[@"tag"] intValue]];
+        }
+        if (view.viewInformation)
+        {
+            if (!view.viewInformation[@"data-controller"] || [view.viewInformation[@"data-controller"][@"type"] isEqualToString:@"inherited"])
+            {
+                NSString *path = view.viewInformation[@"data-controller"][@"path-to-content"];
+                if (!path)
+                {
+                    path = @"/";
+                }
+                id subData = [self.dataController.data objectForPath:path];
+                view.dataController.data = subData;
+                [view reloadFromRemoteData];
+            }
+        }
+    }
+    if ([self dataForKey:@"background-color-path"])
+    {
+        self.backgroundColor = XBHexColor([self dataForKey:@"background-color-path"]);
+    }
+}
+
+- (id)dataForKey:(NSString *)key
+{
+    NSLog(@"%@ %@ %@", self.viewInformation, self.dataController.data, key);
+    if (self.viewInformation[key] && [self.dataController.data objectForPath:self.viewInformation[key]])
+    {
+        return [self.dataController.data objectForPath:self.viewInformation[key]];
+    }
+    return nil;
 }
 
 #pragma mark - ImageView process

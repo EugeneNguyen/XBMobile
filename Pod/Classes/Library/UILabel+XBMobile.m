@@ -28,5 +28,14 @@
     self.textColor = XBHexColor(hexString);
 }
 
+- (void)reloadFromRemoteData
+{
+    [super reloadFromRemoteData];
+    if ([self dataForKey:@"text-path"])
+    {
+        self.text = [self dataForKey:@"text-path"];
+    }
+}
+
 
 @end
