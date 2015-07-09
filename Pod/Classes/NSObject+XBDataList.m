@@ -76,6 +76,10 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     [self loadInformations:info];
+    [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 }
 
 - (void)loadData:(NSArray *)data

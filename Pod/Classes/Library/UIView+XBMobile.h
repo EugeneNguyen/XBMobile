@@ -16,6 +16,7 @@ typedef void (^XBMobileDidLoadRemoteInformation)();
 @property (nonatomic, retain) NSMutableDictionary *viewInformation;
 @property (nonatomic, retain) XBDataController *dataController;
 @property (nonatomic, retain) NSMutableDictionary *postParams;
+@property (nonatomic, copy) id data;
 @property (nonatomic, copy) XBMobileDidLoadRemoteInformation callback;
 
 @property (nonatomic, assign) id owner;

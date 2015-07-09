@@ -22,6 +22,27 @@ NSString * const kCallback = @"kCallback";
 @dynamic dataController;
 @dynamic postParams;
 @dynamic callback;
+@dynamic data;
+
+#pragma mark - Associate variable
+
+- (void)setData:(id)data
+{
+    if (!self.dataController)
+    {
+        self.dataController = [[XBDataController alloc] init];
+    }
+    self.dataController.data = [data copy];
+}
+
+- (id)data
+{
+    if (!self.dataController)
+    {
+        self.dataController = [[XBDataController alloc] init];
+    }
+    return self.dataController.data;
+}
 
 - (void)setCallback:(XBMobileDidLoadRemoteInformation)callback
 {
@@ -68,6 +89,8 @@ NSString * const kCallback = @"kCallback";
     objc_setAssociatedObject(self, (__bridge const void *)(kDataController), dataController, OBJC_ASSOCIATION_RETAIN);
 }
 
+#pragma mark - Main function
+
 - (XBDataController *)dataController
 {
     return objc_getAssociatedObject(self, (__bridge const void *)(kDataController));
@@ -95,6 +118,7 @@ NSString * const kCallback = @"kCallback";
     for (NSDictionary *subviewInformation in subviews)
     {
         UIView *view;
+        // check if it already assigned in the owner
         if (subviewInformation[@"variable"] && [self.owner valueForKey:subviewInformation[@"variable"]]);
         {
             view = [self.owner valueForKey:subviewInformation[@"variable"]];
@@ -160,8 +184,10 @@ NSString * const kCallback = @"kCallback";
 
 - (void)loadRemoteInformation
 {
-    self.dataController = [[XBDataController alloc] init];
-    NSLog(@"%@", self.viewInformation);
+    if (!self.dataController)
+    {
+        self.dataController = [[XBDataController alloc] init];
+    }
     if (self.viewInformation[@"data-controller"] && [self.viewInformation[@"data-controller"][@"type"] isEqualToString:@"remote"])
     {
         self.dataController.information = self.viewInformation[@"data-controller"];
@@ -200,7 +226,7 @@ NSString * const kCallback = @"kCallback";
                 {
                     path = @"/";
                 }
-                id subData = [self.dataController.data objectForPath:path];
+                id subData = [self.data objectForPath:path];
                 view.dataController.data = subData;
                 [view reloadFromRemoteData];
             }
@@ -214,10 +240,10 @@ NSString * const kCallback = @"kCallback";
 
 - (id)dataForKey:(NSString *)key
 {
-    NSLog(@"%@ %@ %@", self.viewInformation, self.dataController.data, key);
-    if (self.viewInformation[key] && [self.dataController.data objectForPath:self.viewInformation[key]])
+    NSLog(@"%@ %@ %@", self.viewInformation, self.data, key);
+    if (self.viewInformation[key] && [self.data objectForPath:self.viewInformation[key]])
     {
-        return [self.dataController.data objectForPath:self.viewInformation[key]];
+        return [self.data objectForPath:self.viewInformation[key]];
     }
     return nil;
 }
