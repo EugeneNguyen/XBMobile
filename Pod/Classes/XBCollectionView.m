@@ -19,6 +19,7 @@
 {
     
     IBOutlet UITextField *searchField;
+    BOOL loaded;
 }
 
 @end
@@ -44,8 +45,12 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [self loadInformationFromPlist:self.plist];
-    [self loadFromXBID];
+    if (!loaded)
+    {
+        loaded = YES;
+        [self loadInformationFromPlist:self.plist];
+        [self loadFromXBID];
+    }
 }
 
 - (void)setupDelegate
@@ -243,7 +248,7 @@
     float scrollViewHeight = self.frame.size.height;
     float scrollContentSizeHeight = self.contentSize.height;
     float scrollOffset = self.contentOffset.y;
-    if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
+    if (scrollOffset + scrollViewHeight == scrollContentSizeHeight && scrollContentSizeHeight != 0)
     {
         if ([self ableToShowNoData])
         {

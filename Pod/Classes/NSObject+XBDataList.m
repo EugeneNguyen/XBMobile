@@ -49,6 +49,7 @@
         NSString *path = [NSString stringWithFormat:@"servicemanagement/download_service_xml?table=%@", self.XBID];
         XBCacheRequest *request = XBCacheRequest(path);
         request.responseType = XBCacheRequestTypePlain;
+        request.disableCache = YES;
         [request startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
             NSMutableDictionary *item =[NSPropertyListSerialization propertyListFromData:[request.responseString dataUsingEncoding:NSUTF8StringEncoding]
                                                                         mutabilityOption:NSPropertyListMutableContainersAndLeaves
