@@ -53,6 +53,12 @@
     }
 }
 
+- (void)cleanup
+{
+    loaded = NO;
+    [super cleanup];
+}
+
 - (void)setupDelegate
 {
     self.delegate = self;
