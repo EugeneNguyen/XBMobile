@@ -36,7 +36,7 @@
     {
         disableCache = NO;
         resultCount = 20;
-        self.isEndOfData = YES;
+        self.isEndOfData = NO;
     }
     return self;
 }
@@ -66,10 +66,11 @@
 
 - (void)requestDataWithMore:(BOOL)isMore
 {
-    if (isMore && self.isEndOfData && [cacheRequest isRunning])
+    if ((isMore && self.isEndOfData) || [cacheRequest isRunning])
     {
         return;
     }
+    NSLog(@"aaaaaaaaa");
     NSString *url = info[@"remoteLink"];
     NSString *predefaultHost = info[@"predefinedHostInUserdefault"];
     if (predefaultHost && [predefaultHost length] > 0 && [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost])
@@ -113,6 +114,7 @@
         cacheRequest.responseType = XBCacheRequestTypeJSON;
     }
     
+    NSLog(@"bbbbbbbbbs %d", isMore);
     [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         
         [self hideHUD];
