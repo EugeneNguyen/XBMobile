@@ -82,7 +82,7 @@
     }
     [cacheRequest cancel];
     cacheRequest = XBCacheRequest(url);
-    cacheRequest.disableCache = self.disableCache;
+    cacheRequest.disableCache = (self.disableCache || isMore);
     
     NSMutableDictionary * mutablePostParams = [_postParams mutableCopy];
     if (isMore)
