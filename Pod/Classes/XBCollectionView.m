@@ -149,7 +149,8 @@
     float h = size.height;
     
     float reload_distance = 10;
-    if(y > h + reload_distance) {
+    if(y > h + reload_distance)
+    {
         [self scrolledToBottom];
     }
     if ([xbDelegate respondsToSelector:@selector(scrollViewDidScroll:)])
@@ -172,10 +173,6 @@
 {
     if ([self ableToShowNoData]) return 1;
     long count = [self.datalist[section][@"items"] count];
-//    if ([self.informations[@"loadMore"][@"enable"] boolValue] && self.informations[@"loadMore"][@"cellIdentify"] && self.informations[@"loadMore"][@"xibname"] && (section == [self.datalist count] - 1))
-//    {
-//        count ++;
-//    }
     return count;
 }
 

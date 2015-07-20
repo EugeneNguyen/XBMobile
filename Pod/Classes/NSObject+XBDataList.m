@@ -205,7 +205,7 @@
 
 - (void)requestData
 {
-    [self requestDataWithReload:NO];
+    [self requestDataWithReload:YES];
 }
 
 - (void)requestDataWithReload:(BOOL)withReload
@@ -224,13 +224,13 @@
         self.dataFetching.delegate = self;
         self.dataFetching.postParams = self.postParams;
         self.dataFetching.disableCache = [self.informations[@"disableCache"] boolValue];
-        if ([self.informations[@"loadMore"][@"enable"] boolValue])
+        if (withReload || ![self.informations[@"loadMore"][@"enable"] boolValue])
         {
-            [self.dataFetching fetchMore];
+            [self.dataFetching startFetchingData];
         }
         else
         {
-            [self.dataFetching startFetchingData];
+            [self.dataFetching fetchMore];
         }
     }
     else
