@@ -101,6 +101,10 @@
             }
         }
         
+        if ([data isKindOfClass:[NSString class]] && [data length] == 0 && element[@"default"])
+        {
+            data = element[@"default"];
+        }
         if (element[@"setter"])
         {
             [v performSelector:NSSelectorFromString(element[@"setter"]) withObject:data];
