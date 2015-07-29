@@ -45,7 +45,18 @@
 {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    return [df dateFromString:self];
+    NSDate *date = [df dateFromString:self];
+    if (!date)
+    {
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+        date = [df dateFromString:self];
+    }
+    if (!date)
+    {
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ssSSSZ"];
+        date = [df dateFromString:self];
+    }
+    return date;
 }
 
 + (NSString *)uuidString {

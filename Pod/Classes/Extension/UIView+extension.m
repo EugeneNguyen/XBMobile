@@ -21,17 +21,17 @@
 @dynamic bottomMargin;
 @dynamic originalHeight;
 
-- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info
+- (void)applyTemplate:(NSArray *)temp andInformation:(id)info
 {
     [self applyTemplate:temp andInformation:info withTarget:nil];
 }
 
-- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target
+- (void)applyTemplate:(NSArray *)temp andInformation:(id)info withTarget:(id)target
 {
     [self applyTemplate:temp andInformation:info withTarget:target listTarget:nil];
 }
 
-- (void)applyTemplate:(NSArray *)temp andInformation:(NSDictionary *)info withTarget:(id)target listTarget:(id)listTarget
+- (void)applyTemplate:(NSArray *)temp andInformation:(id)info withTarget:(id)target listTarget:(id)listTarget
 {
     if ([self isKindOfClass:[UITableViewCell class]])
     {
