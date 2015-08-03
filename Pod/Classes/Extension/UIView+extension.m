@@ -128,8 +128,8 @@
         }
         else if ([v isKindOfClass:[XBImageView class]] && element[@"idPath"])
         {
-            XBImageView *imageView = (XBImageView *)v;
-            [imageView setImageID:[[info objectForPath:element[@"idPath"]] intValue]];
+            XBImageView *xbImageView = (XBImageView *)v;
+            [xbImageView setImageID:[[info objectForPath:element[@"idPath"]] intValue]];
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {

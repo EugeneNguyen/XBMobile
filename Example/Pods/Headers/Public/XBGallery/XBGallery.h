@@ -1,0 +1,1 @@
+../../../XBGallery/Pod/Classes/XBGallery.h

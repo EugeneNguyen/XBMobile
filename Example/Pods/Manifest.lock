@@ -31,25 +31,28 @@ PODS:
   - JSONKit-NoWarning (1.2)
   - MBProgressHUD (0.9.1)
   - NSDate+TimeAgo (1.0.3)
-  - SDWebImage (3.7.2):
-    - SDWebImage/Core (= 3.7.2)
-  - SDWebImage/Core (3.7.2)
-  - TPKeyboardAvoiding (1.2.8)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - TPKeyboardAvoiding (1.2.9)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.5.3.2):
+  - XBCacheRequest (0.5.3.4):
     - AFNetworking
     - JSONKit-NoWarning
     - MBProgressHUD
-  - XBExtension (0.2.3):
+  - XBExtension (0.3.4.4):
     - AVHexColor
     - MBProgressHUD
-  - XBLanguage (1.0):
+  - XBGallery (0.4.4):
+    - SDWebImage
+    - XBCacheRequest
+  - XBLanguage (1.0.0.1):
     - JSONKit-NoWarning
     - XBCacheRequest
     - XBExtension
-  - XBMobile (0.6.5.5):
+  - XBMobile (0.6.6.9):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
@@ -61,6 +64,7 @@ PODS:
     - UIImage-Helpers
     - XBCacheRequest
     - XBExtension
+    - XBGallery
     - XBLanguage
     - XMLDictionary
   - XMLDictionary (1.4)
@@ -80,14 +84,15 @@ SPEC CHECKSUMS:
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
-  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
-  XBCacheRequest: 3286896ee72d8812cbb82aa21f87805dde263d56
-  XBExtension: 9037f0c5b79d57b98cefb140b56e3dfc8e2f5af8
-  XBLanguage: 3de1d7ddbaa57cfea8468eb980566a4adddcb13e
-  XBMobile: c4ea30d25d6906d0e98e3508eaaee2001515a0e7
+  XBCacheRequest: 1bc13e56ea2c281e57fe3b24cd84b5ee08323481
+  XBExtension: 4c1c1ce8f2aedaba81605f6c503dbd4e404a42fe
+  XBGallery: 0aeadf94c104311ddd5437e58cda01f1ffe46d56
+  XBLanguage: 0457d0e6042c6ecaca452f1c72d50199209f51de
+  XBMobile: 35414829ea4b39548d1908ba60926baa24e8b894
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.35.0

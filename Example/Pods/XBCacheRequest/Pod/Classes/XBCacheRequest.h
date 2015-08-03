@@ -25,6 +25,9 @@ typedef enum : NSUInteger {
 } XBRestMethod;
 
 typedef void (^XBPostRequestCallback)(XBCacheRequest * request, NSString * result, BOOL fromCache, NSError * error, id object);
+typedef void (^AFNetworkFailed)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void (^AFNetworkSuccess)(AFHTTPRequestOperation *operation, id responseObject);
+typedef void (^AFNetworkBuildBody)(id<AFMultipartFormData> formData);
 
 @protocol XBCacheRequestDelegate <NSObject>
 
@@ -51,7 +54,8 @@ typedef void (^XBPostRequestCallback)(XBCacheRequest * request, NSString * resul
 @property (nonatomic, assign) BOOL disableIndicator;
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) NSMutableDictionary *files;
-@property (nonatomic, retain) AFHTTPRequestOperation *request;
+@property (nonatomic, retain) AFHTTPRequestOperation *request_;
+@property (nonatomic, retain) NSString *method;
 
 - (void)addFileWithURL:(NSURL *)url key:(NSString *)key;
 - (void)addFileWithData:(NSData *)data key:(NSString *)key fileName:(NSString *)filename mimeType:(NSString *)mimeType;

@@ -12,5 +12,7 @@
 
 + (NSArray *)arrayWithContentsOfPlist:(NSString *)plistname;
 + (NSArray *)arrayWithContentsOfPlist:(NSString *)plistname bundleName:(NSString *)name;
+- (NSArray *)arrayOrderedByString:(NSString *)orderField accending:(BOOL)accending;
+- (NSArray *)arrayOrderedByNumber:(NSString *)orderField accending:(BOOL)accending;
 
 @end

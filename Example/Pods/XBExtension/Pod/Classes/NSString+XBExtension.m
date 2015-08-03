@@ -24,4 +24,9 @@
     return [date stringWithFormat:toFormat];
 }
 
+- (NSString *)stringValue
+{
+    return self;
+}
+
 @end

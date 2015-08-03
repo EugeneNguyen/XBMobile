@@ -49,6 +49,7 @@ install_resource()
 }
           install_resource "NSDate+TimeAgo/NSDateTimeAgo.bundle"
                     install_resource "${BUILT_PRODUCTS_DIR}/XBCacheRequest.bundle"
+                    install_resource "${BUILT_PRODUCTS_DIR}/XBGallery.bundle"
                     install_resource "${BUILT_PRODUCTS_DIR}/XBLanguage.bundle"
                     install_resource "${BUILT_PRODUCTS_DIR}/XBMobile.bundle"
           

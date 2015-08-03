@@ -1,0 +1,1 @@
+../../../XBGallery/Pod/Classes/XBGImageResizer.h

@@ -12,5 +12,6 @@
 
 - (NSDate *)dateWithFormat:(NSString *)format;
 - (NSString *)convertFromDateFormat:(NSString *)fromFormat toDateFormat:(NSString *)toFormat;
+- (NSString *)stringValue;
 
 @end
