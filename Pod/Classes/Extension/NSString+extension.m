@@ -48,7 +48,7 @@
     NSDate *date = [df dateFromString:self];
     if (!date)
     {
-        [df setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ssZZZZZ"];
         date = [df dateFromString:self];
     }
     if (!date)

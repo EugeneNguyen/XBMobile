@@ -66,15 +66,26 @@ static XBMobile *__sharedXBMobileInstance = nil;
 
 + (void)registerPush
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        Class userNotifyClass = NSClassFromString(@"UIUserNotificationSettings");
+        if(userNotifyClass != nil)
+        {
+            id notifyInstance = [userNotifyClass settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
+            [application registerUserNotificationSettings:notifyInstance];
+            [application registerForRemoteNotifications];
+        }
     }
     else
     {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        int notifyType = (UIRemoteNotificationTypeAlert |
+                          UIRemoteNotificationTypeBadge |
+                          UIRemoteNotificationTypeSound);
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationType)notifyType];
+#pragma clang diagnostic pop
     }
 }
 

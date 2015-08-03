@@ -16,6 +16,7 @@
 #import "XBMobile.h"
 #import <NSDate+TimeAgo.h>
 #import <XBExtension.h>
+#import "XBGallery.h"
 
 @implementation UIView (extension)
 @dynamic bottomMargin;
@@ -101,6 +102,11 @@
             }
         }
         
+        if (element[@"idPath"])
+        {
+            data = [[[XBGallery sharedInstance] urlForID:[[info objectForPath:element[@"idPath"]] intValue] isThumbnail:[element[@"isThumb"] boolValue]] absoluteString];
+        }
+        
         if ([data isKindOfClass:[NSString class]] && [data length] == 0 && element[@"default"])
         {
             data = element[@"default"];
@@ -119,6 +125,11 @@
             {
                 [(UILabel *)v setText:data];
             }
+        }
+        else if ([v isKindOfClass:[XBImageView class]] && element[@"idPath"])
+        {
+            XBImageView *imageView = (XBImageView *)v;
+            [imageView setImageID:[[info objectForPath:element[@"idPath"]] intValue]];
         }
         else if ([v isKindOfClass:[UIImageView class]])
         {
@@ -202,15 +213,6 @@
                     {
                         [imgView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
                     }
-                    
-                    if ([element[@"autoHeight"] boolValue] && !(element[@"widthPath"] && element[@"heightPath"]))
-                    {
-                        CGRect f = v.frame;
-                        CGSize s = image.size;
-                        f.size.height = f.size.width / s.width * s.height;
-                        v.frame = f;
-                        [self layoutIfNeeded];
-                    }
                 }];
             }
         }
@@ -248,10 +250,10 @@
             [tableview loadInformations:element withReload:YES];
         }
         
-//        if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
-//        {
-//            [v addTapTarget:target action:NSSelectorFromString(element[@"selector"])];
-//        }
+        if (element[@"selector"] && [target respondsToSelector:NSSelectorFromString(element[@"selector"])])
+        {
+            [v addTapTarget:target action:NSSelectorFromString(element[@"selector"])];
+        }
     }
     
     [self layoutSubviews];

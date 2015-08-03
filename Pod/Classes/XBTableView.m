@@ -51,6 +51,15 @@
     self.dataSource = self;
 }
 
+- (void)dealloc
+{
+    @try{
+        [self removeObserver:self forKeyPath:@"contentOffset"];
+    }@catch(id anException){
+        
+    }
+}
+
 - (void)configHeightAfterFillData
 {
     if ([self.informations[@"isFullTable"] boolValue])

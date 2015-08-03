@@ -59,6 +59,15 @@
     [super cleanup];
 }
 
+- (void)dealloc
+{
+    @try{
+        [self removeObserver:self forKeyPath:@"contentOffset"];
+    }@catch(id anException){
+        
+    }
+}
+
 - (void)setupDelegate
 {
     self.delegate = self;
@@ -232,8 +241,8 @@
                 else
                 {
                     UIScreen *screen = [UIScreen mainScreen];
-                    NSDictionary *info = @{@"height": @(screen.bounds.size.height),
-                                           @"width": @(screen.bounds.size.width)};
+                    NSDictionary *info = @{@"height": @(self.frame.size.height),
+                                           @"width": @(self.frame.size.width)};
                     
                     NSExpression * widthExp = [NSExpression expressionWithFormat:[size[@"width"] applyData:info]];
                     NSExpression * heightExp = [NSExpression expressionWithFormat:[size[@"height"] applyData:info]];
