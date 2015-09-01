@@ -1,6 +1,6 @@
 {
   "name": "XBMobile",
-  "version": "0.6.7",
+  "version": "0.6.7.1",
   "summary": "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically.",
   "description": "The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.",
   "homepage": "https://github.com/EugeneNguyen/XBMobile",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/EugeneNguyen/XBMobile.git",
-    "tag": "0.6.7"
+    "tag": "0.6.7.1"
   },
   "platforms": {
     "ios": "7.0"

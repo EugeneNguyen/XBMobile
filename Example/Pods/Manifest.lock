@@ -52,7 +52,7 @@ PODS:
     - JSONKit-NoWarning
     - XBCacheRequest
     - XBExtension
-  - XBMobile (0.6.7):
+  - XBMobile (0.6.7.1):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   XBExtension: bf762a7ab59015bce454898eab764047f7200b0a
   XBGallery: c707d5373dcaad5ae3b3455f92d9e00cb72eb4c1
   XBLanguage: 0457d0e6042c6ecaca452f1c72d50199209f51de
-  XBMobile: 14de05f9d95df2c37f0f40237ead0adf56ea97d9
+  XBMobile: 717f7630a8d2c68a0d06b5c7a7cf33cadbe54d3b
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.38.2
