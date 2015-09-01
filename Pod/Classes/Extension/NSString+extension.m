@@ -9,7 +9,7 @@
 #import "NSString+extension.h"
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "NSObject+extension.h"
+#import "XBExtension.h"
 
 @implementation NSString (extension)
 

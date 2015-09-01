@@ -16,26 +16,6 @@ NSString *const XBFormDataErrorRequired = @"XBFormDataErrorRequired";
 
 @implementation NSString (form)
 
-- (NSArray *)validateWithInformation:(NSDictionary *)item toErrorMessage:(BOOL)toErrorMessage
-{
-    if (toErrorMessage)
-    {
-        NSArray *errorCode = [self validateWithInformation:item];
-        NSDictionary *errorList = [XBForm errorList];
-        
-        NSMutableArray *errorMessage = [@[] mutableCopy];
-        for (NSString *s in errorCode)
-        {
-            [errorMessage addObject:errorList[s]];
-        }
-        return errorMessage;
-    }
-    else
-    {
-        return [self validateWithInformation:item];
-    }
-}
-
 - (NSArray *)validateWithInformation:(NSDictionary *)item
 {
     NSMutableArray *error = [@[] mutableCopy];

@@ -122,7 +122,6 @@
 		67B2CD0F5A2847F4A89E69C6 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B1C43BBE25C418347C7346 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6801B6DD4E639C6ABE062E86 /* UIButton+xblanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6E836765ABCE75E2EB4586 /* UIButton+xblanguage.m */; };
 		68B8717EEFA074CD849FC608 /* Pods-XBMobile-MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CD2329107B58AE69B77365 /* Pods-XBMobile-MBProgressHUD-dummy.m */; };
-		68BD3467D1D551A7AF4AEFA8 /* XBTagViewDefault.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E91AFE57C9747265296C3B6 /* XBTagViewDefault.xib */; };
 		6A6FB020C4DC41009A7940BA /* Pods-XBMobile-AVHexColor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C34570345104DCBAAC8C07BC /* Pods-XBMobile-AVHexColor-dummy.m */; };
 		6B4065987DCACD4C88EA270F /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EC3001CBA6BC205A496845 /* UIRefreshControl+AFNetworking.h */; };
 		6BC410B0F7A874D69CCC55F7 /* UIButton+XBMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = F55FA4984B09FEC361C77946 /* UIButton+XBMobile.m */; };
@@ -625,7 +624,6 @@
 		0D3A5ABD156C8D57CAB1EDEF /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		0D3FAFCCCDAE11AF0FB11527 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		0E36E4F83DB5DE615194D50C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		0E91AFE57C9747265296C3B6 /* XBTagViewDefault.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = XBTagViewDefault.xib; path = Pod/Assets/XBTagViewDefault.xib; sourceTree = "<group>"; };
 		0EA2FB20AC60357FBDE0C864 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		0F3A3BC87F10D14AC94995C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		0F649B5D363870EE1AFCC7E4 /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Lumberjack/DDLog.m; sourceTree = "<group>"; };
@@ -1492,7 +1490,6 @@
 				F9AAA67A43DFAA4487F5471E /* XBMobile.xcdatamodel */,
 				BE3710684FF88C6FB61834FD /* XBMobile.xcdatamodeld */,
 				40E0CCB3998E36125D8243F3 /* XBTagViewDefault.plist */,
-				0E91AFE57C9747265296C3B6 /* XBTagViewDefault.xib */,
 				B50E77F4B68D939EA5D07849 /* contents */,
 			);
 			name = Resources;
@@ -2645,7 +2642,6 @@
 				DDBD428C9D623A8664BEA227 /* XBMobile.xcdatamodel in Resources */,
 				9179C86259E6016015D82E24 /* XBMobile.xcdatamodeld in Resources */,
 				3D737DA606B471618EE23E3F /* XBTagViewDefault.plist in Resources */,
-				68BD3467D1D551A7AF4AEFA8 /* XBTagViewDefault.xib in Resources */,
 				C153C4A32030A81F9D5ABAA9 /* contents in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

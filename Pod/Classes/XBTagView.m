@@ -7,7 +7,7 @@
 //
 
 #import "XBTagView.h"
-#import "NSObject+extension.h"
+#import "XBExtension.h"
 
 @implementation XBTagView
 @synthesize tagList = _tagList;
