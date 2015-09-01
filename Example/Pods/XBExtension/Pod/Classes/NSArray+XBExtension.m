@@ -6,7 +6,7 @@
 //
 //
 
-#import "NSArray+XBExtension.h"
+#import "XBExtension.h"
 
 @implementation NSArray (XBExtension)
 
@@ -26,8 +26,8 @@
 - (NSArray *)arrayOrderedByString:(NSString *)orderField accending:(BOOL)accending
 {
     return [self sortedArrayUsingComparator:^NSComparisonResult(id  __nonnull obj1, id  __nonnull obj2) {
-        NSString *s1 = [obj1 objectForKey:orderField];
-        NSString *s2 = [obj2 objectForKey:orderField];
+        NSString *s1 = [obj1 objectForPath:orderField];
+        NSString *s2 = [obj2 objectForPath:orderField];
         NSComparisonResult result = [s1 compare:s2];
         if (accending)
         {
@@ -43,8 +43,8 @@
 - (NSArray *)arrayOrderedByNumber:(NSString *)orderField accending:(BOOL)accending
 {
     return [self sortedArrayUsingComparator:^NSComparisonResult(id  __nonnull obj1, id  __nonnull obj2) {
-        float f1 = [[obj1 objectForKey:orderField] floatValue];
-        float f2 = [[obj2 objectForKey:orderField] floatValue];
+        float f1 = [[obj1 objectForPath:orderField] floatValue];
+        float f2 = [[obj2 objectForPath:orderField] floatValue];
         NSComparisonResult result;
         if (f1 > f2)
         {

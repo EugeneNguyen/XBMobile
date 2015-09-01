@@ -9,7 +9,6 @@
 #import "XBStaticDataViewController.h"
 #import "XBRSSViewController.h"
 #import "XBRSSCollectionView.h"
-#import "XBFormViewController.h"
 
 @implementation XBStaticDataViewController
 

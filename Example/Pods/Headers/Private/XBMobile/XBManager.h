@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/Library/XBManager.h

@@ -17,12 +17,10 @@ typedef enum : NSUInteger {
     XBCacheRequestTypeXML,
 } XBCacherequestResponseType;
 
-typedef enum : NSUInteger {
-    XBRestPost = 0,
-    XBRestGet,
-    XBRestPut,
-    XBRestDelete
-} XBRestMethod;
+#define XBRequestMethodGET @"GET"
+#define XBRequestMethodPOST @"POST"
+#define XBRequestMethodPUT @"PUT"
+#define XBRequestMethodDELETE @"DELETE"
 
 typedef void (^XBPostRequestCallback)(XBCacheRequest * request, NSString * result, BOOL fromCache, NSError * error, id object);
 typedef void (^AFNetworkFailed)(AFHTTPRequestOperation *operation, NSError *error);
@@ -66,7 +64,5 @@ typedef void (^AFNetworkBuildBody)(id<AFMultipartFormData> formData);
 - (void)startAsynchronousWithCallback:(XBPostRequestCallback)_callback;
 
 + (void)clearCache;
-
-+ (void)rest:(XBRestMethod)method table:(NSString *)table object:(NSDictionary *)object callback:(XBPostRequestCallback)_callback;
 
 @end

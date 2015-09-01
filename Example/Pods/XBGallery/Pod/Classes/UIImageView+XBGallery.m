@@ -14,7 +14,7 @@
 
 - (void)loadImage:(int)imageId
 {
-    [self loadImageFromURL:[[XBGallery sharedInstance] urlForID:imageId size:self.frame.size] callBack:@selector(setImage:)];
+    [self loadImageFromURL:[[XBGallery sharedInstance] urlForID:imageId size:self.bounds.size] callBack:@selector(setImage:)];
 }
 
 - (void)loadImage:(int)imageId withIndicatorStyle:(UIActivityIndicatorViewStyle)style
@@ -24,7 +24,7 @@
     indicator.layer.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
     [self addSubview:indicator];
     
-    [self loadImageFromURL:[[XBGallery sharedInstance] urlForID:imageId size:self.frame.size] callBack:@selector(setImageAndRemoveIndicator:)];
+    [self loadImageFromURL:[[XBGallery sharedInstance] urlForID:imageId size:self.bounds.size] callBack:@selector(setImageAndRemoveIndicator:)];
 }
 
 - (void)setImageAndRemoveIndicator:(UIImage *)img

@@ -28,10 +28,6 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XBAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
-		B62436421A170191007161B4 /* XBFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62436401A170191007161B4 /* XBFormViewController.m */; };
-		B62436431A170191007161B4 /* XBFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62436411A170191007161B4 /* XBFormViewController.xib */; };
-		B62436481A172F02007161B4 /* XBFormViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = B62436471A172F02007161B4 /* XBFormViewController.plist */; };
-		B624364E1A17413D007161B4 /* FormErrorList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B624364D1A17413D007161B4 /* FormErrorList.plist */; };
 		B6AB0CDC1B424D5E006A9CA1 /* XBTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB0CDB1B424D5E006A9CA1 /* XBTestViewController.m */; };
 		B6AB0CDE1B424F52006A9CA1 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6AB0CDD1B424F52006A9CA1 /* test.plist */; };
 		B6AB12381B4276F1006A9CA1 /* arrow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B6AB11881B4276F1006A9CA1 /* arrow-hd.png */; };
@@ -267,11 +263,6 @@
 		9592FAA3F7B1877EBA9858F6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A104658C15AAA42BBA5441CB /* Pods-XBMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B8E767C5D9B2853680F682 /* Pods-XBMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-XBMobile/Pods-XBMobile.release.xcconfig"; sourceTree = "<group>"; };
-		B624363F1A170191007161B4 /* XBFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFormViewController.h; sourceTree = "<group>"; };
-		B62436401A170191007161B4 /* XBFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFormViewController.m; sourceTree = "<group>"; };
-		B62436411A170191007161B4 /* XBFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBFormViewController.xib; sourceTree = "<group>"; };
-		B62436471A172F02007161B4 /* XBFormViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XBFormViewController.plist; sourceTree = "<group>"; };
-		B624364D1A17413D007161B4 /* FormErrorList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FormErrorList.plist; sourceTree = "<group>"; };
 		B6AB0CDA1B424D5E006A9CA1 /* XBTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTestViewController.h; sourceTree = "<group>"; };
 		B6AB0CDB1B424D5E006A9CA1 /* XBTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTestViewController.m; sourceTree = "<group>"; };
 		B6AB0CDD1B424F52006A9CA1 /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
@@ -612,11 +603,6 @@
 		B6585B8F1A16582200841480 /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				B624363F1A170191007161B4 /* XBFormViewController.h */,
-				B62436401A170191007161B4 /* XBFormViewController.m */,
-				B62436411A170191007161B4 /* XBFormViewController.xib */,
-				B62436471A172F02007161B4 /* XBFormViewController.plist */,
-				B624364D1A17413D007161B4 /* FormErrorList.plist */,
 			);
 			name = Form;
 			sourceTree = "<group>";
@@ -947,7 +933,6 @@
 				B6AB12501B4276F1006A9CA1 /* bg_basketball-hd.png in Resources */,
 				B6AB12D71B4276F1006A9CA1 /* them-ipadhd.png in Resources */,
 				B6AB12401B4276F1006A9CA1 /* ball_default.png in Resources */,
-				B62436481A172F02007161B4 /* XBFormViewController.plist in Resources */,
 				4466788419F750E700A6EE8D /* XBTestTableViewController.xib in Resources */,
 				B6AB128E1B4276F1006A9CA1 /* hexagon_blackhole.png in Resources */,
 				B6AB12921B4276F1006A9CA1 /* hexagon_rainbow-hd.png in Resources */,
@@ -993,7 +978,6 @@
 				B6AB12B31B4276F1006A9CA1 /* shop_arrow_right-hd.png in Resources */,
 				B6AB12AF1B4276F1006A9CA1 /* settings.png in Resources */,
 				B6AB0CDE1B424F52006A9CA1 /* test.plist in Resources */,
-				B62436431A170191007161B4 /* XBFormViewController.xib in Resources */,
 				B6AB12391B4276F1006A9CA1 /* arrow-ipadhd.png in Resources */,
 				B6AB12421B4276F1006A9CA1 /* ball_football-ipadhd.png in Resources */,
 				B6AB12D91B4276F1006A9CA1 /* tutorial-hd.png in Resources */,
@@ -1025,7 +1009,6 @@
 				B6AB12431B4276F1006A9CA1 /* ball_football.png in Resources */,
 				B6AB12A91B4276F1006A9CA1 /* pause.png in Resources */,
 				B6AB12541B4276F1006A9CA1 /* bg_default-ipadhd.png in Resources */,
-				B624364E1A17413D007161B4 /* FormErrorList.plist in Resources */,
 				B6AB12B11B4276F1006A9CA1 /* shop_arrow_left-ipadhd.png in Resources */,
 				B6AB127B1B4276F1006A9CA1 /* bullet_yellow-ipadhd.png in Resources */,
 				B6AB12651B4276F1006A9CA1 /* bg_volleyball-hd.png in Resources */,
@@ -1162,7 +1145,6 @@
 				4466788319F750E700A6EE8D /* XBTestTableViewController.m in Sources */,
 				B6C64B5B1A1103DA003B1332 /* XBRSSViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
-				B62436421A170191007161B4 /* XBFormViewController.m in Sources */,
 				B6EA5FEA1A28315200A465A1 /* XBTagViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				B6C64B721A11F937003B1332 /* XBRSSCollectionView.m in Sources */,
@@ -1233,7 +1215,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
-				PROVISIONING_PROFILE = "281e42d5-ac6b-4432-b2e7-2f9a81ee74de";
+				PROVISIONING_PROFILE = "62a3cf50-9b7b-4746-b72b-ef7bcc6513ea";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1274,7 +1256,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "$(inherited)";
-				PROVISIONING_PROFILE = "281e42d5-ac6b-4432-b2e7-2f9a81ee74de";
+				PROVISIONING_PROFILE = "62a3cf50-9b7b-4746-b72b-ef7bcc6513ea";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1289,46 +1271,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Binh Nguyen Xuan (M66XHBJZCW)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/eugenenguyen/MyProject/new/ballgame/ballgame,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMobile/XBMobile-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONKit-NoWarning\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/NSLogger\"",
-					"\"${PODS_ROOT}/Headers/Public/NSLogger-CocoaLumberjack-connector\"",
-					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
-					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/Public/XBMobile\"",
-					"\"${PODS_ROOT}/Headers/Public/XMPPFramework\"",
-					"$(SDKROOT)/usr/include/libxml2",
-					"$(SDKROOT)/usr/include/libresolv",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "XBMobile/XBMobile-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-XBMobile-CocoaLumberjack\"",
-					"-l\"Pods-XBMobile-JSONKit-NoWarning\"",
-					"-l\"Pods-XBMobile-MBProgressHUD\"",
-					"-l\"Pods-XBMobile-SDWebImage\"",
-					"-l\"Pods-XBMobile-XBMobile\"",
-					"-l\"resolv\"",
-					"-lxml2",
-					"-l\"z.1\"",
-					"-l\"Pods-XBMobile-AVHexColor\"",
-					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "281e42d5-ac6b-4432-b2e7-2f9a81ee74de";
+				PROVISIONING_PROFILE = "62a3cf50-9b7b-4746-b72b-ef7bcc6513ea";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1341,46 +1291,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Binh Nguyen Xuan (M66XHBJZCW)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/eugenenguyen/MyProject/new/ballgame/ballgame,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMobile/XBMobile-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONKit-NoWarning\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/NSLogger\"",
-					"\"${PODS_ROOT}/Headers/Public/NSLogger-CocoaLumberjack-connector\"",
-					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
-					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/Public/XBMobile\"",
-					"\"${PODS_ROOT}/Headers/Public/XMPPFramework\"",
-					"$(SDKROOT)/usr/include/libxml2",
-					"$(SDKROOT)/usr/include/libresolv",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "XBMobile/XBMobile-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-XBMobile-CocoaLumberjack\"",
-					"-l\"Pods-XBMobile-JSONKit-NoWarning\"",
-					"-l\"Pods-XBMobile-MBProgressHUD\"",
-					"-l\"Pods-XBMobile-SDWebImage\"",
-					"-l\"Pods-XBMobile-XBMobile\"",
-					"-l\"resolv\"",
-					"-lxml2",
-					"-l\"z.1\"",
-					"-l\"Pods-XBMobile-AVHexColor\"",
-					"-l\"Pods-XBMobile-CHTCollectionViewWaterfallLayout\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "281e42d5-ac6b-4432-b2e7-2f9a81ee74de";
+				PROVISIONING_PROFILE = "62a3cf50-9b7b-4746-b72b-ef7bcc6513ea";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

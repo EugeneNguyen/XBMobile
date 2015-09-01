@@ -10,31 +10,34 @@
 #import <XBGallery.h>
 
 @implementation XBImageView
-@synthesize imageID;
+@synthesize imageID = _imageID;
 @synthesize enableLoadingIndicator;
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (enableLoadingIndicator)
+    {
+        [self loadImage:self.imageID withIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    else
+    {
+        [self loadImage:self.imageID];
+    }
 }
- */
 
-
--(void)setBounds:(CGRect)newBounds {
-     BOOL const isResize = !CGSizeEqualToSize(newBounds.size, self.bounds.size);
-     if (isResize && imageID != 0)
-     {
-         if (enableLoadingIndicator)
-         {
-             [self loadImage:self.imageID withIndicatorStyle:UIActivityIndicatorViewStyleGray];
-         }
-         else
-         {
-             [self loadImage:self.imageID];
-         }
-     }
- }
+- (void)setImageID:(int)imageID
+{
+    _imageID = imageID;
+    
+    if (enableLoadingIndicator)
+    {
+        [self loadImage:self.imageID withIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    else
+    {
+        [self loadImage:self.imageID];
+    }
+}
 
 @end

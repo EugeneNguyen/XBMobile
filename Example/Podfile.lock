@@ -1,27 +1,27 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AVHexColor (2.0.0)
-  - CHTCollectionViewWaterfallLayout (0.9.1)
+  - CHTCollectionViewWaterfallLayout (0.9.2)
   - CocoaLumberjack (1.6.5.1):
     - CocoaLumberjack/Core (= 1.6.5.1)
     - CocoaLumberjack/Extensions (= 1.6.5.1)
@@ -38,21 +38,21 @@ PODS:
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.3)
-  - XBCacheRequest (0.5.3.4):
+  - XBCacheRequest (0.5.4.1):
     - AFNetworking
     - JSONKit-NoWarning
     - MBProgressHUD
-  - XBExtension (0.3.4.4):
+  - XBExtension (0.3.6):
     - AVHexColor
     - MBProgressHUD
-  - XBGallery (0.4.4):
+  - XBGallery (0.4.4.1):
     - SDWebImage
     - XBCacheRequest
   - XBLanguage (1.0.0.1):
     - JSONKit-NoWarning
     - XBCacheRequest
     - XBExtension
-  - XBMobile (0.6.6.9):
+  - XBMobile (0.6.7):
     - AVHexColor
     - CHTCollectionViewWaterfallLayout
     - CocoaLumberjack (~> 1.6.2)
@@ -77,9 +77,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   AVHexColor: 33e5e102f3b6f3acd002779183ee226e21870c28
-  CHTCollectionViewWaterfallLayout: 1a8da4fc662702cbddda8926ced266036a829f84
+  CHTCollectionViewWaterfallLayout: 43232febcb3e4d3985cd758718cbe499b21b822f
   CocoaLumberjack: 5e26ebef5a48962d1713ae6cb01da30384f3f14e
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
@@ -88,11 +88,11 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
-  XBCacheRequest: 1bc13e56ea2c281e57fe3b24cd84b5ee08323481
-  XBExtension: 4c1c1ce8f2aedaba81605f6c503dbd4e404a42fe
-  XBGallery: 0aeadf94c104311ddd5437e58cda01f1ffe46d56
+  XBCacheRequest: 6aa67da3b56c08133206714219f55d6c26e06c11
+  XBExtension: bf762a7ab59015bce454898eab764047f7200b0a
+  XBGallery: c707d5373dcaad5ae3b3455f92d9e00cb72eb4c1
   XBLanguage: 0457d0e6042c6ecaca452f1c72d50199209f51de
-  XBMobile: 35414829ea4b39548d1908ba60926baa24e8b894
+  XBMobile: 14de05f9d95df2c37f0f40237ead0adf56ea97d9
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.38.2

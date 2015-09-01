@@ -10,6 +10,14 @@
 
 @implementation UIView (XBExtension)
 
+- (UIViewController *)parentViewController
+{
+    id responder = self;
+    while ([responder isKindOfClass:[UIView class]])
+        responder = [responder nextResponder];
+    return responder;
+}
+
 - (void)removeAllGestures
 {
     for (UIGestureRecognizer *gesture in self.gestureRecognizers)

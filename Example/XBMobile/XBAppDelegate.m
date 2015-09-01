@@ -23,8 +23,6 @@
     [[NSUserDefaults standardUserDefaults] setValue:@"http://exmaple.com/service" forKey:@"webhost"];
     XBTestViewController *tableView = [[XBTestViewController alloc] init];
     
-    [XBForm loadErrorList:@"FormErrorList"];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableView];
     navigationController.navigationBar.translucent = NO;
     [self.window setRootViewController:tableView];

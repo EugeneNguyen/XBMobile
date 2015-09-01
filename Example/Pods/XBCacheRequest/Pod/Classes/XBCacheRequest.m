@@ -24,12 +24,12 @@
 
 + (XBCacheRequest *)requestWithURL:(NSURL *)url
 {
-    XBCacheRequest *request = [[XBCacheRequest alloc] init];
+    XBCacheRequest *request = [[XBCacheRequest alloc] initWithRequest:[NSURLRequest requestWithURL:url]];
     request.url = [url absoluteString];
     request.responseType = XBCacheRequestTypeJSON;
     request.files = [@{} mutableCopy];
     request.dataPost = [@{} mutableCopy];
-    request.method = @"POST";
+    request.method = XBRequestMethodPOST;
     return request;
 }
 
@@ -174,19 +174,19 @@
     
     isRunning = YES;
     if (!disableIndicator) [XBCacheRequestManager showIndicator];
-    if ([method isEqualToString:@"POST"])
+    if ([method isEqualToString:XBRequestMethodPOST])
     {
         request_ = [[AFHTTPRequestOperationManager manager] POST:self.url parameters:_dataPost constructingBodyWithBlock:buildBody success:success failure:failed];
     }
-    else if ([method isEqualToString:@"GET"])
+    else if ([method isEqualToString:XBRequestMethodGET])
     {
         request_ = [[AFHTTPRequestOperationManager manager] GET:self.url parameters:_dataPost success:success failure:failed];
     }
-    else if ([method isEqualToString:@"PUT"])
+    else if ([method isEqualToString:XBRequestMethodPUT])
     {
         request_ = [[AFHTTPRequestOperationManager manager] PUT:self.url parameters:_dataPost success:success failure:failed];
     }
-    else if ([method isEqualToString:@"DELETE"])
+    else if ([method isEqualToString:XBRequestMethodDELETE])
     {
         request_ = [[AFHTTPRequestOperationManager manager] DELETE:self.url parameters:_dataPost success:success failure:failed];
     }
@@ -210,29 +210,6 @@
         
     }];
     request_.responseSerializer.acceptableContentTypes = [request_.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/json", @"text/javascript", @"application/json", @"text/html"]];
-}
-
-+ (void)rest:(XBRestMethod)method table:(NSString *)table object:(NSDictionary *)object callback:(XBPostRequestCallback)_callback
-{
-    NSString *urlString = [[NSURL URLWithString:@"plusrest" relativeToURL:[NSURL URLWithString:[XBCacheRequestManager sharedInstance].host]] absoluteString];
-    NSDictionary *params = @{@"table": table};
-    AFHTTPRequestOperation *request;
-    switch (method) {
-        case XBRestGet:
-        {
-            request = [[AFHTTPRequestOperationManager manager] GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                _callback(nil, operation.responseString, NO, nil, responseObject);
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                _callback(nil, operation.responseString, NO, error, nil);
-            }];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    request.responseSerializer = [AFJSONResponseSerializer serializer];
-    request.responseSerializer.acceptableContentTypes = [request.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/json", @"text/javascript", @"application/json", @"text/html"]];
 }
 
 - (id)init

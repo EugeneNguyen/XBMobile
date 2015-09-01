@@ -11,6 +11,8 @@
 
 @interface NSObject (XBExtension)
 
+- (id)objectForPath:(NSString *)string;
+
 - (void)alert:(NSString *)title message:(NSString *)message;
 
 - (MBProgressHUD *)showHUD:(NSString *)string;

@@ -10,6 +10,8 @@
 
 @interface UIView (XBExtension)
 
+- (UIViewController *)parentViewController;
+
 - (void)removeAllGestures;
 - (void)removeAllSubviews;
 

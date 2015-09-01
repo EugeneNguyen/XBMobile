@@ -1,8 +1,8 @@
 {
   "name": "XBMobile",
-  "version": "0.6.5.3",
+  "version": "0.6.7",
   "summary": "TableView & CollectionView integrated with service, load more cell & pull to refresh. All automatically.",
-  "description": "                       The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.\n",
+  "description": "The most powerful Mobile framework. Integrated with PlusIgniter & CodeIgnore. Everything you need to do is drag and drop. Anybody can be developer.",
   "homepage": "https://github.com/EugeneNguyen/XBMobile",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/EugeneNguyen/XBMobile.git",
-    "tag": "0.6.5.3"
+    "tag": "0.6.7"
   },
   "platforms": {
     "ios": "7.0"
@@ -70,6 +70,9 @@
 
     ],
     "TPKeyboardAvoiding": [
+
+    ],
+    "XBGallery": [
 
     ]
   }

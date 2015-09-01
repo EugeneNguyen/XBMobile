@@ -61,14 +61,14 @@ NSString * const kReplacementSet = @"kReplacementSet";
     self.replacementSet = @{@" ": @"_"};
 }
 
-- (void)activePasswordLimitation
+- (void)s
 {
     self.disabledCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_."] invertedSet];
 }
 
 - (void)activeEmailLimitation
 {
-    self.disabledCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.@"] invertedSet];
+    self.disabledCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-.@"] invertedSet];
 }
 
 @end
