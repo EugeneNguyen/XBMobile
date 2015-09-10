@@ -70,7 +70,6 @@
     {
         return;
     }
-    NSLog(@"aaaaaaaaa");
     NSString *url = info[@"remoteLink"];
     NSString *predefaultHost = info[@"predefinedHostInUserdefault"];
     if (predefaultHost && [predefaultHost length] > 0 && [[NSUserDefaults standardUserDefaults] stringForKey:predefaultHost])
@@ -114,7 +113,6 @@
         cacheRequest.responseType = XBCacheRequestTypeJSON;
     }
     
-    NSLog(@"bbbbbbbbbs %d", isMore);
     [cacheRequest startAsynchronousWithCallback:^(XBCacheRequest *request, NSString *result, BOOL fromCache, NSError *error, id object) {
         
         [self hideHUD];
@@ -131,11 +129,11 @@
         {
             if (object)
             {
-                if ([object[@"code"] intValue] != 200)
-                {
-                    if ([info[@"isUsingAlert"] boolValue]) [self alert:@"Error" message:object[@"description"]];
-                }
-                else
+//                if ([object[@"code"] intValue] != 200)
+//                {
+//                    if ([info[@"isUsingAlert"] boolValue]) [self alert:@"Error" message:object[@"description"]];
+//                }
+//                else
                 {
                     NSString *path = info[@"pathToContent"];
                     if (!path)
