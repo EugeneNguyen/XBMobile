@@ -17,8 +17,6 @@
 
 - (NSDate *)mysqlDate;
 
-+ (NSString *)uuidString;
-
 - (NSString *)emojiEncode;
 
 - (NSString *)emojiDecode;

@@ -285,12 +285,12 @@
     {
         [xbDelegate xbTableView:self didSelectRowAtIndexPath:indexPath forItem:datalist[indexPath.section][@"items"][indexPath.row]];
     }
-    else if (datalist[indexPath.section][@"items"][indexPath.row][@"push"])
+    else if ([datalist[indexPath.section][@"items"][indexPath.row] objectForPath:@"push"])
     {
         UIViewController *viewController = [self firstAvailableUIViewController];
         if (viewController && viewController.navigationController)
         {
-            NSString *push = datalist[indexPath.section][@"items"][indexPath.row][@"push"];
+            NSString *push = [datalist[indexPath.section][@"items"][indexPath.row] objectForPath:@"push"];
             Class class = NSClassFromString(push);
             if (class)
             {

@@ -282,6 +282,7 @@
     if ([self ableToShowNoData])
     {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"] forIndexPath:indexPath];
+        [cell applyTemplate:self.informations[@"NoDataCell"][@"elements"] andInformation:nil withTarget:xbDelegate listTarget:self];
         [cell layoutSubviews];
         [cell setNeedsDisplay];
         return cell;
@@ -323,9 +324,19 @@
 {
     CGPoint buttonPosition = [btn convertPoint:CGPointZero toView:self];
     NSIndexPath *indexPath = [self indexPathForItemAtPoint:buttonPosition];
-    if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectButton:atIndexPath:forItem:)])
+    if ([self ableToShowNoData])
     {
-        [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
+        if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectButton:atIndexPath:forItem:)])
+        {
+            [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:nil];
+        }
+    }
+    else
+    {
+        if (indexPath != nil && xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectButton:atIndexPath:forItem:)])
+        {
+            [xbDelegate xbCollectionView:self didSelectButton:btn atIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
+        }
     }
 }
 

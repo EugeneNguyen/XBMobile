@@ -59,16 +59,6 @@
     return date;
 }
 
-+ (NSString *)uuidString {
-    // Returns a UUID
-    
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-    CFRelease(uuid);
-    
-    return uuidString;
-}
-
 - (NSString *)emojiEncode
 {
     NSString *uniText = [NSString stringWithUTF8String:[self UTF8String]];
