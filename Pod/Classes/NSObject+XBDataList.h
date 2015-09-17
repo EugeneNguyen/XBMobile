@@ -64,6 +64,7 @@
 - (int)totalRows;
 
 - (BOOL)ableToShowNoData;
+- (BOOL)ableToShowNoData:(int)section;
 
 - (void)scrolledToBottom;
 

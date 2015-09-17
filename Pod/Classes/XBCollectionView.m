@@ -186,7 +186,8 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if ([self ableToShowNoData]) return 1;
+    if ([self ableToShowNoData:section]) return 1;
+    if ([self.datalist count] == 0) return 1;
     long count = [self.datalist[section][@"items"] count];
     return count;
 }
@@ -279,7 +280,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self ableToShowNoData])
+    if ([self ableToShowNoData:indexPath.section])
     {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.informations[@"NoDataCell"][@"cellIdentify"] forIndexPath:indexPath];
         [cell applyTemplate:self.informations[@"NoDataCell"][@"elements"] andInformation:nil withTarget:xbDelegate listTarget:self];

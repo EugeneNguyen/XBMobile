@@ -183,6 +183,16 @@
     return self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue] && ([self totalRows] == 0);
 }
 
+- (BOOL)ableToShowNoData:(NSInteger)section
+{
+    if ([self.datalist count] == 0)
+    {
+        return YES;
+    }
+    NSInteger sectionNumRow = [self.datalist[section][@"items"] count];
+    return self.informations[@"NoDataCell"] && [self.informations[@"NoDataCell"][@"enable"] boolValue] && (sectionNumRow == 0);
+}
+
 - (void)scrolledToBottom
 {
     if ([self.informations[@"loadMore"][@"enable"] boolValue])
