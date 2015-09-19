@@ -310,14 +310,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self ableToShowNoData])
+    id data = nil;
+    if (![self ableToShowNoData])
     {
-        [self requestData];
-        return;
+        data = self.datalist[indexPath.section][@"items"][indexPath.row];
     }
     if (xbDelegate && [xbDelegate respondsToSelector:@selector(xbCollectionView:didSelectRowAtIndexPath:forItem:)])
     {
-        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:self.datalist[indexPath.section][@"items"][indexPath.row]];
+        [xbDelegate xbCollectionView:self didSelectRowAtIndexPath:indexPath forItem:data];
     }
 }
 
