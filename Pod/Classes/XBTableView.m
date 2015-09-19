@@ -229,6 +229,10 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self ableToShowNoData])
+    {
+        return NO;
+    }
     NSDictionary *item = [self cellInfoForPath:indexPath];
     return [item[@"deletable"] boolValue] && ![self ableToShowNoData];
 }
