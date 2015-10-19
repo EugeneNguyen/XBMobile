@@ -198,7 +198,7 @@
                 [imgView sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:placeHolderImage options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     
                     if (error) return;
-                    if ([element[@"fadein"] boolValue] && cacheType != SDImageCacheTypeNone)
+                    if ([element[@"fadein"] boolValue] && cacheType == SDImageCacheTypeNone)
                     {
                         [UIView transitionWithView:imgView
                                           duration:0.5
