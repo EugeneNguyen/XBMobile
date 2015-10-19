@@ -195,11 +195,10 @@
                     [self layoutSubviews];
                 }
                 
-                __block BOOL noPrevImage = [(UIImageView *)v image] == NULL;
                 [imgView sd_setImageWithURL:[NSURL URLWithString:data] placeholderImage:placeHolderImage options:option completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     
                     if (error) return;
-                    if (noPrevImage && [element[@"fadein"] boolValue])
+                    if ([element[@"fadein"] boolValue] && cacheType != SDImageCacheTypeNone)
                     {
                         [UIView transitionWithView:imgView
                                           duration:0.5
