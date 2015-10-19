@@ -149,11 +149,11 @@
                 SDWebImageOptions option;
                 if ([element[@"disableCache"] boolValue])
                 {
-                    option = SDWebImageCacheMemoryOnly;
+                    option = SDWebImageCacheMemoryOnly | SDWebImageRetryFailed;
                 }
                 else
                 {
-                    option = SDWebImageContinueInBackground;
+                    option = SDWebImageContinueInBackground | SDWebImageRetryFailed;
                 }
                 
                 UIImage *placeHolderImage = nil;
