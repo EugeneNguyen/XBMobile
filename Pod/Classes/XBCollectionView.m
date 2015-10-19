@@ -168,6 +168,12 @@
     {
         [self scrolledToBottom];
     }
+    
+    if (y > h / 2)
+    {
+        [self scrolledToMiddle];
+    }
+    
     if ([xbDelegate respondsToSelector:@selector(scrollViewDidScroll:)])
     {
         [xbDelegate scrollViewDidScroll:self];

@@ -67,6 +67,7 @@
 - (BOOL)ableToShowNoData:(int)section;
 
 - (void)scrolledToBottom;
+- (void)scrolledToMiddle;
 
 - (void)setScrollEnabled:(BOOL)scrollable;
 

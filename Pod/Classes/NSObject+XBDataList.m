@@ -200,6 +200,13 @@
         [self.dataFetching fetchMore];
     }
 }
+- (void)scrolledToMiddle
+{
+    if ([self.informations[@"loadMore"][@"enable"] boolValue])
+    {
+        [self.dataFetching fetchMore];
+    }
+}
 
 #pragma mark - Personal Modification
 
