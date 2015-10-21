@@ -202,7 +202,7 @@
 }
 - (void)scrolledToMiddle
 {
-    if ([self.informations[@"loadMore"][@"enable"] boolValue])
+    if ([self.informations[@"loadMore"][@"atMiddle"] boolValue])
     {
         [self.dataFetching fetchMore];
     }
